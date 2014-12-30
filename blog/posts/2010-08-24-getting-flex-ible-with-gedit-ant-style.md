@@ -3,7 +3,7 @@ title="Getting FLEX-ible with GEdit (Ant Style)"
 tags="actionscript, adobe, ant, build, external tools, flash, flex, gedit, gnome, mxmlc, ria"
 category="Flex"
 >>>
-A while ago I had a ![post](../2008/12/22/getting-flex-ible-with-gedit.html) 
+A while ago I had a [post](../2008/12/22/getting-flex-ible-with-gedit.html) 
 on this blog which
 described a crude way of using Gedit as an editor for Flex code. An interesting
 comment on this post actually got me thinking in another direction I had previously not

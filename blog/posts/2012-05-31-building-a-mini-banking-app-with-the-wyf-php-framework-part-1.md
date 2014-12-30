@@ -11,7 +11,7 @@ important for now.
 <!--more-->
 ## What's The WYF PHP Framework?
 Do you remember this article I wrote a while ago 
-([PHP/HTML Forms Made Easy](http://fahodzi.wordpress.com/2009/03/05/phphtml-forms-made-easy.html))? 
+([PHP/HTML Forms Made Easy](http://ekowabaka.me/2009/03/05/phphtml-forms-made-easy.html))? 
 Those were the beginings. Ever since I started coding PHP
 I wanted to write my own framework. Not that the frameworks available weren't
 working for me ... no! It was just that I wanted the experience (I like to do
