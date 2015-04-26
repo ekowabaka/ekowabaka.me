@@ -1,0 +1,39 @@
+--- My Resume in YAML!
+- section: Education
+  achievements:
+    - institution: University of Ghana
+      position: BSc. Engineering
+      duration: 2004 - 2008
+      description: >
+        Major: Computer Engineering
+    - institution: Accra Academy
+      position: Senior Secondary School Certificate
+      duration: 2001 - 2003
+      description: >
+        Electives: Physics, Chemistry, Mathematics and Geography
+- section: Training
+  achievements:
+    - institution: Ghana Stock Exchange
+      position: Participant
+      duration: 2011
+      description: >
+        Modules: Introduction to Investments, Financial Markets, Corporate Finance,
+        Investment Analysis, Portfolio Management, Securities Trading,
+        Legal and Regulatory Frameworks for Financial Markets.
+- section : Work
+  achievements:
+    - institution: National Trust Holding Company (NTHC)
+      position: Software Engineer
+      duration: 2009 - Date
+      description: >
+        Working with a team of corporate finance experts and information technology 
+        professionals to find ways of improving the delivery of the company's 
+        products through the innovative use of information technology. Much of the 
+        work of the team is geared towards branch-less banking solutions.
+    - institution: University of Ghana
+      position: Teaching Assistant
+      duration: 2008 - 2009
+      description: >
+        Assisting lecturers in preparation, administering and grading of student lab 
+        exercises.
+

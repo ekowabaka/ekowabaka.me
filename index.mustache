@@ -26,55 +26,15 @@
         
         <div class='section' id='resume-section'>
             <h1>Resume</h1>
-            <h2>Education</h2>
-            <div class='achievement'>
-                <span class='institution'>University of Ghana</span>
-                <span class='duration'>2004 - 2008</span>
-                <span class='position'>Bsc. Engineering</span>
-            </div>
-            <p><b>Major</b> Computer Engineering</p>
-
-            <div class='achievement'>
-                <span class='institution'>Accra Academy</span>
-                <span class='duration'>2000 - 2003</span>
-                <span class='position'>Senior Secondary School Certificate</span>
-            </div>
-            <p><b>Elective Courses</b> Physics, Chemistry, Mathematics and Geography</p>   
-                             
-            <h2>Other Training</h2>
-            <div class='achievement'>
-                <span class='institution'>Ghana Stock Exchange Securities Course</span>
-                <span class='duration'>2011</span>
-                <span class='position'>Participant</span>
-            </div>
-            <p><b>Modules</b>
-                <ul>
-                    <li>Introduction to Investment</li>
-                    <li>Financial Markets</li>
-                    <li>Corporate Finance</li>
-                    <li>Investment Analysis</li>
-                    <li>Portfolio Management</li>
-                    <li>Securities Trading</li>
-                    <li>Legal / Regulatory Framework for financial markets</li>
-                </ul>
-            </p>
-
-            <h2>Work</h2>
-            <div class='achievement'>
-                <span class='institution'>National Trust Holding Company</span>
-                <span class='duration'>2009 - Present</span>
-                <span class='position'>Software Engineer</span>
-            </div>              
-            <p>Working with a team of corporate finance experts and information technology professionals to find ways of
-            improving the delivery of the company's products through the innovative use of information technology.
-            Much of the work of the team is geared towards branch-less banking solutions.</p>
+          
+            {{#resume}}
+                <h2>{{section}}</h2>
+                {{#achievements}}
+                    {{> resume_entries }}
+                {{/achievements}}
+            {{/resume}}
             
-            <div class='achievement'>
-                <span class='institution'>University of Ghana</span>
-                <span class='duration'>2008 - 2009</span>
-                <span class='position'>Teaching Assistant, Department of Computer Engineering</span>
-            </div>              
-            <p>Assisting lecturers in preparation, administering and grading of student lab exercises</p>                    
+                             
         </div>
     </div>
     
