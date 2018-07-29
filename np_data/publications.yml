@@ -1,0 +1,12 @@
+- citation: > 
+    Wang, Xiaohan, Tengyu Ma, James Ainooson, Seunghwan Cha, Xiaotian Wang, Azhar Molla, and Maithilee Kunda. "Seeing Neural Networks Through a Box of Toys: The Toybox Dataset of Visual Object Transformations." arXiv preprint arXiv:1806.06034 (2018).
+  url: https://arxiv.org/pdf/1806.06034
+
+- citation: >
+    Wang, Xiaohan, Fernanda Monteiro Eliott, James Ainooson, Joshua H. Palmer, and Maithilee Kunda. "An Object is Worth Six Thousand Pictures: The Egocentric, Manual, Multi-image (EMMI) Dataset." In ICCV Workshops, pp. 2364-2372. (2017).
+  url: http://openaccess.thecvf.com/content_ICCV_2017_workshops/papers/w34/outcomes_xiaohan.wangvanderbilt.edu_fernanda.m.eliottvanderbilt.edu_james.ainoosonvanderbilt.edu_ICCV_2017_paper.pdf
+
+- citation: >
+    Ainooson James, and Maithilee Kunda. "A Computational Model for Reasoning About the Paper Folding Task Using Visual Mental Images." In Proceedings of the 39th Annual Meeting of the Cognitive Science Society, London, UK. (2017)
+  url: https://mindmodeling.org/cogsci2017/papers/0298/index.html
+  poster: assets/images/poster2.pdf

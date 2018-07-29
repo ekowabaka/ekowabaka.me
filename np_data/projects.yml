@@ -3,10 +3,10 @@
     On this little blog, I document my attempt to shoot a different camera a week for 52 weeks. I review each camera and
     show some of the pictures taken over the week. 
   image: 52cameras.jpeg
-  url: 52cameras.ekowabaka.me
+  url: https://52cameras.ekowabaka.me
 
 - name: Ntetnan PHP Tools
   description: >
     An attempt to bring some sanity to my collection of PHP tools. Maybe someone would find it useful someday.
   image: ntentan.png
-  url: ntentan.ekowabaka.me
+  url: https://github.com/ntentan

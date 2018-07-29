@@ -12,7 +12,7 @@
     <section id="about">
         <img src="assets/images/me.jpeg" />
         <p>
-            I am a 3rd year PhD student at the Vanderbilt University, working with <a href="">Dr. Maithilee Kunda</a> of the 
+            I am a 3rd year PhD student at the Vanderbilt University, working with <a href="https://my.vanderbilt.edu/mkunda/">Dr. Maithilee Kunda</a> of the 
             Airtificial Intelligence and Visual Analogical Systems Laboratory. Before joining Vanderbilt, I worked for as a 
             software engineer with the National Trust Holding Company and Hubtel. My first degree was a Bachelor of Science
             in Computer Engineering from The University of Ghana.
@@ -23,7 +23,7 @@
         <section id="projects-list">
             {{#projects}}
             <div class="project">
-                <img src="assets/images/{{image}}" height="160" />
+                <a href="{{url}}"><img src="assets/images/{{image}}" height="160" /></a>
                 <a href="{{url}}" class="title">{{name}}</a>
                 <p>{{description}}</p>
             </div>
@@ -42,5 +42,12 @@
             </section>
         {{/resume}}                  
         </section>                       
+    </section>
+    <section id="publications">
+        <h1>Publications</h1>
+        {{#publications}}
+            <p>{{citation}}</p>
+            <div> {{#url}}<a href="{{url}}">Paper</a>{{/url}} {{#poster}}<a href="{{poster}}">Poster</a>{{/poster}}</div>
+        {{/publications}}         
     </section>
 </div>

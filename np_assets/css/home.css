@@ -6,6 +6,11 @@ body{
     color: #404040;
 }
 
+a{
+    color: #3d6299;
+    text-decoration: none;
+}
+
 .wrapper {
     width: 50%;
     margin-left: auto;
@@ -89,7 +94,6 @@ nav ul > li > a {
     text-decoration: none;
     font-size: 1.1em;
     font-weight: bold;
-    color: #1c2f46
 }
 
 #resume-content {
@@ -101,15 +105,16 @@ nav ul > li > a {
 }
 
 #resume-content h3 {
-    width: 30%;
+    width: 20%;
     margin: 0px;
     border-top: 1px dotted #c9cacc;
     margin-top: 10px;
     padding-top: 10px;
+    font-size: 18px;
 }
 
 #resume-content .achievements {
-    width: 70%;
+    width: 80%;
     border-top: 1px dotted #c9cacc;
     margin-top: 10px;
     padding-top: 10px;
@@ -121,11 +126,13 @@ nav ul > li > a {
 
 .achievement .institution {
     font-weight: bold;
-    display: inline-block
+    display: inline-block;
+    font-size: 18px;
 }
 
 .achievement .address {
     display: inline-block;
+    font-size: 18px;
 }
 
 .achievement .address::before {
@@ -134,7 +141,8 @@ nav ul > li > a {
 
 .achievement .duration {
     display: inline-block;
-    color: #c0c0c0;
+    color: #a0a0a0;
+    font-size: 18px;
 }
 
 .achievement .duration::before {
@@ -143,4 +151,28 @@ nav ul > li > a {
 
 .achievement p {
     margin: 0px;
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #a0a0a0;
+}
+
+#publications p {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 0px;
+}
+
+#publications div {
+    margin-bottom: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+
+#publications a{
+    margin-right: 10px;
+}
+
+#publications a::before {
+    content: ' 🖫 '
 }
