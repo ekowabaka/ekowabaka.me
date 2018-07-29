@@ -2,20 +2,19 @@
 - section: Education
   achievements:
     - institution: University of Ghana
-      position: BSc. Engineering
-      duration: 2004 - 2008
-      description: >
-        Major: Computer Engineering
+      position: BSc. Computer Engineering
+      duration: August, 2004 - June, 2008
+      address: Legon, Ghana
     - institution: Accra Academy
       position: Senior Secondary School Certificate
-      duration: 2001 - 2003
-      description: >
-        Electives: Physics, Chemistry, Mathematics and Geography
+      address: Kaneshie, Accra, Ghana
+      duration: January, 2001 - May, 2003
 - section: Training
   achievements:
     - institution: Ghana Stock Exchange
-      position: Participant
-      duration: 2011
+      position: Securities Course Participant
+      duration: August, 2011
+      address: Accra, Ghana
       description: >
         Modules: Introduction to Investments, Financial Markets, Corporate Finance,
         Investment Analysis, Portfolio Management, Securities Trading,

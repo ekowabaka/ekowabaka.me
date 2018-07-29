@@ -1,47 +1,46 @@
-<div id='intro-background'></div>
-<div id='intro-section'>
-    <div style='font-family:Montserrat,sans-serif; font-size:4em; font-weight:bold'>James Ekow Abaka Ainooson</div>
-    <div>hi! welcome to my personal website</div>
+<div class="wrapper">
+    <header> James Ekow Abaka Ainooson </header>
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#projects">Resume</a></li>
+            <li><a href="#publications">Publications</a></li>
+        </ul>
+    </nav>
+    <section id="about">
+        <img src="assets/images/me.jpeg" />
+        <p>
+            I am a 3rd year PhD student at the Vanderbilt University, working with <a href="">Dr. Maithilee Kunda</a> of the 
+            Airtificial Intelligence and Visual Analogical Systems Laboratory. Before joining Vanderbilt, I worked for as a 
+            software engineer with the National Trust Holding Company and Hubtel. My first degree was a Bachelor of Science
+            in Computer Engineering from The University of Ghana.
+        </p>
+    </section>
+    <section id="projects">
+        <h1>Projects</h1>
+        <section id="projects-list">
+            {{#projects}}
+            <div class="project">
+                <img src="assets/images/{{image}}" height="160" />
+                <a href="{{url}}" class="title">{{name}}</a>
+                <p>{{description}}</p>
+            </div>
+            {{/projects}}
+        </section>
+    </section>
+    <section id="resume">
+        <h1>Resume</h1>
+        <section id="resume-content">
+        {{#resume}}
+            <h3>{{section}}</h3>
+            <section class="achievements">
+            {{#achievements}}
+                {{> resume_entries }}
+            {{/achievements}}
+            </section>
+        {{/resume}}                  
+        </section>                       
+    </section>
 </div>
-<div id='body'>
-    <div id='menu-bar'>
-        <ul><li>About</li><li>Resume</li><li><a href='blog/index.html'>Blog</a></li></ul>
-    </div>
-    <div id='wrapper'>
-        <div class='section' id='about-section'>
-            <h1>About</h1>
-            <img style='float:left; margin-right:20px; margin-bottom:10px' src="assets/images/me.jpeg"/>
-            <p>
-                Hi! ... I'm James Ekow Abaka Ainooson and I live in the Walantu-South section of Kasoa, Ghana. 
-                I work as a computer software developer for the National Trust Holding
-                Company. Apart from computer programming, I have some interest in
-                photography, hip hop beat making, long distance running and cycling. 
-            </p>
-            <p>
-                On this site I have my blog, some of the photos I have
-                taken, a few of my projects and my resume.  
-            </p>
-            <div style='clear:both'></div>
-        </div>
-        
-        <div class='section' id='resume-section'>
-            <h1>Resume</h1>
-          
-            {{#resume}}
-                <h2>{{section}}</h2>
-                {{#achievements}}
-                    {{> resume_entries }}
-                {{/achievements}}
-            {{/resume}}
-            
-                             
-        </div>
-    </div>
-    
-    <div class='section' id='footer-section'>
-        <p>Copyright &copy; 2015. James Ekow Abaka Ainooson.</p>
-    </div>
-    
-    </div>
-</div>
-

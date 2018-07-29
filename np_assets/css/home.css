@@ -1,107 +1,146 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,300,400,600,700,800);
-@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url('https://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps|Roboto|Open+Sans');
+
 
 body{
-    background-color:#5e6f8f;
-    color:#fff;
-    margin:0px;
-    font-family:"Open Sans";
+    font-family: 'Roboto';
+    color: #404040;
 }
 
-p{
-    margin:0px;
-    margin-bottom:20px;
-    text-align:justify;
-    font-size:larger;
+.wrapper {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 900px;
 }
 
-h1,h2, h3{
-    margin:0px;
-    font-family:Montserrat;
-    padding-bottom:15px;
-    color:#1f709f;
+header{
+    font-family: 'Oleo Script Swash Caps';
+    font-size: 42px;
+    text-align: center;
+    padding: 40px;
 }
 
-#intro-background{
-    background-image:url(../images/banner.jpeg);
-    position:fixed;
-    top:0px;
-    background-repeat:no-repeat;
-    background-size:100% auto;
-    background-position:50% 50%;
+h1, h2{
+    font-family: 'Open Sans';
+    color: #c0c0c0;
+    margin: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 40px;
 }
 
-#intro-section{
-    text-align:center;
-    font-family:Montserrat;
-    position:fixed;
+nav ul{
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    text-align: center
 }
 
-#menu-bar{
-    background-color:#162033;
-    position:relative;
-    z-index:1000;
+nav ul > li {
+    display: inline-block;
+    padding: 10px;
 }
 
-#menu-bar > ul{
-    margin:0px;
-    padding:0px;
-    list-style:none;
-    text-align:center;
+nav ul > li > a {
+    text-decoration: none;
+    color: #808080
 }
 
-#menu-bar > ul > li{
-    display:inline-block;
-    padding:10px;
-    font-family:Montserrat;
-    font-weight:bold;
+#about {
+    text-align: center;
+    margin-top: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
-#menu-bar > ul > li > a{
-    text-decoration:none;
-    color:#bfcce3;
+#about > img {
+    border-radius: 50%; 
+    width: 150px;
 }
 
-#wrapper{
-    background-color:white;
-    color:black;
-    position:relative;
-    z-index:1000;
+#about > p {
+    text-align: justify;
 }
 
-.section{
-    padding-top:20px;
-    padding-bottom:20px;
-    padding-left:20%;
-    padding-right:20%;
+#projects-list{
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
-#resume-section{
-    background-color:#f9e9c7;
+.project {
+    width: 50%;
+    padding: 10px;
+    box-sizing: border-box
 }
 
-.achievement{
-    padding:10px;
-    background-color:#cbba96;
-    margin-bottom:10px;
+.project img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
-.achievement > .institution{
-    width:80%;
-    font-weight:bold;
-    font-size:larger;
-    display:inline-block;
+.project p {
+    margin: 0px;
 }
 
-.achievement > .duration{
-    width:19%;
-    display:inline-block;
-    text-align:right;
-    font-weight:bold;
+.project a{
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #1c2f46
 }
 
-#footer-section{
-    background-color:#404040;
-    font-size:xx-small;
+#resume-content {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
+#resume-content h3 {
+    width: 30%;
+    margin: 0px;
+    border-top: 1px dotted #c9cacc;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+#resume-content .achievements {
+    width: 70%;
+    border-top: 1px dotted #c9cacc;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.achievement {
+    margin-bottom: 20px;
+}
+
+.achievement .institution {
+    font-weight: bold;
+    display: inline-block
+}
+
+.achievement .address {
+    display: inline-block;
+}
+
+.achievement .address::before {
+    content: ' ‒ '
+}
+
+.achievement .duration {
+    display: inline-block;
+    color: #c0c0c0;
+}
+
+.achievement .duration::before {
+    content: ' ⏺ '
+}
+
+.achievement p {
+    margin: 0px;
+}
