@@ -1,53 +1,41 @@
-<div class="wrapper">
-    <header> James Ekow Abaka Ainooson </header>
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="blog">Blog</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#projects">Resume</a></li>
-            <li><a href="#publications">Publications</a></li>
-        </ul>
-    </nav>
-    <section id="about">
-        <img src="assets/images/me.jpeg" />
-        <p>
-            I am a 3rd year PhD student at the Vanderbilt University, working with <a href="https://my.vanderbilt.edu/mkunda/">Dr. Maithilee Kunda</a> of the 
-            Airtificial Intelligence and Visual Analogical Systems Laboratory. Before joining Vanderbilt, I worked for as a 
-            software engineer with the National Trust Holding Company and Hubtel. My first degree was a Bachelor of Science
-            in Computer Engineering from The University of Ghana.
-        </p>
+<section id="about">
+    <img src="assets/images/me.jpeg" />
+    <p>
+        I am a 3rd year PhD student at the Vanderbilt University, working with <a href="https://my.vanderbilt.edu/mkunda/">Dr. Maithilee Kunda</a> of the 
+        Airtificial Intelligence and Visual Analogical Systems Laboratory. Before joining Vanderbilt, I worked for as a 
+        software engineer with the National Trust Holding Company and Hubtel. My first degree was a Bachelor of Science
+        in Computer Engineering from The University of Ghana.
+    </p>
+</section>
+<section id="projects">
+    <h1>Projects</h1>
+    <section id="projects-list">
+        {{#projects}}
+        <div class="project">
+            <a href="{{url}}"><img src="assets/images/{{image}}" height="160" /></a>
+            <a href="{{url}}" class="title">{{name}}</a>
+            <p>{{description}}</p>
+        </div>
+        {{/projects}}
     </section>
-    <section id="projects">
-        <h1>Projects</h1>
-        <section id="projects-list">
-            {{#projects}}
-            <div class="project">
-                <a href="{{url}}"><img src="assets/images/{{image}}" height="160" /></a>
-                <a href="{{url}}" class="title">{{name}}</a>
-                <p>{{description}}</p>
-            </div>
-            {{/projects}}
+</section>
+<section id="resume">
+    <h1>Resume</h1>
+    <section id="resume-content">
+    {{#resume}}
+        <h3>{{section}}</h3>
+        <section class="achievements">
+        {{#achievements}}
+            {{> resume_entries }}
+        {{/achievements}}
         </section>
-    </section>
-    <section id="resume">
-        <h1>Resume</h1>
-        <section id="resume-content">
-        {{#resume}}
-            <h3>{{section}}</h3>
-            <section class="achievements">
-            {{#achievements}}
-                {{> resume_entries }}
-            {{/achievements}}
-            </section>
-        {{/resume}}                  
-        </section>                       
-    </section>
-    <section id="publications">
-        <h1>Publications</h1>
-        {{#publications}}
-            <p>{{citation}}</p>
-            <div> {{#url}}<a href="{{url}}">Paper</a>{{/url}} {{#poster}}<a href="{{poster}}">Poster</a>{{/poster}}</div>
-        {{/publications}}         
-    </section>
-</div>
+    {{/resume}}                  
+    </section>                       
+</section>
+<section id="publications">
+    <h1>Publications</h1>
+    {{#publications}}
+        <p>{{citation}}</p>
+        <div> {{#url}}<a href="{{url}}">Paper</a>{{/url}} {{#poster}}<a href="{{poster}}">Poster</a>{{/poster}}</div>
+    {{/publications}}         
+</section>
