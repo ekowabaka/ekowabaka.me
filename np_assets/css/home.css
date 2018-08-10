@@ -11,19 +11,12 @@ a{
     text-decoration: none;
 }
 
-.wrapper {
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 900px;
-}
-
 header{
     font-family: 'Oleo Script Swash Caps';
     font-size: 42px;
     text-align: center;
     padding: 40px;
-    color: #136408
+    color: #eb5e00
 }
 
 h1, h2{
@@ -33,6 +26,12 @@ h1, h2{
     margin-left: 20px;
     margin-right: 20px;
     margin-top: 40px;
+}
+
+.wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 966px;
 }
 
 nav ul{
@@ -176,4 +175,27 @@ nav ul > li > a {
 
 #publications a::before {
     content: ' 🖫 '
+}
+
+
+@media only screen and (max-width:600px) {
+    .wrapper {
+        width: 100%;
+    }
+
+    .project {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box
+    }    
+
+    #resume-content h3, #resume-content .achievements { 
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width:996px) {
+    .wrapper {
+        width: 100%;
+    }
 }
