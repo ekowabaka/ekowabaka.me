@@ -1,7 +1,7 @@
 ---
-title="Getting Back on Track"
-tags="Blogging, Nyansapow, PHP",
-category="Personal"
+title: "Getting Back on Track"
+tags: "Blogging, Nyansapow, PHP",
+category: "Personal"
 ---
 
 I've always wanted to restart this blog but I also always wanted to do it in 

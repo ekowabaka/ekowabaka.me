@@ -1,7 +1,7 @@
 <<<
-title="QuickBasic to RapidQ to FreeBASIC? ... or what?"
-tags="BASIC, compiler, computers, freebasic, ghana, programming, rapid-q, rapidq, sofware"
-category="Ideas"
+title:"QuickBasic to RapidQ to FreeBASIC? ... or what?"
+tags:"BASIC, compiler, computers, freebasic, ghana, programming, rapid-q, rapidq, sofware"
+category:"Ideas"
 >>>
 After several years of teaching myself to program computers using Microsoft
 QuickBASIC, I got to a point somewhere in 2002 when I realized that the MS-DOS
