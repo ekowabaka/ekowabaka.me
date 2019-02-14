@@ -1,6 +1,9 @@
 ---
 title: "Getting Back on Track"
-tags: "Blogging, Nyansapow, PHP",
+tags: 
+    - Blogging 
+    - Nyansapow 
+    - PHP
 category: "Personal"
 ---
 

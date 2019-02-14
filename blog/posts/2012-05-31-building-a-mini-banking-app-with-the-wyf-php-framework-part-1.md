@@ -1,8 +1,15 @@
-<<<
-title="Building a Mini Banking App With The WYF PHP Framework (Part 1)"
-tags="banking, database, Linux, PHP, postgresql, programming, ubuntu"
-category="PHP"
->>>
+---
+title: "Building a Mini Banking App With The WYF PHP Framework (Part 1)"
+tags: 
+    - banking
+    - database
+    - Linux
+    - PHP
+    - postgresql
+    - programming
+    - ubuntu
+category: "PHP"
+---
 I'm pretty sure you are wondering what this WYF (pronounced waif) framework is?
 Well its a little toy I started writing a while ago when I was teaching myself
 to code in PHP. Don't ask me what the name means because its really not that

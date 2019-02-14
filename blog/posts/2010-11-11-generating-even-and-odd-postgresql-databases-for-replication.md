@@ -1,8 +1,19 @@
-<<<
-title="Generating Even and Odd PostgreSQL Databases for Replication"
-tags="bucardo, database, Linux, PHP, postgre, postgresql, programming, replication, rubyrep, sql, ubuntu"
-category="PHP"
->>>
+---
+title: "Generating Even and Odd PostgreSQL Databases for Replication"
+tags: 
+    - bucardo
+    - database
+    - Linux
+    - PHP
+    - postgre
+    - postgresql
+    - programming
+    - replication
+    - rubyrep
+    - sql
+    - ubuntu
+category: "PHP"
+---
 I was recently faced with a problem of replicating two PostgreSQL databases with
 bucardo. The replication was to be in a master-master fashion so that the
 databases could be updated on both ends. Although this task can easily be
