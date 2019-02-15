@@ -1,8 +1,19 @@
-<<<
-title="Soft Shadows in OpenOffice.org using Gimp"
-tags="diagram, document, draw, drawing, gimp, graphics, office, open, openoffice, openoffice.org, shadows"
-category="Ideas"
->>>
+---
+title: "Soft Shadows in OpenOffice.org using Gimp"
+tags: 
+    - diagram
+    - document
+    - draw
+    - drawing
+    - gimp
+    - graphics
+    - office
+    - open
+    - openoffice
+    - openoffice.org
+    - shadows
+category: "Ideas"
+---
 There is no doubt about the fact that soft shadows make any piece of graphics stand
 out. It adds that extra touch of professionalism to any illustration and it
 makes the illustrations look and feel just right in any document or presentation

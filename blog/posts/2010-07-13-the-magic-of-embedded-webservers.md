@@ -1,8 +1,16 @@
-<<<
-title="The Magic of Embedded Webservers"
-tags="coding, embedded, http, java, programming, server, software, webserver"
-category="Java"
->>>
+---
+title: "The Magic of Embedded Webservers"
+tags: 
+    - coding
+    - embedded
+    - http
+    - java
+    - programming
+    - server
+    - software
+    - webserver
+category: "Java"
+---
 Sometimes non web-based applications you build may be installed on servers which
 are not physically accessible to you. In such cases you might want to rely on
 configuration files and log files to find out the status of your application.

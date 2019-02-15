@@ -1,8 +1,16 @@
-<<<
-title="A JavaScript MP3 Player Tutorial"
-tags="actionscript, actionscript3, audio, flash, html, javascript, mp3, web"
-category="How To do Stuff"
->>>
+---
+title: "A JavaScript MP3 Player Tutorial"
+tags: 
+    - actionscript
+    - actionscript3
+    - audio
+    - flash
+    - html
+    - javascript
+    - mp3
+    - web
+category: "How To do Stuff"
+---
 Lots of things go on around me yet making the time to write them is quite
 difficult. Well now I have made it a point to share some knowledge all the time
 so this time I am going to do a little piece about how an MP3 player can be

@@ -1,7 +1,6 @@
-<<<
-title="Is there really an easy way?"
-tags=""
-category="What I think"
+---
+title: "Is there really an easy way?"
+category: "What I think"
 >>>
 I must say that its been quite a while since I expressed myself on this blog. I
 know this sounds like the regular cliche excuse but I have been busy. I have

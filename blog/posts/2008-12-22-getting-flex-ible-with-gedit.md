@@ -1,8 +1,16 @@
-<<<
-title="Getting FLEX-ible With GEdit"
-tags="actionscript, adobe, flash, flex, gedit, gnome, Linux, ubuntu"
-category="How To do Stuff"
->>>
+---
+title: "Getting FLEX-ible With GEdit"
+tags: 
+    - actionscript
+    - adobe
+    - flash
+    - flex
+    - gedit
+    - gnome
+    - Linux
+    - ubuntu
+category: "How To do Stuff"
+---
 For a long time I had always wanted to develop for the flash platform but the
 huge cost of the authouring suite always put me off. I tried a couple of open
 source ways to develop for the platform but none of them really worked well for

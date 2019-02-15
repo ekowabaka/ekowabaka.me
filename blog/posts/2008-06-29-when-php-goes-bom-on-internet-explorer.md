@@ -1,8 +1,16 @@
-<<<
-title="When PHP goes BOM! on Internet Explorer"
-tags="ANSI, Eclipse, firefox, Internet Explorrer, Opera, PHP, Safari, UTF-8"
-category="What I think"
->>>
+---
+title: "When PHP goes BOM! on Internet Explorer"
+tags: 
+    - ANSI
+    - Eclipse
+    - firefox
+    - Internet Explorer
+    - Opera
+    - PHP
+    - Safari
+    - UTF-8
+category: "What I think"
+---
 I was recently working on a web content management system with a friend and we
 made a very surprising discovery. We were actually using PHP to include content
 from another page on our local server unto the page that was curently being

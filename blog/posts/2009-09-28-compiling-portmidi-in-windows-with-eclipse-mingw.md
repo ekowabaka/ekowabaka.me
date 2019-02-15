@@ -1,8 +1,7 @@
-<<<
-title="Compiling PortMidi in Windows with Eclipse/MinGW"
-tags=""
-category="Ideas"
->>>
+---
+title: "Compiling PortMidi in Windows with Eclipse/MinGW"
+category: "Ideas"
+---
 ### Why I did this?
 Over the past few weeks I have been working on this project which in some ways
 uses MIDI. I have primarily been working in Linux  but I had plans of porting

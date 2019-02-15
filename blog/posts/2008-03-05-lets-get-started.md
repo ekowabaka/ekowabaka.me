@@ -1,8 +1,14 @@
-<<<
+---
 title: "Lets get started!"
-tags: "africa, computers, database, ghana, sql, technology"
+tags: 
+    - africa
+    - computers
+    - database
+    - ghana
+    - sql
+    - technology
 category: "How To do Stuff"
->>>
+---
 I have always wanted to write a blog but the problem I had was I really didn't
 know what to write about. I felt writing a blog about your personal life was
 sick and anything I thought of already seemed to be out there. I was however

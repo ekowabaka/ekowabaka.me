@@ -1,8 +1,18 @@
-<<<
-title="LFS - My Linux Last Stop"
-tags="firefox, lfs, Linux, linux from scratch, mulinux, openoffice, pentium, slax, ubuntu, xfce"
-category="How To do Stuff"
->>>
+---
+title: "LFS - My Linux Last Stop"
+tags: 
+    - firefox
+    - lfs
+    - Linux
+    - linux from scratch
+    - mulinux
+    - openoffice
+    - pentium
+    - slax
+    - ubuntu
+    - xfce
+category: "How To do Stuff"
+---
 Four years ago, when I first entered the university, I really wanted to learn a
 lot before I was taught so I decided to try the new craze everybody was talking
 about... LINUX. It sounded very cool to tell someone that you have Linux on your

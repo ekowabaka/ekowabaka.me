@@ -1,8 +1,21 @@
-<<<
-title="Automating TV Broadcasting - \"SQLite saves the day!\""
-tags="audio, audo, automation, broadcasting, c++, database, ffmpeg, ghana, Linux, mysql, sqlite, tv, video"
-category="Ideas"
->>>
+---
+title: "Automating TV Broadcasting - \"SQLite saves the day!\""
+tags: 
+    - audio
+    - audo
+    - automation
+    - broadcasting
+    - c++
+    - database
+    - ffmpeg
+    - ghana
+    - Linux
+    - mysql
+    - sqlite
+    - tv
+    - video
+category: "Ideas"
+---
 To graduate in my school one has to work on a graduation project. For my project I decided
 to build a TV broadcast automation system. What exactly was this system supposed
 to do? Well, the whole idea was to build some sort of media player which played

@@ -1,8 +1,16 @@
-<<<
-title="PHP/HTML Forms Made Easy"
-tags="application, fields, forms, framework, html, PHP, programming, web"
-category="How To do Stuff"
->>>
+---
+title: "PHP/HTML Forms Made Easy"
+tags: 
+    - application
+    - fields
+    - forms
+    - framework
+    - html
+    - PHP
+    - programming
+    - web
+category: "How To do Stuff"
+---
 ### Introduction
 I must admit here
 that one of the most annoying things for me when I was learning how to develop

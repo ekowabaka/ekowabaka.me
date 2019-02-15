@@ -1,8 +1,15 @@
-<<<
-title:"Microsoft Windows and the "Refreshing" Misconception!"
-tags:"CPU, ghana, Linux, Memory, Microsoft, Refresh, Windows"
-category:"What I think"
->>>
+---
+title: "Microsoft Windows and the \"Refreshing\" Misconception!"
+tags: 
+    - CPU
+    - ghana
+    - Linux
+    - Memory
+    - Microsoft
+    - Refresh
+    - Windows
+category: "What I think"
+---
 I have a friend who is stuck on to Microsoft Windows. He is always blowing the
 windows horn and he would readily stand up to defend MS-windows in any
 situation.This friend always tries to show off cool things that MS-Windows can

@@ -1,8 +1,13 @@
-<<<
-title="Ghanaians and the 5 pesewa logic"
-tags="africa, cedi, ghana, money, pesewa"
-category="What I think"
->>>
+---
+title: "Ghanaians and the 5 pesewa logic"
+tags: 
+    - africa
+    - cedi
+    - ghana
+    - money
+    - pesewa
+category: "What I think"
+---
 Almost a year ago a new set of bank notes and coins were released by the
 government to replace the old bulky and cumbersome notes. I mean who wanted to
 carry a bank note worth 20,000 cedis which is equivalent to just 2 dollars. This
