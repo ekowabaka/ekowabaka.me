@@ -1,9 +1,9 @@
-- name: 52 Cameras 52 Weeks
+- name: hoto Cameras
   description: >
-    On this little blog, I document my attempt to shoot a different camera a week for 52 weeks. I review each camera and
-    show some of the pictures taken over the week. 
-  image: 52cameras.jpeg
-  url: http://instagram.com/jekowabaka
+    A little blog where I write about my experiences with cheap cameras and also share lots of the snapshots I take.
+  image: hoto.png
+  
+  url: https://hotocameras.com
 
 - name: Ntetnan PHP Tools
   description: >

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps|Roboto|Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Lexend+Deca|Roboto|Open+Sans');
 
 
 body{
@@ -7,21 +7,26 @@ body{
 }
 
 a{
-    color: #3d6299;
+    color: #3a72c7;
     text-decoration: none;
 }
 
+a:hover{
+    color: #749fdf;
+}
+
 header{
-    font-family: 'Oleo Script Swash Caps';
+    font-family: 'Lexend Deca', serif;
     font-size: 42px;
+    font-weight: bold;
     text-align: center;
     padding: 40px;
-    color: #eb5e00
+    color: #ce4100
 }
 
 h1, h2{
-    font-family: 'Open Sans';
-    color: #c0c0c0;
+    font-family: 'Open Sans', sans-serif;
+    color: #161616;
     margin: 0px;
     margin-left: 20px;
     margin-right: 20px;
@@ -48,7 +53,8 @@ nav ul > li {
 
 nav ul > li > a {
     text-decoration: none;
-    color: #808080
+    color: ;
+    font-weight: bold;
 }
 
 #about {
