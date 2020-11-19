@@ -8,9 +8,9 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
-            - uses: actions/checkout@v2
-              working-directory: ./temp
+            - uses: shivammathur/setup-php@v2
               with:
-                repository: foonoo/foonoo
-                ref: dev
+                php-version: '7.4'
+                tools: composer
+            - run: git clone --branch dev https://github.com/foonoo/foonoo ~/foonoo
             - run: ~/foonoo/bin/foonoo generate -o ~/output
