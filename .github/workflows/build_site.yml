@@ -8,6 +8,8 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
-            - run: git clone https://github.com/foonoo/foonoo ~/foonoo
-            - run: ls ~/foonoo
+            - uses: actions/checkout@v2
+              with:
+                repository: foonoo/foonoo
+                ref: dev
             - run: ~/foonoo/bin/foonoo generate -o ~/output
