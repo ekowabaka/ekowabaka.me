@@ -1,0 +1,11 @@
+name: build_site
+on:
+    push:
+        branches:
+            - master
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - run: git clone git@github.com:foonoo/foonoo ~/foonoo
