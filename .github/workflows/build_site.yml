@@ -9,4 +9,5 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - run: git clone https://github.com/foonoo/foonoo ~/foonoo
+            - run: ls ~/foonoo
             - run: ~/foonoo/bin/foonoo generate -o ~/output
