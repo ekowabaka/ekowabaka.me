@@ -14,4 +14,4 @@ jobs:
                 tools: composer
                 extensions: imagick
             - uses: ./.github/actions/install-foonoo-action
-            - run: ~/foonoo/bin/foonoo generate -o ~/output
+            - run: /tmp/foonoo/bin/foonoo generate -o ~/output
