@@ -12,5 +12,6 @@ jobs:
               with:
                 php-version: '7.4'
                 tools: composer
+                extensions: imagick
             - uses: ./.github/actions/install-foonoo-action
             - run: ~/foonoo/bin/foonoo generate -o ~/output
