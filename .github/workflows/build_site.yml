@@ -12,5 +12,5 @@ jobs:
               with:
                 php-version: '7.4'
                 tools: composer
-            - run: git clone --branch dev https://github.com/foonoo/foonoo ~/foonoo
+            - uses: ./.github/actions/install-foonoo-action
             - run: ~/foonoo/bin/foonoo generate -o ~/output

@@ -1,0 +1,10 @@
+name: 'Install Foonoo'
+description: 'Install the foonoo static site generator'
+runs:
+  using: composite
+  steps:
+    - run: git clone --branch dev https://github.com/foonoo/foonoo ~/foonoo
+      shell: bash
+    - run: composer install
+      shell: bash
+      working-directory: ~/foonoo
