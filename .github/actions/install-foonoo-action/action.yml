@@ -3,8 +3,8 @@ description: 'Install the foonoo static site generator'
 runs:
   using: composite
   steps:
-    - run: git clone --branch dev https://github.com/foonoo/foonoo ~/foonoo
+    - run: git clone --branch dev https://github.com/foonoo/foonoo /tmp/foonoo
       shell: bash
     - run: composer install
       shell: bash
-      working-directory: ~/foonoo
+      working-directory: /tmp/foonoo
