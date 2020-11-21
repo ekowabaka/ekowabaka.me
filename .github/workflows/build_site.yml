@@ -7,11 +7,17 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
-            - uses: shivammathur/setup-php@v2
+            - name: Checkout repository
+              uses: actions/checkout@v2
+            - name: Fetch plugins as submodules
+              run: git submodule update --init --recursive
+            - name: Install PHP 7.4
+              uses: shivammathur/setup-php@v2
               with:
                 php-version: '7.4'
                 tools: composer
                 extensions: imagick
-            - uses: ./.github/actions/install-foonoo-action
-            - run: /tmp/foonoo/bin/foonoo generate -o ~/output
+            - name: Install foonoo
+              uses: ./.github/actions/install-foonoo-action
+            - name: Generate the site
+              run: /tmp/foonoo/bin/foonoo generate -o ~/output
