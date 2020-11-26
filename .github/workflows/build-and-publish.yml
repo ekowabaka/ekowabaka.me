@@ -1,10 +1,10 @@
-name: build_site
+name: build-and-publish
 on:
     push:
         branches:
             - master
 jobs:
-    build:
+    build-and-publish:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout repository
@@ -21,3 +21,12 @@ jobs:
               uses: ./.github/actions/install-foonoo-action
             - name: Generate the site
               run: /tmp/foonoo/bin/foonoo generate -o ~/output
+            - name: Deploy Blog to Server
+              uses: up9cloud/action-rsync@v1.2  
+              env:
+                HOST: ${{secrets.SSH_HOST}}   
+                KEY: ${{secrets.SSH_PRIVATE_KEY}}
+                SOURCE: ~/output
+                TARGET: /var/www/ekowabaka.me
+                ARGS: --delete
+
