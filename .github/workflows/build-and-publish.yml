@@ -20,13 +20,13 @@ jobs:
             - name: Install foonoo
               uses: ./.github/actions/install-foonoo-action
             - name: Generate the site
-              run: /tmp/foonoo/bin/foonoo generate -o ~/output
+              run: /tmp/foonoo/bin/foonoo generate -o output_site
             - name: Deploy Blog to Server
               uses: up9cloud/action-rsync@v1.2  
               env:
                 HOST: ${{secrets.SSH_HOST}}   
                 KEY: ${{secrets.SSH_PRIVATE_KEY}}
-                SOURCE: ~/output
+                SOURCE: output_site
                 TARGET: /var/www/ekowabaka.me
                 ARGS: -avz --delete 
 
