@@ -28,5 +28,5 @@ jobs:
                 KEY: ${{secrets.SSH_PRIVATE_KEY}}
                 SOURCE: ~/output
                 TARGET: /var/www/ekowabaka.me
-                ARGS: --delete
+                ARGS: -avz --delete 
 
