@@ -16,23 +16,3 @@
         {{/projects}}
     </section>
 </section>
-<section id="resume">
-    <h1>Resume</h1>
-    <section id="resume-content">
-    {{#resume}}
-        <h3>{{section}}</h3>
-        <section class="achievements">
-        {{#achievements}}
-            {{> resume_entries }}
-        {{/achievements}}
-        </section>
-    {{/resume}}                  
-    </section>                       
-</section>
-<section id="publications">
-    <h1>Publications</h1>
-    {{#publications}}
-        <p>{{citation}}</p>
-        <div> {{#url}}<a href="{{url}}">Paper</a>{{/url}} {{#poster}}<a href="{{poster}}">Poster</a>{{/poster}}</div>
-    {{/publications}}         
-</section>
