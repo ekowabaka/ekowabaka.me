@@ -22,7 +22,7 @@ jobs:
             - name: Create directory for highlight plugin
               run: mkdir -p /tmp/foonoo-plugins/contrib
             - name: Clone highlight repository
-              run: git clone https://github.com/foonoo/plugin-highlight /tmp/foonoo-plugins/contrib/contrib/highlight
+              run: git clone https://github.com/foonoo/plugin-highlight /tmp/foonoo-plugins/contrib/highlight
             - name: Generate the site
               run: /tmp/foonoo/bin/foonoo generate -o output_site -P /tmp/foonoo-plugins
             - name: Deploy Blog to Server
