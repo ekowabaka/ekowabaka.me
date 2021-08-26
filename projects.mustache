@@ -1,0 +1,10 @@
+<h1>Projects</h1>
+<section id="projects-list">
+    {{#projects}}
+    <div class="project">
+        <a href="{{url}}"><img src="assets/images/{{image}}" height="160" /></a>
+        <a href="{{url}}" class="title">{{name}}</a>
+        <p>{{description}}</p>
+    </div>
+    {{/projects}}
+</section>

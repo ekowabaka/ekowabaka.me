@@ -4,7 +4,7 @@ runs:
   using: composite
   steps:
     - name: Cloning foonoo dev version
-      run: git clone --branch dev https://github.com/foonoo/foonoo /tmp/foonoo
+      run: git clone https://github.com/foonoo/foonoo /tmp/foonoo
       shell: bash
     - name: Installing composer dependencies
       run: composer install
