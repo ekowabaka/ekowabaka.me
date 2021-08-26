@@ -30,7 +30,7 @@ jobs:
               env:
                 HOST: ${{secrets.SSH_HOST}}   
                 KEY: ${{secrets.SSH_PRIVATE_KEY}}
-                SOURCE: output_site
+                SOURCE: output_site/*
                 TARGET: /var/www/ekowabaka.me
                 ARGS: -avz --delete 
 
