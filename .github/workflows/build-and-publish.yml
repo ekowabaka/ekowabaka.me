@@ -31,6 +31,6 @@ jobs:
                 HOST: ${{secrets.SSH_HOST}}   
                 KEY: ${{secrets.SSH_PRIVATE_KEY}}
                 SOURCE: output_site/*
-                TARGET: /var/www/ekowabaka.me
+                TARGET: ${{secrets.SSH_PATH}}
                 ARGS: -avz --delete 
 
