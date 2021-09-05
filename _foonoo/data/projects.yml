@@ -10,3 +10,9 @@
     An attempt to bring some sanity to my collection of poorly documented PHP tools. You never know, maybe someone will find these useful someday.
   image: ntentan.jpeg
   url: https://github.com/ntentan
+
+- name: ClearIce PHP
+  description: >
+    A little library that helps in creating console applications for PHP. This library handles parsing command line arguments and console I/O.
+  image: clearice.jpeg
+  url: https://ekowabaka.me/clearice

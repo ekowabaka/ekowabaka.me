@@ -1,0 +1,9 @@
+# Site URL
+
+name: "ClearIce"
+url: "http://ekowabaka.me/clearice"
+description: "A command line interface tool for PHP"
+author: "Ekow Abaka Ainooson <jainooson@gmail.com>"
+type: default
+plugins:
+  - contrib/highlight
