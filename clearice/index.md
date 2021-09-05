@@ -1,0 +1,83 @@
+
+ClearIce helps PHP CLI applications by providing tools for parsing command line arguments, and providing iteractive I/O. Arguements supplied at the command line, or through a shell are validated and supplied to your script in a better organized format, with the added bonus of automatically generated help. Additionally, ClearIce allows you to interactively receive and validate inputs to your scripts from the console.
+
+Installing 
+----------
+ClearIce is best installed through composer.
+    
+    composer require ekowabaka/clearice
+    
+If for some reason you don't want to use composer, you can simply include all the needed clearice scripts where you need them. ClearIce has no dependencies other than a PHP interpreter with version 7.1 or better.
+
+Parsing Arguments with ClearICE
+--------------
+To use clearice to parse command line arguments you can put ...
+
+````php
+<?php
+require "vendor/autoload.php";
+
+$parser = new \clearice\argparser\ArgumentParser();
+$parser->addOption([
+    'name' => 'input',
+    'short_name' => 'i',
+    'type' => 'string',
+    'required' => true
+]);
+
+$parser->addOption([
+    'name' => 'output',
+    'short_name' => 'o',
+    'type' => 'string',
+    'default' => '/default/output/path'
+]);
+
+$options = $parser->parse($argv);
+print_r($options);
+````
+
+... in a file (which you can for example save as wiki.php). Then executing ...
+
+    php wiki.php generate --input=/home/james --output=/var/www/cool-wiki
+
+... would produce ...
+
+    Array
+    (
+        [input] => /input/path
+        [output] => /output/path
+        [__executed] => wiki.php
+    )
+
+... and so will the following:
+
+    php test.php --input /input/path --output /output/path
+    php test.php -i/input/path -o/output/path
+
+Interactive I/O with ClearICE
+--------------
+
+And for an example of interactive I/O, entering this 
+
+````php
+use clearice\io\Io;
+$io = new Io();
+$name = $io->getResponse('What is your name', ['default' => 'No Name']);
+
+$direction = $io->getResponse("Okay $name, where do you want to go", 
+    [
+        'required' => true,
+        'answers' => array('north', 'south', 'east', 'west')
+    ]
+); 
+````
+
+could lead to an interaction like this:
+
+    What is your name [No Name]: ⏎
+    Okay No Name, where do you want to go (north/south/east/west) []: ⏎
+    A value is required.
+    Okay No Name, where do you want to go (north/south/east/west) []: home⏎
+    Please provide a valid answer.
+    Okay No Name, where do you want to go (north/south/east/west) []: 
+

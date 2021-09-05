@@ -14,5 +14,5 @@
 - name: ClearIce PHP
   description: >
     A little library that helps in creating console applications for PHP. This library handles parsing command line arguments and console I/O.
-  image: clearice.jpeg
-  url: https://ekowabaka.me/clearice
+  image: clearice.png
+  url: /clearice
