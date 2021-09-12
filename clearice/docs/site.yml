@@ -1,0 +1,5 @@
+type: default
+enable-toc: True
+title: "ClearICE Documentation"
+plugins:
+    - contrib/highlight
