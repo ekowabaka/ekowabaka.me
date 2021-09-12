@@ -5,8 +5,10 @@ url: "http://ekowabaka.me/clearice"
 description: "A command line interface tool for PHP"
 author: "Ekow Abaka Ainooson <jainooson@gmail.com>"
 type: default
+theme: plain
 plugins:
-  - contrib/highlight
+  - contrib/highlight:
+      style: rainbow
 assets_follow:
   css:
     - style.css

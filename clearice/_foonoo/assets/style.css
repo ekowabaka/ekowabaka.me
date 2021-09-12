@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Lexend+Deca|Roboto|Open+Sans');
+
 body {
     font-size: larger;
+    font-family: sans-serif, 'Open Sans';
+    font-weight: 400;
 }
 
 #content {
