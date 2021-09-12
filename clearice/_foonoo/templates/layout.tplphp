@@ -4,6 +4,9 @@
     <?= $assets_markup['default']->unescape() ?>
 </head>
 <body>
-    <?= $body->u() ?>
+    <header>
+        <h1>CLearIce</h1>
+    </header>
+    <section id="content"><?= $body->u() ?></section>
 </body>
 </html>

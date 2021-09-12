@@ -7,3 +7,7 @@ author: "Ekow Abaka Ainooson <jainooson@gmail.com>"
 type: default
 plugins:
   - contrib/highlight
+assets_follow:
+  css:
+    - style.css
+
