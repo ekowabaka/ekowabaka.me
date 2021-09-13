@@ -1,17 +1,7 @@
 
-ClearIce helps PHP CLI applications by providing tools for parsing command line arguments, and providing iteractive I/O. Arguements supplied at the command line, or through a shell are validated and supplied to your script in a better organized format, with the added bonus of automatically generated help. Additionally, ClearIce allows you to interactively receive and validate inputs to your scripts from the console.
+ClearIce provides tools that allow PHP applications to parse command line arguments, and perform interactive I/O sessions. Arguments supplied at the command line, or through a shell are validated and supplied to your script in an organized format, with the added possibility of automatically generating help messages for your command line applications. 
 
-Installing 
-----------
-ClearIce is best installed through composer.
-    
-    composer require ekowabaka/clearice
-    
-If for some reason you don't want to use composer, you can simply include all the needed clearice scripts where you need them. ClearIce has no dependencies other than a PHP interpreter with version 7.1 or better.
-
-Parsing Arguments with ClearICE
---------------
-To use clearice to parse command line arguments you can put ...
+For example, the following script ...
 
 ````php
 <?php
@@ -36,11 +26,11 @@ $options = $parser->parse($argv);
 print_r($options);
 ````
 
-... in a file (which you can for example save as wiki.php). Then executing ...
+... when executed as ...
 
     php wiki.php generate --input=/home/james --output=/var/www/cool-wiki
 
-... would produce ...
+... produces ...
 
     Array
     (
@@ -54,10 +44,7 @@ print_r($options);
     php test.php --input /input/path --output /output/path
     php test.php -i/input/path -o/output/path
 
-Interactive I/O with ClearICE
---------------
-
-And for an example of interactive I/O, entering this 
+For interactive I/O, the following script ...
 
 ````php
 use clearice\io\Io;
@@ -72,7 +59,7 @@ $direction = $io->getResponse("Okay $name, where do you want to go",
 ); 
 ````
 
-could lead to an interaction like this:
+... could lead to an interaction like this:
 
     What is your name [No Name]: ⏎
     Okay No Name, where do you want to go (north/south/east/west) []: ⏎

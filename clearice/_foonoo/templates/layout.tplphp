@@ -5,7 +5,12 @@
 </head>
 <body>
     <header>
-        <img
+        <img src="images/clearice_logo.svg" alt="clearice" />
+        <nav>
+            <ul>
+                <li></li>
+            </ul>
+        </nav>
     </header>
     <section id="content"><?= $body->u() ?></section>
 </body>
