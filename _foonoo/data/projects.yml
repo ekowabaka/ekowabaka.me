@@ -8,11 +8,11 @@
 - name: Ntetnan PHP Tools
   description: >
     An attempt to bring some sanity to my collection of poorly documented PHP tools. You never know, maybe someone will find these useful someday.
-  image: ntentan.jpeg
+  image: ntentan.svg
   url: https://github.com/ntentan
 
-- name: ClearIce PHP
+- name: CLearIce PHP
   description: >
     A little library that helps in creating console applications for PHP. This library handles parsing command line arguments and console I/O.
-  image: clearice.png
+  image: clearice.svg
   url: /clearice

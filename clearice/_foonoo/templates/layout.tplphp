@@ -5,7 +5,7 @@
 </head>
 <body>
     <header>
-        <h1>CLearIce</h1>
+        <img
     </header>
     <section id="content"><?= $body->u() ?></section>
 </body>
