@@ -5,11 +5,19 @@ url: "http://ekowabaka.me/clearice"
 description: "A command line interface tool for PHP"
 author: "Ekow Abaka Ainooson <jainooson@gmail.com>"
 type: default
-theme: plain
+title: "ClearICE"
+menu:
+  - title: Documentation
+    url: ./docs/
+  - title: Code
+    url: https://github.com/ekowabaka/clearice
+theme: 
+    name: site
+    primary-color: "#bf361a"
+    secondary-color: "#e67607"
+
+
 plugins:
   - contrib/highlight:
       style: rainbow
-assets_follow:
-  css:
-    - style.css
 

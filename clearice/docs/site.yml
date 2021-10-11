@@ -1,6 +1,14 @@
 type: default
 enable-toc: True
 title: "ClearICE Documentation"
-index: _TOC_
+menu:
+    - title: Code
+      url: https://github.com/ekowabaka/clearice
+index: Introduction
+theme: 
+    name: site
+    primary-color: "#bf361a"
+    secondary-color: "#e67607"
 plugins:
-    - contrib/highlight
+    - contrib/highlight:
+        style: rainbow
