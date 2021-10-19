@@ -74,12 +74,13 @@ h1, h2{
 
 #about {
     margin-top: 100px;
-    padding-left: 20px;
-    padding-right: 20px;
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
     margin-left: auto;
     margin-right: auto;
     font-size: 28px;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 #about img{
@@ -117,106 +118,14 @@ h1, h2{
     font-weight: bold;
 }
 
-#resume-content {
-    display: flex;
-    flex-wrap: wrap;
-    box-sizing: border-box;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-#resume-content h3 {
-    width: 20%;
-    margin: 0px;
-    border-top: 1px dotted #c9cacc;
-    margin-top: 10px;
-    padding-top: 10px;
-    font-size: 18px;
-}
-
-#resume-content .achievements {
-    width: 80%;
-    border-top: 1px dotted #c9cacc;
-    margin-top: 10px;
-    padding-top: 10px;
-}
-
-.achievement {
-    margin-bottom: 20px;
-}
-
-.achievement .institution {
-    font-weight: bold;
-    display: inline-block;
-    font-size: 18px;
-}
-
-.achievement .address {
-    display: inline-block;
-    font-size: 18px;
-}
-
-.achievement .address::before {
-    content: ' ‒ '
-}
-
-.achievement .duration {
-    display: inline-block;
-    color: #a0a0a0;
-    font-size: 18px;
-}
-
-.achievement .duration::before {
-    content: ' ∙ '
-}
-
-.achievement p {
-    margin: 0px;
-    margin-top: 10px;
-    font-size: 0.9em;
-    color: #a0a0a0;
-}
-
-#publications p {
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 0px;
-}
-
-#publications div {
-    margin-bottom: 30px;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 5px;
-}
-
-#publications a{
-    margin-right: 10px;
-}
-
-#publications a::before {
-    content: ' 🖫 '
-}
-
-
 @media only screen and (max-width:600px) {
-    .wrapper {
-        width: 100%;
-    }
-
     .project {
         width: 100%;
         padding: 10px;
         box-sizing: border-box
-    }    
-
-    #resume-content h3, #resume-content .achievements { 
-        width: 100%;
     }
-}
 
-@media only screen and (max-width:996px) {
-    .wrapper {
-        width: 100%;
+    #about {
+        font-size: 22px;
     }
 }
