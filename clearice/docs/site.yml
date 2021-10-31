@@ -4,3 +4,7 @@ title: "ClearICE Documentation"
 index: Introduction
 plugins:
     - contrib/highlight
+theme: 
+    name: site
+    primary-color: "#bf361a"
+    secondary-color: "#e67607"
