@@ -1,4 +1,6 @@
-
+---
+title: Welcome
+---
 ClearIce provides tools that allow PHP applications to parse command line arguments, and perform interactive I/O sessions. Arguments supplied at the command line, or through a shell are validated and supplied to your script in an organized format, with the added possibility of automatically generating help messages for your command line applications. 
 
 For example, the following script ...
