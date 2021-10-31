@@ -3,7 +3,8 @@ enable-toc: True
 title: "ClearICE Documentation"
 index: Introduction
 plugins:
-    - contrib/highlight
+  - contrib/highlight:
+      style: rainbow
 theme: 
     name: site
     primary-color: "#bf361a"
