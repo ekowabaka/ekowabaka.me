@@ -6,4 +6,5 @@ description: "There's freedom in knowledge"
 author: "Ekow Abaka Ainooson <jainooson@gmail.com>"
 type: blog
 plugins:
-  - contrib/highlight
+#  - contrib/highlight
+  - contrib/responsive_images
