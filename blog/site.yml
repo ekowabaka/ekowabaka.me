@@ -1,10 +1,25 @@
 # Site URL
 
-name: "ekowabaka.me"
+title: "ekowabaka.me"
 url: "http://ekowabaka.me/blog"
-description: "There's freedom in knowledge"
+tagline: "on the quest for that freedom!"
 author: "Ekow Abaka Ainooson <jainooson@gmail.com>"
 type: blog
+taxonomies: [category, tags]
+menu:
+  - title: "Home"
+    url: "http://ekowabaka.me"
+  - title: "Blog"
+    url: "http://ekowabaka.me/blog"
+  - title: "Projects"
+    url: "http://ekowabaka.me/projects"
+theme: 
+  name: blog
+  primary-color: "#00a9fb"
+  secondary-color: "a0a0a0"
 plugins:
-#  - contrib/highlight
+  - contrib/highlight
   - contrib/responsive_images
+assets:
+  css:
+    - css/home.css

@@ -1,11 +1,10 @@
 # Site URL
 
-name: "ClearIce"
+title: "ClearIce"
 url: "http://ekowabaka.me/clearice"
 description: "A command line interface tool for PHP"
 author: "Ekow Abaka Ainooson <jainooson@gmail.com>"
 type: default
-title: "ClearICE"
 menu:
   - title: Documentation
     url: ./docs/

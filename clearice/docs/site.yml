@@ -1,6 +1,6 @@
+title: "ClearICE Documentation"
 type: default
 enable-toc: True
-title: "ClearICE Documentation"
 index: Introduction
 plugins:
   - contrib/highlight:
