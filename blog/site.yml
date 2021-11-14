@@ -19,7 +19,10 @@ theme:
   secondary-color: "a0a0a0"
 plugins:
   - contrib/highlight
-  - contrib/responsive_images
+  - contrib/responsive_images:
+      hidpi: true
+      max-width: 996
+      frame: figure
 assets:
   css:
     - css/home.css
