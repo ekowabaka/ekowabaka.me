@@ -19,10 +19,12 @@ jobs:
                 extensions: imagick
             - name: Install foonoo
               uses: ./.github/actions/install-foonoo-action
-            - name: Create directory for highlight plugin
+            - name: Create directory for plugins
               run: mkdir -p /tmp/foonoo-plugins/contrib
             - name: Clone highlight repository
               run: git clone https://github.com/foonoo/plugin-highlight /tmp/foonoo-plugins/contrib/highlight
+            - name: Clone responsive images repository
+              run: git clone https://github.com/foonoo/plugin-responsive-images /tmp/foonoo-plugins/contrib/responsive_images
             - name: Generate the site
               run: /tmp/foonoo/bin/foonoo generate -o output_site -P /tmp/foonoo-plugins
             - name: Deploy Blog to Server
