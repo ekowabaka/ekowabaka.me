@@ -15,8 +15,8 @@ menu:
     url: "http://ekowabaka.me/projects"
 theme: 
   name: blog
-  primary-color: "#00a9fb"
-  secondary-color: "a0a0a0"
+  # primary-color: "#00a9fb"
+  # secondary-color: "#a0a0a0"
 plugins:
   - contrib/highlight
   - contrib/responsive_images:
