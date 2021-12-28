@@ -15,4 +15,4 @@
   description: >
     A little library that helps in creating console applications for PHP. This library handles parsing command line arguments and console I/O.
   image: clearice.svg
-  url: /clearice/
+  url: ./clearice/
