@@ -1,1 +1,27 @@
-../../../_foonoo/templates/layout.mustache
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ekow Abaka | {{title}}</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&display=swap" rel="stylesheet">        
+        <link rel='stylesheet' type='text/css' href='{{site_path}}assets/css/bundle-default.css' />
+    </head>
+    <body>
+        <header> 
+            <span><a href="https://ekowabaka.me">ekow abaka</a></span> 
+            <nav>
+                <ul>
+                    <li><a href="./projects.html">projects</a></li>
+                    <li><a href="./blog/index.html">blog</a></li>
+                    <li><a href="https://github.com/ekowabaka"><img class="icon" src="https://ekowabaka.me/images/github.svg" /></a></li>
+                </ul>
+            </nav>
+        </header>
+
+        {{{body}}}
+        
+    </body>
+</html>

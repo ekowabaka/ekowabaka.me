@@ -1,8 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Lexend+Deca:wght@400;700&family=Roboto:wght@400;700|Open+Sans:wght@400;700');
-
 
 body{
-    font-family: 'Open Sans';
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
     color: #404040;
     margin: 0px;
     margin-left: auto;
@@ -22,7 +20,7 @@ a:hover{
 /* Site header */
 
 header{
-    font-family: 'Lexend Deca', serif;
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
     font-size: 18px;
     font-weight: bold;
     padding: 10px;
@@ -58,4 +56,9 @@ nav ul > li > a {
     text-decoration: none;
     font-weight: bold;
     padding: 10px;
+}
+
+
+.post {
+    padding: 20px;
 }

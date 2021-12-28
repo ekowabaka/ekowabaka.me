@@ -1,5 +1,5 @@
 ---
-title: On Raspberry Pi's
+title: On Raspberry Pis
 category: Making
 tags:
     - making

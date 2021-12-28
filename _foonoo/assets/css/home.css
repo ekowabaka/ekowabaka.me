@@ -1,8 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Lexend+Deca:wght@400;700&family=Roboto:wght@400;700|Open+Sans:wght@400;700');
-
-
 body{
-    font-family: 'Open Sans';
+    font-family: "Open Sans";
     color: #404040;
     margin: 0px;
     margin-left: auto;
@@ -17,12 +14,12 @@ a{
 
 a:hover{
     color: #749fdf;
-}
+} 
 
 /* Site header */
 
 header{
-    font-family: 'Lexend Deca', serif;
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
     font-size: 18px;
     font-weight: bold;
     padding: 10px;
@@ -63,12 +60,11 @@ nav ul > li > a {
 /* Rest of the site */
 
 h1, h2{
-    font-family: 'Open Sans', sans-serif;
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
     color: #161616;
-    margin: 0px;
     margin-left: 20px;
     margin-right: 20px;
-    margin-top: 40px;
+    color: #3a72c7;
 }
 
 
@@ -78,7 +74,7 @@ h1, h2{
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    font-size: 28px;
+    font-size: 24px;
     padding: 20px;
     box-sizing: border-box;
 }
@@ -99,7 +95,8 @@ h1, h2{
 .project {
     width: 50%;
     padding: 10px;
-    box-sizing: border-box
+    box-sizing: border-box;
+    margin-bottom: 20px;
 }
 
 .project img {
@@ -109,13 +106,14 @@ h1, h2{
 }
 
 .project p {
-    margin: 0px;
+    margin: 0px
 }
 
 .project a{
     text-decoration: none;
     font-size: 1.1em;
     font-weight: bold;
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
 }
 
 @media only screen and (max-width:600px) {
