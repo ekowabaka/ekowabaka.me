@@ -7,11 +7,11 @@ tags:
     - embedded computing
     - raspberry pi
 ---
-I bought my first Raspberry Pi in 2016, when the Model 3B was released. Although shipping this tiny board to Ghana cost me a pretty penny, I really thought it was worth it. Afterall I had several wonderful projects planned; projects that were going to give me a lot of fulfilment, even if they didn't generate any financial rewards. But the keyword in my statement here is “planned”, given that’s the state in which all the projects have remained. Since I never realised any of my projects, the tiny little computer board has remained in my drawer ever since. 
+I bought my first Raspberry Pi in 2016, when the Model 3B was released. Although shipping this tiny board to Ghana cost me a pretty penny, I really thought it was worth it. After all I had several wonderful projects planned; projects that were going to give me a lot of fulfillment, even if they didn't generate any financial rewards. But the keyword in my statement here is “planned”, given that’s the state in which all the projects have remained. Since I never realized any of my projects, the tiny little computer board has remained in my drawer ever since. 
 
 <!-- more -->
 
-Interestingly, not finding a use for this board didn’t deter me from purchasing others. Since 2016, I have bought a variant of every single raspberry pi board that has been released. And with each of these boards, I still justify the purchase with a list of projects that will never be realised. All that ever happens to these boards are the occasional flashes with random operating system images I come across.
+Interestingly, not finding a use for this board didn’t deter me from purchasing others. Since 2016, I have bought a variant of every single raspberry pi board that has been released. And with each of these boards, I still justify the purchase with a list of projects that will never be realized. All that ever happens to these boards are the occasional flashes with random operating system images I come across.
 
 [[rpi_ensemble.png| A sample of boards from my collection |frame=figure]]
 
