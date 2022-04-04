@@ -26,7 +26,7 @@ Earlier this year, as COVID restrictions were being raised, I started visiting l
 
 [[dirty.png| My keyboard in its original grimy state. Not as bad as I described it.|frame=figure]]
 
-From the markings on the back of the keyboard I found out it was a RedDragon K552. It's a keyboard which retails for about $40 on amazon. At that price, my thrift store steal appears to be from the lowest point of the low-end mechanical keyboards. To hit such a price point, it obviously had to lack some key features. For example, the switches are soldered to the PCB and cannot be swapped, and the body is constructed in a mixture of plastic and metal. Overall, the keyboard has some good heft, and its rubber feet provide enough resistance to prevent it from just sliding over my desk. Like most mechanical keyboards, this one too is bedazzled in RGB LEDs. The good thing, though, is that these LEDs can be turned off or dimmed, and they can be put in a single color mode (which is how I use it).
+From the markings on the back of the keyboard I found out it was a RedDragon K552. It's a keyboard which retails for about $40 on amazon. At that price, my thrift store steal appears to be from the lowest point of the low-end mechanical keyboards. To hit such a price point, it obviously had to lack some key features. For example, ~~the switches are soldered to the PCB and cannot be swapped~~, and the body is constructed in a mixture of plastic and metal. Overall, the keyboard has some good heft, and its rubber feet provide enough resistance to prevent it from just sliding over my desk. Like most mechanical keyboards, this one too is bedazzled in RGB LEDs. The good thing, though, is that these LEDs can be turned off or dimmed, and they can be put in a single color mode (which is how I use it).
 
 [[keys_removed.png| All keys pried off for a deep clean|frame=figure]]
 
@@ -38,6 +38,9 @@ So, how does this keyboard hold up in my daily use? Well, first I must admit the
 [[fixed.png| After a deep clean and a set of new keycaps|frame=figure]]
 
 Although this keyboard has its own setbacks, I still enjoy using it and I'm proud to say it's my daily driver. All the same, I still get the yearning to buy another mechanical keyboard (maybe something from Keychron), but I always look down at my fingertips, see the RedDragon, and console myself that I already have one. For the youtube videos, somehow they just stopped, and I'm thankful for that.
+
+## Update - 2022-04-03
+I just found out this keyboard has switches that can be swapped; they are not soldered to the board as I mentioned earlier. Interestingly, the switches require a significant amount of effort to extract, when compared to other keyboards with hot swappable switches.
  
 
 
