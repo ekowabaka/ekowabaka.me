@@ -40,7 +40,7 @@ So, how does this keyboard hold up in my daily use? Well, first I must admit the
 Although this keyboard has its own setbacks, I still enjoy using it and I'm proud to say it's my daily driver. All the same, I still get the yearning to buy another mechanical keyboard (maybe something from Keychron), but I always look down at my fingertips, see the RedDragon, and console myself that I already have one. For the youtube videos, somehow they just stopped, and I'm thankful for that.
 
 ## Update - 2022-04-03
-I just found out this keyboard has switches that can be swapped; they are not soldered to the board as I mentioned earlier. Interestingly, the switches require a significant amount of effort to extract, when compared to other keyboards with hot swappable switches.
+I just found out this keyboard has switches that can be swapped; they are not soldered to the board as I mentioned earlier. When compared to others, however, the switches on this keyboard require a significant amount of effort to extract. As I was trying to extract some of the switches, I ended up crushing the latches on a couple because the keys don't budge even after latches are shifted. I don't know of any other fasteners that are being used to hold these keys down, but if there's any other mechanism securing these keys then its doing a mighty job.
  
 
 
