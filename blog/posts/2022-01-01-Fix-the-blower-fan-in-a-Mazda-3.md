@@ -27,9 +27,11 @@ First, for those that just need the steps for the fix, here are the steps to att
 5. If swapped relay fixed the problem, purchase a replacement for the broken relay, and you're good to go.
 6. If these steps did not work, then I'm sorry you have to look for other solutions.
 
-<img fn-responsive fn-max-width=480 src="../../../images/mazda3_relay_box.png" class="half" />
-<img fn-responsive fn-max-width=480 src="../../../images/inside_mazda3_relay_box.png" class="half" />
-<img fn-responsive fn-max-width=480 src="../../../images/mazda3_mapping.png" class="half" />
+The following images illustrate where you can find objects of interest for this fix.
+
+[[mazda3_relay_box.png|The fuse box in the engine bay|frame=figure]]
+[[inside_mazda3_relay_box.png| The relay inside the fusebox|frame=figure]]
+[[mazda3_mapping.png|A brilliant legend under the fuse's cover, just in case you don't know which relay does what|frame=figure]]
 
 ## A rather hot summer
 Early last summer, I noticed my air conditioning wasn’t working as expected. It would start blowing nicely then suddenly it would start to cycle on and off as I drove. Sometimes the situation was reversed; the unit would turn on until several minutes after I'd pushed the power button. 
