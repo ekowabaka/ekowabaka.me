@@ -2,3 +2,4 @@ wp
 output_site
 cache
 responsive_images
+*.xcf
