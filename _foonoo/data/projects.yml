@@ -16,3 +16,8 @@
     A little library that helps in creating console applications for PHP. This library handles parsing command line arguments and console I/O.
   image: clearice.svg
   url: ./clearice/
+
+- name: GumBox
+  description: >
+    A 3D printable enclosure for the Raspberry Pi Pico. This enclosure is most useful if you're using the Pico as a debugging device.
+  image: gumbox.png
