@@ -11,7 +11,7 @@ Lately I have been getting my hands dirty with the Raspberry Pi PICO and its RP2
 
 <!--more -->
 
-[[agoro.png]]
+[[agoro.png|An aspirational drawing of what could have become.]]
 
 Honestly, if you think about it, it was quite ambitious to choose this as one of my first time projects. Regardless of the expected difficulty in pulling this off, I pursued it. And as expected, I spectacularly failed to get it working. But this failure taught one humbling lessons in embedded programming: that is the RP2040 (and probably all other MCUs in its category) is not fast as I originally thought. Understanding this simple fact is obviously going to be invaluable to my future projects. Another lesson I probably learned is that coding for these limited MCUs requires equal parts skill and art if you want to create something outstanding.
 
