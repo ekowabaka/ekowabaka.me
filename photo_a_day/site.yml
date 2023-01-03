@@ -1,0 +1,10 @@
+# Site URL
+
+title: "Photo A Day"
+url: "http://ekowabaka.me/photo_a_day"
+tagline: "my little space on the big web"
+author: "Ekow Abaka Ainooson <jainooson@gmail.com>"
+type: photo-a-day
+taxonomies: [category, tags]
+plugins:
+  - photo_a_day/photo_a_day
