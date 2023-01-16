@@ -1,0 +1,8 @@
+name: photo
+description: "Photo a day theme"
+author: Ekow Abaka
+
+default_layout: layout
+assets:
+  scss:
+    - scss/main.scss
