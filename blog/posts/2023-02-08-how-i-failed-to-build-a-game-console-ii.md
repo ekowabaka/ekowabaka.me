@@ -8,46 +8,146 @@ tags:
    - raspberry pi
 ---
 
-In my previous post, I wrote about a failed attempt to build a game console. Since I didn’t provide any significant details on my design and why it failed, you can consider this to be a post-mortem report on the console, with suggestions for what I intend to do next. If you read this, and you have any ideas, too, you are welcome to share with me.
+In my previous post, I started discussing a failed attempt to build a fantasy game console. Since I didn’t provide enough technical details on my design and why it failed, you can consider this to be a postmortem report (of some sort) on the effort. But solely classifying this as a postmortem makes it sound like the project is dead, and that's actually not the case. While writing these posts, I've had a lot of time to think through the issues I faced, and I've developed a few ideas on what my next steps in reviving this project could be. 
 
 <!--more -->
 
-For the first part of this post, I’ll discuss how I connected the display to the Raspberry Pi Pico. I’ll provide the code I wrote, and I’ll describe some of the modifications I made to the display board in hopes of achieving higher performance. In the second part of the post, I’ll discuss why my attempt failed, and I’ll share what my potential next step will be.
+For the first part of this post, I’ll discuss how I connected the display to the Raspberry Pi Pico. This will pretty much cover all the technical aspects of what I did. Then I’ll provide the code I wrote and describe some of the modifications I made to the hardware in hopes of achieving better performance. 
+
+In the concluding parts of the post, I’ll touch on why my attempt failed and share what my potential next step will be. Before we delve, I want to state that if you read this, and you come up with any ideas worth sharing, do not hesitate to hit me up.
 
 # Hooking up the Display
-The ILI9341 display provides two primary channels of communication: you can go through one of its parallel interfaces (transmitting 8 through 18 bits at the same time), or you could use one of two serial interfaces (with either 3 or 4 wires). For simplicity (and maybe for my own sanity) I went with the four wire serial interface.
+The ILI9341 display provides two primary channels of communication: you can either go through one of its parallel interfaces (transmitting 8 through 18 bits at the same time), or you can use one of its two serial interfaces (with either 3 or 4 wires). For simplicity&mdash;and maybe for my own sanity&mdash;I went with the four wire serial interface.
 
 [[display_schematic.png|A fritzing schematic of how I connected the display to the breadboard.]]
 
-My steps for connecting the interface came from Adafruit’s excellent documentation. Although their post  was primarily targeted at folks using their feather boards, the principles seem to translate easily. 
+My steps for connecting the interface came from Adafruit’s excellent tutorial on the ILI9341. Although their tutorial was primarily targeted at folks using their feather family boards, the principles seemed to translate easily to the raspberry pi pico. 
 
-In my case, I connected the Pico’s internal SPI0 peripheral to the SPI pins on the ILI9341's breakout board. The chip select (CS) and clock (SCLK) pins were pretty straight forward to map out between the Pico and the display. The MOSI (Master Out Slave In) pin on the display and TX pin on the Pico were, however, a little hard to map out. Interestingly, it took me quite a long while to figure out that the MISO (Master In Slave Out) and RX pins were not necessary for my use case. Of course in addition to the SPI interface, I needed to connect lines from the Pico to power the display, and an additional line for resetting the display. 
+In my case, I connected the Pico’s internal SPI peripheral (SPI0) to the SPI pins on the ILI9341's breakout board. With a four pin SPI implementation I needed to connect the CS,It was  matching the pins, the chip select (CS) and clock (SCLK) pins were pretty straight forward to connect&mdash;both pins are identically labeled on both devices. Connecting the MOSI (Master Out Slave In) pin on the display and TX pin on the Pico was, however, a little hard to map out, but I got it eventually. It was rather interesting how it took me quite a long while to figure out that the MISO (Master In Slave Out) and RX pins were not necessary for my use case. 
 
 # Sending data to the display
 The ILI9341 is operated by commands sent through the SPI (or whatever chosen connection) interface. Each command is a byte long, and depending on the command, the byte could be followed by a variable number of other argument bytes. 
 
-Commands do a lot: from displaying stuff by writing to the display's memory, to controlling the back light, or putting the display to sleep for power management. But even with this extensive coverage of capabilities, the commands only provide low level access to the memory for drawing graphics. There are no internal routines for producing primitives, like circles or other shapes, and there are equally no internal routines for manipulating bitmaps for stuff like rotation and scaling. All you got is raw access to the memory and you have to make good use of that. 
+Commands do a lot: they help display stuff by writing to the display's memory, they help in controlling the back light, and they can even help put the display to sleep for power management. But even with this extensive coverage of capabilities, the commands only provide low level access to the display's memory for drawing graphics. 
+
+Unfortunately, there are no internal routines for drawing primitives (like circles, rectangles, or other shapes) to the display, and there are equally no internal routines for manipulating bitmaps to do cool stuff stuff like rotation and scaling. All you get is raw access to the memory and you have to make good use of that. And that's actually good by design.
+
+Fortunately, though, several libraries (like Adafruit's GFX and LVGL) exist that provide these features. And most of these libraries act as front ends which allow you to target different display types. Essentially, they do all the heavy lifting for you. In the case of my work, however, I wanted to go through the raw low level access.
 
 [[note]]
 If you are interested in working with this display, I suggest you spend some time looking at its datasheet. It's an excellent resource and reference material as far as the commands and interfacing options are concerned.
 [[/note]]
 
-Before using the display, a series of initialization commands have to be sent. These commands tell the display to turn itself on, they also provide gamma curves for color reproduction, they tell the display the format in which data will be received, as well as how data can be accessed, and they supply several other configuration options. Since I was basing my work on stuff from Adafruit, I stole my initialization sequence from their fantastic GFX library.
+To send a command to the display, I just put the display's chip select (CS) like on low, send the command data (the command and all its arguments) to the SPI port through the RP2040's sdk routine, then I put the chip select line back high. This is just as simple as follows:
 
-After the initialization step, all you can do is to send commands to write to the display's memory. You can equally read from the memory, and even read the status of the success of your commands. But as I stated earlier, I never connected the MISO and RX pins so everything was left to fate. That said, debugging was quite easy since the display either lit up some pixels or not.
+````c
+void send_data(const void * data, int size) {
+	gpio_put(PIN_CS, 0);
+	spi_write_blocking(SPI_PORT, data, size);
+	gpio_put(PIN_CS, 1);
+}
+````
+
+Before using the display, a series of initialization commands have to be sent. These commands tell the display to turn itself on, they also provide gamma curves for color reproduction, they tell the display the format in which data will be received, as well as how data can be accessed, and they supply several other configuration options. Since I was basing my work on stuff from Adafruit, I stole the initialization sequence from their fantastic GFX library. Here's the code, and I hope that helps you understand why it was worth stealing.
+
+````c
+static const uint8_t initseq[] = {
+  0xEF, 3, 0x03, 0x80, 0x02,
+  0xCF, 3, 0x00, 0xC1, 0x30,
+  0xED, 4, 0x64, 0x03, 0x12, 0x81,
+  0xE8, 3, 0x85, 0x00, 0x78,
+  0xCB, 5, 0x39, 0x2C, 0x00, 0x34, 0x02,
+  0xF7, 1, 0x20,
+  0xEA, 2, 0x00, 0x00,
+  0xC0  , 1, 0x23,             // Power control VRH[5:0]
+  0xC1, 1, 0x10,             // Power control SAP[2:0];BT[3:0]
+  0xC5, 2, 0x3e, 0x28,       // VCM control
+  0xC7, 1, 0x86,             // VCM control2
+  0x36, 1, 0xe0,             // Memory Access Control
+  0x37, 1, 0x00,             // Vertical scroll zero
+  0x3A, 1, 0x55,
+  0xB1, 2, 0x00, 0x18,
+  0xB6, 3, 0x08, 0x82, 0x27, // Display Function Control
+  0xF2, 1, 0x00,                         // 3Gamma Function Disable
+  0x26, 1, 0x01,             // Gamma curve selected
+  0xE0, 15, 0x0F, 0x31, 0x2B, 0x0C, 0x0E, 0x08, // Set Gamma
+  0x4E, 0xF1, 0x37, 0x07, 0x10, 0x03, 0x0E, 0x09, 0x00,
+  0xE1, 15, 0x00, 0x0E, 0x14, 0x03, 0x11, 0x07, // Set Gamma
+  0x31, 0xC1, 0x48, 0x08, 0x0F, 0x0C, 0x31, 0x36, 0x0F,
+  0x11, 0,                // Exit Sleep
+  0x35, 0,
+  0x29, 0,                // Display on
+  0x00
+};
+````
+
+Once the initialization sequence is defined, the GPIOs for sending this data must be initialized. We need five GPIOs: one for chip select, one for resetting the display, and another three for the SPI device interface.
+
+````c
+spi_init(SPI_PORT, 62500000);
+
+gpio_set_function(PIN_MISO, 	GPIO_FUNC_SPI);
+gpio_set_function(PIN_SCK,  	GPIO_FUNC_SPI);
+gpio_set_function(PIN_MOSI, 	GPIO_FUNC_SPI);
+    
+gpio_init(PIN_CS);
+gpio_set_dir(PIN_CS, GPIO_OUT);
+gpio_put(PIN_CS, 0);
+
+gpio_init(PIN_RESET);
+gpio_set_dir(PIN_RESET, GPIO_OUT);
+gpio_put(PIN_RESET, 1);
+````
+
+With GPIOs initialized, we need to send a signal to reset the display. For some reason, without putting these delays in place, the reset operation sometimes tends to fail. I guess the RP2040 may be sending the signals so fast, you have to manually impose some of your own timing constraints.
+
+````c
+sleep_ms(150);
+gpio_put(PIN_RESET, 0);
+sleep_ms(150);
+gpio_put(PIN_RESET, 1);
+
+
+send_command(0x01);
+```
+
+After the display is reset, we now get to the fun part of sending the initialization sequence. All I do here is to loop through the sequence and send all the commands.
+
+````
+uint8_t command, numArgs;
+const uint8_t *sequence = initseq;
+
+while(true) {
+    command = sequence[0];
+    if(command == 0) {
+    	break;
+    }
+    numArgs = sequence[1];
+	 send_command(command);
+	 sequence += 2;
+    if(numArgs > 0) {
+    	send_data(sequence, numArgs);
+    } else {
+	 	sleep_ms(150);
+    }
+	 sequence+=numArgs;
+}
+````
+
+Now the display should be initialized, and all you can do is send commands to write to the display's memory. You can equally read from the memory to obtain things like the status of commands you've issued. But as I stated earlier, I never connected the MISO and RX pins, so there was no way to read anything from the display. Everything was left to fate when the success of my commands were concerned. But it really wasn't that hard to detect failures; it's a display, and when you don't see the pixels you're expecting, you know something went wrong.
 
 # Optimizations and the Start of My Problems
-Once my display was connected and configured, I started to face my next demon&mdash;performance. It was just really slow to update the full screen. When I tried alternating the display between two colors, the display kept tearing, and I was averaging about 5 frames per second. 
+Once my display was properly connected and configured, I started to face my next demon&mdash;performance. It was just really slow to update the full screen. When I tried alternating the display between two colors, the display kept tearing, and I was averaging about 5 frames per second. 
 
-Now, this is really not a big issue for most other cases in which the ILI9341 will be used. Typically, if you are using this display, you will be updating small sections of the at a time. In my case, however, since I intend to have full screen scrolling with fancy animation, this wasn't going to cut it. As such, I took two major steps to improve performance.
+Now, this is really not a big issue for most other cases in which the ILI9341 will be used. Typically, if you are using this display, you will be updating small sections of the screen at a time. In my case, however, since I intend to have full screen scrolling with fancy animation, this wasn't going to cut it. As such, I took two major steps to improve performance.
 
-The first, and probably the simplest, was maxing out the SPI interface's frequency. This provided some marginal improvements to the frame-rate, but the screen tearing was still persistent.
+The first, and probably the simplest, was maxing out the SPI interface's frequency. This provided some marginal improvements to the frame-rate, but the screen tearing was persistent. Then I switched to a multi-core architecture where one core of the pico was dedicated to pushing data to the display and there was practically no improvement. Initially, I was of the view that my multi-core approach was flawed, but when I consider the speed of the RP2040's SPI interface and the amount of data it needs to push if screen updates were to be missed, I could tell the problem was definitely from the SPI speed.
 
-After a little internet sleuthing, I found out that tearing probably occurred because I was writing to the display right around the time it was also being read. There was essentially no synchronization between my writing operation and the display's internal read operation. As such, the display could be reading data from the middle of the screen, while I will be writing somewhere at the beginning, causing two halves of different frames to be displayed at once, with the frames joined at the tear. 
+I didn't give up, though. I did a little internet sleuthing, I found out that tearing in the display probably occurred because I was writing to the display right around the time it was also being read. There was essentially no synchronization between my writing operation and the display's internal read operation. As such, the display could be reading data from the middle of the screen, while I will be writing somewhere at the beginning, causing two halves of different frames to be displayed at once, with the frames joined at the tear. 
 
 Fortunately, the display has a special pin&mdash;aptly named the Tearing Effect (TE) pin&mdash;which signals a good period within which to write data. Whenever this pin is high, data could be written to the display with the guarantee that it's not being read simultaneously. Unfortunately for me, though, the Adafruit breakout board didn't expose this pin. I went ahead and painfully soldered one on, anyway. But that didn't help either. Although the pin was correctly doing its job, the Pico was still too slow to write within the allotted time.
 
-It became obvious the serial interface may not be the way to go
+It became obvious the serial interface may not be the way to go. If my goal was to push more data to the display, I needed to go parallel. But, there was still another problem. The adafruit break-out board I have only exposes eight of these parallel pins, and to use them you need to physically solder a jumper on the board. Since I really want max performance, I'll be looking at making my own breakout board which exposes all 18 parallel lines. This will definitely be a huge undertaking, but I'm here for the challenge.
 
 
 
