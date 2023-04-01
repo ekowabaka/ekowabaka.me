@@ -30,6 +30,8 @@ The ILI9341 is operated by commands sent through the SPI (or whatever chosen con
 
 Commands do a lot: they help display stuff by writing to the display's memory, they help in controlling the back light, and they can even help put the display to sleep for power management. But even with this extensive coverage of capabilities, the commands only provide low level access to the display's memory for drawing graphics. 
 
+[[agoro_overhead_connection.jpg|The fully connected breadboard with the Raspberry Pi Pico and the ILI9341]]
+
 Unfortunately, there are no internal routines for drawing primitives (like circles, rectangles, or other shapes) to the display, and there are equally no internal routines for manipulating bitmaps to do cool stuff stuff like rotation and scaling. All you get is raw access to the memory and you have to make good use of that. And that's actually good by design.
 
 Fortunately, though, several libraries (like Adafruit's GFX and LVGL) exist that provide these features. And most of these libraries act as front ends which allow you to target different display types. Essentially, they do all the heavy lifting for you. In the case of my work, however, I wanted to go through the raw low level access.
@@ -140,6 +142,8 @@ Now the display should be initialized, and all you can do is send commands to wr
 # Optimizations and the Start of My Problems
 Once my display was properly connected and configured, I started to face my next demon&mdash;performance. It was just really slow to update the whole screen, and when I tried alternating the display between two colors, the display kept tearing. In all, I was averaging about 5 measley frames per second. 
 
+[[agoro_overhead_tearing.jpg|The tearing effect as seen in my display.]]
+
 In typical use cases, small sections of the display are updated at a time. In my case, however, since I intend to have full screen scrolling with fancy animation, this wasn't going to cut it. As such, I took two major steps to improve performance.
 
 The first, and probably the simplest, was maxing out the SPI interface's frequency. This provided some marginal improvements to the frame-rate, but the screen tearing was persistent. 
@@ -151,6 +155,8 @@ At a point, I was of the view that my multi-core approach was flawed (and it cou
 I didn't give up, though. After a little Internet sleuthing, I found out that the tearing in the display occurred because I was writing to the display buffer right around the time the display controller was also reading the buffer. There was essentially no synchronization between my write operation and the controllers's internal read operation. As such, the controller could be reading data from the middle of the screen, while I will be writing somewhere at the beginning, causing two halves of different frames to be displayed at once, with the frames joined at the tear. 
 
 Fortunately, the display has a special pin&mdash;aptly named the Tearing Effect (TE) pin&mdash;which signals a good period within which to write data. Whenever this pin is high, data could be written to the display with the guarantee that it's not being read simultaneously. Unfortunately for me, though, the Adafruit breakout board didn't expose this pin. I went ahead and painfully soldered one on, anyway. But that didn't help either. Although the pin was correctly doing its job, the Pico was still too slow to write within the allotted time.
+
+[[tearing_effect_wiring.jpg|The little wire I soldered on for the tearing effect signal. You can also notice the 8 parallel data lines, and the jumper for switching between the SPI interface and the parallel one.]]
 
 # Conclusions and Next Steps
 It became obvious the serial interface may not be the way to go. If my goal was to push more data to the display, I needed to go parallel. My conclusion may still be wrong, and the problem may be with my implementaion, but I'll never know if I don't try. 
