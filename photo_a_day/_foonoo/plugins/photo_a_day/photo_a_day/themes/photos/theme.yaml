@@ -5,4 +5,5 @@ author: Ekow Abaka
 default_layout: layout
 assets:
   scss:
-    - scss/main.scss
+    items:
+      - scss/main.scss

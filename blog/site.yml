@@ -25,4 +25,5 @@ plugins:
       frame: figure
 assets:
   css:
-    - css/home.css
+    items:
+      - css/home.css

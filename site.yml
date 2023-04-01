@@ -7,5 +7,6 @@ author: "Ekow Abaka Ainooson <jainooson@gmail.com>"
 type: default
 assets:
   css: 
-    - css/home.css
+    items:
+      - css/home.css
 

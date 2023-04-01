@@ -93,6 +93,10 @@ h1, h2{
     padding-right: 10px;
 }
 
+#publications-list > ul > li{
+    margin-bottom: 20px;
+}
+
 .project {
     width: 50%;
     padding: 10px;

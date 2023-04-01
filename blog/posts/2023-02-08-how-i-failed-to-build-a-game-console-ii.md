@@ -16,7 +16,7 @@ For the first part of this post, I’ll discuss how I connected the display to t
 
 In the concluding parts of the post, I’ll touch on why my attempt failed and share what my potential next step will be. Before we delve, I want to state that if you read this, and you come up with any ideas worth sharing, do not hesitate to hit me up.
 
-# Hooking up the Display
+# Connecting the Display
 The ILI9341 display provides two primary channels of communication: you can either go through one of its parallel interfaces (transmitting 8 through 18 bits at the same time), or you can use one of its two serial interfaces (with either 3 or 4 wires). For simplicity&mdash;and maybe for my own sanity&mdash;I went with the four wire serial interface.
 
 [[display_schematic.png|A fritzing schematic of how I connected the display to the breadboard.]]
@@ -34,9 +34,9 @@ Unfortunately, there are no internal routines for drawing primitives (like circl
 
 Fortunately, though, several libraries (like Adafruit's GFX and LVGL) exist that provide these features. And most of these libraries act as front ends which allow you to target different display types. Essentially, they do all the heavy lifting for you. In the case of my work, however, I wanted to go through the raw low level access.
 
-[[note]]
+[[block:note]]
 If you are interested in working with this display, I suggest you spend some time looking at its datasheet. It's an excellent resource and reference material as far as the commands and interfacing options are concerned.
-[[/note]]
+[[/block:note]]
 
 To send a command to the display, I just put the display's chip select (CS) like on low, send the command data (the command and all its arguments) to the SPI port through the RP2040's sdk routine, then I put the chip select line back high. This is just as simple as follows:
 
@@ -48,6 +48,7 @@ void send_data(const void * data, int size) {
 }
 ````
 
+## Initializing the Display
 Before using the display, a series of initialization commands have to be sent. These commands tell the display to turn itself on, they also provide gamma curves for color reproduction, they tell the display the format in which data will be received, as well as how data can be accessed, and they supply several other configuration options. Since I was basing my work on stuff from Adafruit, I stole the initialization sequence from their fantastic GFX library. Here's the code, and I hope that helps you understand why it was worth stealing.
 
 ````c
@@ -113,7 +114,7 @@ send_command(0x01);
 
 After the display is reset, we now get to the fun part of sending the initialization sequence. All I do here is to loop through the sequence and send all the commands.
 
-````
+````c
 uint8_t command, numArgs;
 const uint8_t *sequence = initseq;
 
@@ -147,10 +148,11 @@ The second approach, was switching to a multi-core architecture where one core o
 
 At a point, I was of the view that my multi-core approach was flawed (and it could still be,) but when I consider the speed of the RP2040's SPI interface and the amount of data it needs to push if screen updates were not to be missed, I could tell the problem was definitely from the SPI's speed.
 
-I didn't give up, though. After a little Internet sleuthing, I found out that tearing in the display probably occurred because I was writing to the display right around the time it was also being read. There was essentially no synchronization between my write operation and the display's internal read operation. As such, the display could be reading data from the middle of the screen, while I will be writing somewhere at the beginning, causing two halves of different frames to be displayed at once, with the frames joined at the tear. 
+I didn't give up, though. After a little Internet sleuthing, I found out that the tearing in the display occurred because I was writing to the display buffer right around the time the display controller was also reading the buffer. There was essentially no synchronization between my write operation and the controllers's internal read operation. As such, the controller could be reading data from the middle of the screen, while I will be writing somewhere at the beginning, causing two halves of different frames to be displayed at once, with the frames joined at the tear. 
 
 Fortunately, the display has a special pin&mdash;aptly named the Tearing Effect (TE) pin&mdash;which signals a good period within which to write data. Whenever this pin is high, data could be written to the display with the guarantee that it's not being read simultaneously. Unfortunately for me, though, the Adafruit breakout board didn't expose this pin. I went ahead and painfully soldered one on, anyway. But that didn't help either. Although the pin was correctly doing its job, the Pico was still too slow to write within the allotted time.
 
+# Conclusions and Next Steps
 It became obvious the serial interface may not be the way to go. If my goal was to push more data to the display, I needed to go parallel. My conclusion may still be wrong, and the problem may be with my implementaion, but I'll never know if I don't try. 
 
 As it stands, the Adafruit break-out board I have exposes only eight of the display's parallel pins. And to use them I need to physically solder a jumper on the board. Since I really want max performance, I'll ultimately be looking at making my own breakout board which exposes all 18 parallel lines. In the meantime, however, I'll see how much improvement I could get from the 8 bit parallel interface. This will definitely be a huge undertaking, but I'm here for the challenge.
