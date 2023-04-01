@@ -11,7 +11,7 @@ jobs:
               uses: actions/checkout@v2
             - name: Fetch plugins as submodules
               run: git submodule update --init --recursive
-            - name: Install PHP 7.4
+            - name: Install PHP
               uses: shivammathur/setup-php@v2
               with:
                 php-version: '8.1'
