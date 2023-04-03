@@ -21,3 +21,4 @@
   description: >
     A 3D printable enclosure for the Raspberry Pi Pico. This enclosure is most useful if you're using the Pico as a debugging device.
   image: gumbox.png
+  url: https://github.com/gumbox
