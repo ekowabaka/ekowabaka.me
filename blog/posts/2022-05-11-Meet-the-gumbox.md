@@ -29,6 +29,6 @@ Even with all this new found efficiency, one thing about my setup kept nagging a
 After hours of tinkering and figuring out Freecad, I eventually came up with an enclosure that looked like a box of gum. I aptly named it the “gum box”. It’s design is by no mistake, though. I deliberately made it very tiny so it could snugly hold the pico inside. 
 To ensure the tiny design, I didn’t provide a lip for the enclosure (something I actually found a little hard to do). As such a flat lid is glued in place after the pico is installed—making whatever pico held inside a permanent debugger. To allow for firmware updates, and to make the LED visible (since its always on and blinks whenever the debugger is flashing firmware) I made two tiny holes on the top. The first, larger hole provides enough clearance for a tiny pin to push the BOOT button whenever the pico’s firmware needs to be updated, and the other smaller hole provides a window for the LED to shine through.
 
-[[gumbox.webp|A profile of the gumbox in action|frame=figure]]
+[[A profile of the gumbox in action|gumbox.webp|frame="figure"]]
 
 If you are interested in printing one of these for your own use, you can download the STL and cad files from my github. If you also want to have your workflow setup like mine, I will recommend checking out this tutorial from DigiKey: it’s basically what I used. I’m happy with my progress so far, and I’m hoping to share updates on some of my projects soon. 

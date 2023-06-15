@@ -11,7 +11,7 @@ Lately, I have been getting my hands dirty with the Raspberry Pi PICO and its RP
 
 <!--more -->
 
-[[agoro.png|An aspirational drawing of what could have become.]]
+[[An aspirational drawing of what could have become.|agoro.png]]
 
 Honestly, if you think about it, it was quite ambitious to choose this as one of my first projects. But regardless of the expected difficulty in pulling this off, I pursued it. And as expected, I spectacularly failed. But this failure taught one humbling lesson: which is that most low cost MCUs, like the RP2040, are not fast as I originally thought. And that coding for these MCUs require equal parts skill and art if you want to create something outstanding. Understanding this simple fact about performance is obviously going to be invaluable to my future projects.
 
@@ -26,7 +26,7 @@ Although one might argue you could do also rig up an RP2040 with specialized ext
 
 So in effect, all I'm trying to say is that I was extremely dumb to base my judgement entirely on the megahertz metric. It's not my fault. I started using computers during the era of the Megahertz Wars, and the clock speed was the only thing manufacturers made us think about when comparing systems.
 
-With that said, I must add that it's not all that terrible to use the RP2040. For a chip that costs about a dollar, with a dev board that costs about four dollars, you'd be amazed at the wonderful things folks have done with it. There is everything from your quintessential [[https://www.raspberrypi.com/news/doom-comes-to-raspberry-pi-pico/|Doom Clone]], to [[https://picockpit.com/raspberry-pi/gaming-on-the-raspberry-pi-pico/|console emulators]], and music synthesizers. Some folks have even built oscilloscopes with the thing! And as you'd expect from extremely motivated creatives, interesting projects that push the limits of this chip are always cropping up. 
+With that said, I must add that it's not all that terrible to use the RP2040. For a chip that costs about a dollar, with a dev board that costs about four dollars, you'd be amazed at the wonderful things folks have done with it. There is everything from your quintessential [[Doom Clone|https://www.raspberrypi.com/news/doom-comes-to-raspberry-pi-pico/]], to [[console emulators|https://picockpit.com/raspberry-pi/gaming-on-the-raspberry-pi-pico/]], and music synthesizers. Some folks have even built oscilloscopes with the thing! And as you'd expect from extremely motivated creatives, interesting projects that push the limits of this chip are always cropping up. 
 
 My experience attempting to build a fantasy game console around the RP2040 made me appreciate the level of skill and the sheer expression of artistic coding it takes to achieve such feats. In the next section of this post, I'll be detailing what I planned to make, and in the second part of this post I'll walk through what I actually ended up with.
 

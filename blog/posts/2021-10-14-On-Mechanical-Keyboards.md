@@ -24,18 +24,18 @@ My first proper encounter with a mechanical keyboard, which actually succeeded i
 Earlier this year, as COVID restrictions were being raised, I started visiting local thrift stores. On one trip, the final hurdle standing in the way of me acquiring my own mechanical keyboard was cleared. Looking through the computer peripheral shelf, I noticed a unique keyboard hidden in a pile of others. This keyboard definitely stood out with its ten-keyless (having no number pad in keyboard enthusiast speak) look, solid build, and bright white color. I picked it up, pushed a few keys, received a distinct clicky feedback, and instantly fell in love. This keyboard had to be mine. At a reasonable asking price of $6.99, the specs of the keyboard didn't mater. The type of switch, the beauty of the keycaps, the quality of the build, or even the actual functionality of the keyboard were secondary concerns to me.
 
 
-[[dirty.png| My keyboard in its original grimy state. Not as bad as I described it.|frame=figure]]
+[[ My keyboard in its original grimy state. Not as bad as I described it.| dirty.png | frame="figure"]]
 
 From the markings on the back of the keyboard I found out it was a RedDragon K552. It's a keyboard which retails for about $40 on amazon. At that price, my thrift store steal appears to be from the lowest point of the low-end mechanical keyboards. To hit such a price point, it obviously had to lack some key features. For example, ~~the switches are soldered to the PCB and cannot be swapped~~, and the body is constructed in a mixture of plastic and metal. Overall, the keyboard has some good heft, and its rubber feet provide enough resistance to prevent it from just sliding over my desk. Like most mechanical keyboards, this one too is bedazzled in RGB LEDs. The good thing, though, is that these LEDs can be turned off or dimmed, and they can be put in a single color mode (which is how I use it).
 
-[[keys_removed.png| All keys pried off for a deep clean|frame=figure]]
+[[All keys pried off for a deep clean|keys_removed.png|frame=figure]]
 
  
 The keyboard I bought had obviously seen better days. Physically, it was just dusty and felt greasy to touch for some reason. Some of the keycaps were also scratched, leading me to think that the keyboard may have been dragged over concrete or some other rough surface. Regardless, those deficiencies were nothing a little cleaning and keycap replacement couldn't fix. Taking a cue from all the youtube videos I had been watching, I ordered replacement keycaps, doused the keyboard in isopropyl alcohol, gave everything a nice clean, and even put in some padding material. Now had a good looking keyboard that was fit for my desk.
  
 So, how does this keyboard hold up in my daily use? Well, first I must admit there is a reason why the RedDragon K225 is cheap. Sure it has a nice tactile feel. Sure it looks good, and has all the RGB you could want. But this keyboard is simply loud. Gradually, though, I am beginning to find this sound pleasant, but when I really need to concentrate, or when I have to type over a video call, I just swap it out for something more silent. In addition to the loudness of the switches, I also found out the switches required more effort to push. I actually compared them with my colleague's mechanical keyboard and ended up feeling sorry for myself. Two other things I wish this keyboard had, were a wireless connection and a darker color (the white color is a real dirt trap).
 
-[[fixed.png| After a deep clean and a set of new keycaps|frame=figure]]
+[[ After a deep clean and a set of new keycaps|fixed.png|frame=figure]]
 
 Although this keyboard has its own setbacks, I still enjoy using it and I'm proud to say it's my daily driver. All the same, I still get the yearning to buy another mechanical keyboard (maybe something from Keychron), but I always look down at my fingertips, see the RedDragon, and console myself that I already have one. For the youtube videos, somehow they just stopped, and I'm thankful for that.
 

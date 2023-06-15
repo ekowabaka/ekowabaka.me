@@ -13,7 +13,7 @@ I bought my first Raspberry Pi in 2016, when the Model 3B was released. Although
 
 Interestingly, not finding a use for this board didn’t deter me from purchasing others. Since 2016, I have bought a variant of every single raspberry pi board that has been released. And with each of these boards, I still justify the purchase with a list of projects that will never be realized. All that ever happens to these boards are the occasional flashes with random operating system images I come across.
 
-[[rpi_ensemble.png| A sample of boards from my collection |frame=figure]]
+[[A sample of boards from my collection|rpi_ensemble.png |frame="figure"]]
 
 Because I have been collecting since 2016, my lot of these single board computers have steadily grown. Currently I own a Raspberry pi 3B, 3B+, 4, 400 (the one with the keyboard), Zero, several Picos, and my most recent addition, the Zero 2W. This list does not include impulse purchases for other single board computers like a RockPI 64 and an ESP 8266 (with its programmer).
 
