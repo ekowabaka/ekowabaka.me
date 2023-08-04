@@ -5,6 +5,7 @@ index: Introduction
 plugins:
   - contrib/highlight:
       style: rainbow
+
 theme: 
     name: site
     primary-color: "#1E212B"

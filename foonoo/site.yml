@@ -9,6 +9,8 @@ type: default
 menu:
   - title: Documentation
     url: ./docs/
+  - title: "Plugins"
+    url: "./plugins.html"    
   - title: Code
     url: https://github.com/foonoo
 

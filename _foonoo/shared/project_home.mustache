@@ -23,7 +23,11 @@
                 <div id="project-tagline">
                     <p>{{project.short_description}}</p>
                 </div>
-                <div><a class="button ashes-secondary-background" href="./docs/1-Introduction.html">Get Started</button></div>
+                <div>
+                    {{#project.quick_links}}
+                    <a class="button ashes-secondary-background" href="{{url}}">{{title}}</button>
+                    {{/project.quick_links}}
+                </div>
             </div>
         </div>
         <article id="body" class="ashes-max-content-width">
