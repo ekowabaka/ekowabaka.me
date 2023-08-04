@@ -5,6 +5,7 @@ url: "http://ekowabaka.me"
 description: "Ekow Abaka's personal webpage"
 author: "Ekow Abaka Ainooson <jainooson@gmail.com>"
 type: default
+
 assets:
   css: 
     items:

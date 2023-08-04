@@ -2,7 +2,6 @@
   description: >
     A little blog where I write about my experiences with cheap cameras. I also share lots of the snapshots I take.
   image: hoto.png
-  
   url: https://hotocameras.com
 
 - name: Ntetnan PHP Tools
@@ -16,6 +15,12 @@
     A little library that helps in creating console applications for PHP. This library handles parsing command line arguments and console I/O.
   image: clearice.svg
   url: ./clearice/
+
+- name: Foonoo Site Generator
+  description: >
+    Another PHP static site generator. Compared to others, there's nothing special about this one, other than it works!
+  image: foonoo.svg
+  url: ./foonoo/
 
 - name: GumBox
   description: >

@@ -5,8 +5,6 @@ title: Parsing Arguments
 Parsing Arguments
 =================
 
-[[_TOC_]]
-
 ClearIce provides command line argument parsing for PHP applications. You can define the options and commands that will be passed to your application, and ClearICE will parse them for you, complete with error reporting and help generation. Option styles accepted through ClearIce are quite similar to what you would expect from most GNU style applications. Arguments passed to your application could be commands that your users may use to select specific modes in your application, options that your users can pass through flags, or stand-alone arguments that serve other purposes (such as providing file paths) in your application. 
 
 You can access the argument parser through the `clearice\argparser\ArgumentParser` class.

@@ -1,3 +1,0 @@
-[submodule "blog/np_plugins/contrib/highlight"]
-	path = blog/np_plugins/contrib/highlight
-	url = https://github.com/foonoo/plugin-highlight

@@ -7,5 +7,5 @@ plugins:
       style: rainbow
 theme: 
     name: site
-    primary-color: "#bf361a"
-    secondary-color: "#e67607"
+    primary-color: "#1E212B"
+    secondary-color: "#4D8B31"

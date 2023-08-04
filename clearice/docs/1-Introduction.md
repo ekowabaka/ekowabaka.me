@@ -4,9 +4,6 @@ title: Introduction
 Introduction
 ============
 
-[[_TOC_]]
-
-
 ClearIce aims to make it easy to deal with the routine operations that are usually encountered when building CLI apps. Simply, ClearIce provides command line argument parsing and console I/O tools. 
 
 The argument parser in ClearICE accepts arguments in a style similar to what you would find in most GNU CLI applications &mdash; single dashes preceding single character arguments, and double dashes for longer ones. In such a configuration, shorter options are typically used as shortcuts for longer ones. 

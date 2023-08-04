@@ -4,8 +4,6 @@ title: Generating Help Messages
 Generating Help Messages
 ========================
 
-[[_TOC_]]
-
 Another feature ClearIce provides is the automatic generation of a help listing for your application. Through ClearIce, its possible for your users to type `myapp --help` or `myapp -h` (or even `myapp help` when commands are enabled) to get help about which options exist and what they mean. For CLI apps that use command groups, the help system can also provide help messages for each command defined in the application. Although you'll have to provide some of the content for the help magic to happen, the tool helps format and display your help consistently.
 
 Enabling help generation

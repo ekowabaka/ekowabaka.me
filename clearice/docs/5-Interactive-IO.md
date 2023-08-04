@@ -4,9 +4,6 @@ title: Interactive I/O
 Interactive I/O with ClearIce
 =============================
 
-[[_TOC_]]
-
-
 In some cases console apps may require some kind of interactivity, especially in cases where command line arguments are not passed. ClearIce makes it possible to perform interactive I/O. Through ClearIce's I/O interface, you can write output to the standard output (or any other output stream) with the added capability of limiting verbosity, and you can additionally read input from users with the added capability of validating the data.
 
 All I/O operations in ClearIce are performed through the `clearice\io\Io` class.
