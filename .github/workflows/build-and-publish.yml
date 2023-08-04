@@ -23,8 +23,8 @@ jobs:
               run: git clone https://github.com/foonoo/plugin-highlight /tmp/foonoo-plugins/contrib/highlight
             - name: Clone responsive images repository
               run: git clone https://github.com/foonoo/plugin-responsive-images /tmp/foonoo-plugins/contrib/responsive_images
-            - name: Update content
-              run: ./update-content.sh
+            - name: Update documentation content
+              run: /bin/bash update-docs.sh
             - name: Generate the site
               run: /tmp/foonoo/bin/foonoo generate -o output_site -P /tmp/foonoo-plugins
             - name: Deploy Blog to Server
