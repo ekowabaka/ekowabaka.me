@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <title>{{project.name}}</title>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&amp;family=Open+Sans&amp;display=swap" rel="stylesheet">
+        {{{assets_markup.default}}}
+    </head>
+    <body>
+        <div id="project-header-section" class="ashes-banner-background">
+            <div id="project-header-container" class="ashes-max-content-width">
+                <div id="project-header-items">
+                    <div id="title">
+                        <a href="{{project.url}}"><img id="project-logo"src="./images/logo.svg" /></a>
+                    </div>
+                    <nav id="main-navigation">
+                        <ul>{{#project.menu}}<li><a href="{{url}}">{{title}}</a></li>{{/project.menu}}</ul>
+                    </nav>
+                </div>
+                <div id="project-tagline">
+                    <p>{{project.short_description}}</p>
+                </div>
+                <div><a class="button ashes-secondary-background" href="./docs/1-Introduction.html">Get Started</button></div>
+            </div>
+        </div>
+        <article id="body" class="ashes-max-content-width">
+            {{{body}}}
+        </article>
+    </body>
+</html>

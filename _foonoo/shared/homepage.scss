@@ -1,0 +1,65 @@
+//@import "colors";
+
+#project-header-section {
+    min-height: 300px;
+
+    > #project-header-container {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    .button {
+        padding: 20px;
+        padding-top:10px;
+        padding-bottom: 10px;
+        border-radius: 5px;
+        color: #fff;
+        font-weight: bold;
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    #project-logo {
+        height: 40px;
+        width: auto;
+        margin: 0px;
+        display: block;
+        margin-top: 6px;
+        margin-bottom: 6px;
+    }
+
+    div#project-header-items {
+        padding-top:30px;
+        display: flex;
+        #title {
+            flex-grow: 1;
+        }
+        a {
+            display: block;
+        }
+    }
+
+    #project-tagline {
+        font-size: larger;
+        text-align: center;
+        padding: 20px;
+        color: #ffffff;
+    }
+}
+
+#body {
+    margin-left: auto;
+    margin-right: auto;
+
+    .larger-text {
+        font-size: larger;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    
+    h1 {
+        margin-bottom: 2px;
+        padding: 0px;
+    }
+}
+

@@ -1,8 +1,8 @@
 # Site URL
 
-title: "ClearIce"
-url: "http://ekowabaka.me/clearice"
-description: "A command line interface tool for PHP"
+title: "Foonoo"
+url: "http://ekowabaka.me/foonoo"
+description: "A PHP based static site geerator"
 author: "Ekow Abaka Ainooson <jainooson@gmail.com>"
 type: default
 
@@ -10,12 +10,12 @@ menu:
   - title: Documentation
     url: ./docs/
   - title: Code
-    url: https://github.com/ekowabaka/clearice
+    url: https://github.com/foonoo
 
 theme: 
     name: site
-    primary-color: "#1E212B"
-    secondary-color: "#4D8B31"
+    primary-color: "#862020"
+    secondary-color: "#ff5912"
 
 plugins:
   - contrib/highlight:
