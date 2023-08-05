@@ -4,22 +4,60 @@ title: Plugins
 <h1>Plugins</h1>
 
 <p> 
-    Plugins provide a great way of extending Foonoo's features. 
+    Plugins provide a great way to extending Foonoo's, already fantastic 😉, features. By taking advantage of Foonoo's
+    extensible architecture, you can build in features that you need for your own work.
 </p>
 
+
 <h2>Installing Plugins</h2>
+
 <p>
-With foonoo still in active development, there are currently there are no automated scripts for installing  plugins. 
-The current best approach is to manually checkout a plugin's code from github into a designated directory, to which 
-foonoo will be pointed during execution.
+With foonoo still in active development, there are currently no automated ways to install plugins. For now, you may need 
+to get your hands a little dirty. The current approach for installing plugins is to manually checkout a plugin's code 
+from github into either foonoo's local settings directory or a user specified directory. 
 </p>
+
+<p>
+Foonoo's local settings directory can be found in <code>$XDG_DATA_HOME/foonoo/</code> or <code>~/.local/share/foonoo/</code> 
+on Linux, <code>LOCALAPPDATA\foonoo\</code> on Windows, and <code>$HOME/Library/Application Support/foonoo/</code> on macos.
+</p>
+
+<p>
+In cases where you want to keep plugins in a designated directory, you can use either the <code>-P</code> or <code>--plugin-path</code> option
+to point to the directory holding your plugins.
+</p>
+
+<h2> Using Plugins </h2>
+<p>
+All plugins needed for a site must be listed in the <code>site.yml</code> file. For example, to build a site with the 
+<code>foonoo/highlight</code> and the <code>foonoo/responsive-images</code> plugins, you could use the following:
+</p>
+
+<pre>
+    <code class="hljs yml">plugins:
+- foonoo/highlight
+- foonoo/responsive-images</code>
+</pre>
+
+... and if you wanted to set the parameters of one of the plugins, you could go with the following ....
+
+<pre>
+    <code class="hljs yml">plugins:
+- foonoo/highlight:
+    - style: rainbow
+- foonoo/responsive-images</code>
+</pre>
+
+<h2> Plugins</h2>
+<p>Here are a list of currently known foonoo plugins. These are all developed as part of the entire foonoo ecosystem.<p>
 
 <div id="plugins">
     {{#plugins}}<div class="plugin">
     <span class="plugin-title">{{name}}</span>
+    <span class="plugin-id">{{id}}</span>
 
     <ul class="plugin-actions">
-        <li><a href="{{code}}">Code</a></li>
+        <li><a href="{{repo}}">Code</a></li>
         <li><a href="{{url}}">Docs</a></li>
     </ul>
 

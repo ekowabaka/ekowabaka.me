@@ -7,7 +7,7 @@
 .plugin {
     box-sizing: border-box;
     padding: 10px;
-    border: 1px solid #f0f0f0;
+    border: 1px solid #c0c0c0;
     margin-right: 15px;
     margin-bottom: 15px;
     width: 266.667px;
@@ -18,7 +18,11 @@
         font-weight: bold;
         display: block;
         font-size: larger;
-        margin-bottom: 5px;
+    }
+
+    .plugin-id {
+        font-size: smaller;
+        color: #808080;
     }
 
     .plugin-actions {
