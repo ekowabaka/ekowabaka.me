@@ -1,12 +1,14 @@
 name: CLearIce
 short_description: "Yet another static site generator!"
+
 menu:
   - title: "Documentation"
     url: "./docs"
   - title: "Plugins"
     url: "./plugins.html"
-  - title: "Code"
-    url: "https://github.com/ekowabaka/clearice"
+  - title: Code
+    url: https://github.com/foonoo
+
 quick_links:
   - title: "Get Started"
     url: "./docs/1-Introduction.html#quickstart-tutorial-3"

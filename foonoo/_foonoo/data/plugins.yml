@@ -1,0 +1,25 @@
+- name: Highlight
+  description: 
+    Automatically highlight source code snippets in your content. This plugin relies on the fantastic highlight.js tool.
+  code: https://github.com/foonoo/plugin-highlight
+  url: ./highlight_plugin.html
+
+- name: Responsive Images
+  description: 
+    Take large images and make them responsive for serving on all forms of displays and connections.
+  code: https://github.com/foonoo/plugin-responsive-images
+
+- name: Feeds
+  description: 
+    Automatically generate RSS and Atom feeds for serial content.
+  code: https://github.com/foonoo/plugin-feeds
+
+- name: SEO
+  description:
+    Enforces a few rules to ensure proper SEO for content on the site.
+  code: https://github.com/foonoo/plugin-seo
+
+- name: CDN
+  description:
+    Transparently replaces all images with URLs to their CDN versions.
+  code: https://github.com/foonoo/plugin-cdn

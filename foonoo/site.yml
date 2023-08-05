@@ -28,4 +28,6 @@ assets:
     items:
       - scss/homepage.scss:
           priority: -1000
+      - scss/plugins.scss:
+          priority: 0
 

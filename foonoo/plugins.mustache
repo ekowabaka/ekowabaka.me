@@ -1,2 +1,29 @@
+---
+title: Plugins
+---
 <h1>Plugins</h1>
+
+<p> 
+    Plugins provide a great way of extending Foonoo's features. 
+</p>
+
+<h2>Installing Plugins</h2>
+<p>
+With foonoo still in active development, there are currently there are no automated scripts for installing  plugins. 
+The current best approach is to manually checkout a plugin's code from github into a designated directory, to which 
+foonoo will be pointed during execution.
+</p>
+
+<div id="plugins">
+    {{#plugins}}<div class="plugin">
+    <span class="plugin-title">{{name}}</span>
+
+    <ul class="plugin-actions">
+        <li><a href="{{code}}">Code</a></li>
+        <li><a href="{{url}}">Docs</a></li>
+    </ul>
+
+    <div class="plugin-description">{{description}}</div>
+    </div>{{/plugins}}
+</div>
 
