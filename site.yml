@@ -11,3 +11,6 @@ assets:
     items:
       - css/home.css
 
+plugins:
+  - contrib/responsive_images
+
