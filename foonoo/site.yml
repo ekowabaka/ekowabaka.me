@@ -16,8 +16,8 @@ menu:
 
 theme: 
     name: site
-    primary-color: "#862020"
-    secondary-color: "#ff5912"
+    primary-color: "#4129b3"
+    secondary-color: "#ff4b4b"
 
 plugins:
   - contrib/highlight:
