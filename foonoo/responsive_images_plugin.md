@@ -2,7 +2,7 @@
 title: Responsive Images Plugin
 ---
 # Responsive Images Plugin
-Responsive images, when properly implemented, are always presented in a way that looks right when viewed on different devices. It wouldn't matter the screen resolution, size or pixel density. This is particularly important, especially in cases where images are to be viewed on high DPI displays. The role of foonoo's responsive images plugin is to provide a way of simplifying the process of adding responsive images to your foonoo content.  
+The idea behind responsive images is simple: Serve the right image given the properties of the display. For smaller screens, serve a smaller resolution, and for larger ones, serve something with more detail. Properly implementing this requires ... Responsive images, when properly implemented, are always presented in a way that looks right when viewed on different devices. It wouldn't matter the screen resolution, size or pixel density. This is particularly important, especially in cases where images are to be viewed on high DPI displays. The role of foonoo's responsive images plugin is to provide a way of simplifying the process of adding responsive images to your foonoo content.  
 
 For a more detailed explanation of how responsive images work, Mozilla has a very well written tutorial on how they are implemented at the HTML level [[here|https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images]]. This information may be invaluable to anyone who wants to implement responsive images with foonoo, regardless of whether you'll be using this plugin or not.
 
