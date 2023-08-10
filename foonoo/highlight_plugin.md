@@ -24,9 +24,9 @@ plugins:
 to your `site.yml`.
 
 ## Usage
-Highlight takes a single parameter, `style`, which allows users to set the style of syntax highlighting. As its name suggests, the `style` parameter explicitly selects which stylesheet highlight.js uses. For a full list of supported styles, consult the list of highlight.js styles.
+Highlight takes a single parameter, `style`, which allows users to set the style of syntax highlighting. As its name suggests, the `style` parameter explicitly selects which stylesheet highlight.js uses. For a full list of supported styles, consult the list of highlight.js styles [[here|https://highlightjs.org/demo]].
 
-Although highlight.js automatically detects the language, sometimes it makes mistakes. To prevent your code from being mis-detected, you can explicitly specify the language in your markdown code. This can be done by annotating the backticks in your content with your preferred language. For example, to specify that the following code is in the PHP language, you could use:
+Although highlight.js automatically detects the language, sometimes it makes mistakes. To prevent your code from being mis-classified, you can explicitly specify the language in your markdown code. This can be done by annotating the backticks in your content with your preferred language. For example, to specify that the following code is in the PHP language, you could use:
 
 ```
 ```php

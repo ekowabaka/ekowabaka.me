@@ -21,7 +21,7 @@ theme:
 
 plugins:
   - contrib/highlight:
-      style: rainbow
+      style: nord
 
 assets:
   scss:
