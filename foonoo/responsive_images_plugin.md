@@ -2,17 +2,16 @@
 title: Responsive Images Plugin
 ---
 # Responsive Images Plugin
-The idea behind responsive images is simple: your site should serve the right image that best fits the properties of the end user's display. This is obviously necessary, since if you serve a smaller image for a smaller screen, or a larger one for a larger screen, you'll have a more efficient website. 
-
-Properly implementing this responsiveness requires having images of different resolutions, which can be served for the different display sizes, already prepared. Setting this up could be a daunting task, however, and that's where this plugin comes in. All this plugin requires you to do is provide a high resolution version of your image, and it will generate all the intermediate low-resolution images as well as the HTML code needed to make it work.
+The idea behind responsive images is simple: your site should attempt serving the right image that works best the end user's display (both in terms of resolution and pixel density). In more obvious—and also simpler—terms, you serve a smaller image for a smaller screen, or a larger one for a larger screen, to give your site a more efficient and responsive browsing experience. 
 
 [[block:note]]
 For a more detailed explanation of how responsive images work, Mozilla has a very good writeup on how they're implemented at the HTML level [[here|https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images]]. This information may be invaluable to anyone who wants to implement responsive images with foonoo, regardless of whether you'll be using this plugin or not.
 [[/block:note]]
 
+Properly implementing image responsiveness requires having images of different resolutions, which can be served for the different display sizes, already prepared. Setting this up could be a daunting task, however, and that's where this plugin comes in. All this plugin requires is you provide a high resolution version of your image, and it will generate all the intermediate low-resolution images, as well as the HTML code needed to make it work.
 
 ## What does the plugin do
-This plugin takes an image and renders it at different resolutions using lightweight web formats, like webp and jpeg. To produce optimal results, however, you have to specify the maximum width an image is expected to have on final rendered pages. This width is most likely going to be determined by your site's theme, or simply the width you want your image to have on your site. For example, when considering foonoo's default ashes theme, images in the body of any piece of text will never exceed 850 pixels. Additionally, you also have to ensure that your original source image has a width larger than your chosen maximum width, and even twice the maximum width if you intend to target high DPI screens. 
+This plugin takes an image and renders it at different resolutions using lightweight web formats, like webp and jpeg. To produce optimal results, however, you have to specify the maximum width an image is expected to have on final rendered pages. This width is most likely going to be determined by your site's theme, or simply the width you want your image to have on your site. For example, when considering foonoo's default ashes theme, images in the body of any article will never exceed 850 pixels. Additionally, you also have to ensure that your original source image has a width larger than your chosen maximum width, and even twice the maximum width if you intend to target screens with higher pixel densities. 
 
 ## Usage
 To enable this plugin, add `foonoo/responsive_images` to the list of plugins in your `site.yml` file. 
@@ -37,9 +36,9 @@ Note that parameters passed through html-tags are prefixed with `fn-responsive`.
 
 
 ### Setting Parameters
-Parameters for responsive images can be set in two main ways. They could either be set inline with the tag, directly in the content to locally affect a single image, or they could be set in the `site.yml` file, to globally affect all images while acting as a default value. 
+Parameters for responsive images can be set in two main ways. They could be either set inline with the tag to locally affect a single image, or they could be set in the `site.yml` file, to globally affect all images (or a subset of images in some cases) while acting as a default value.
 
-Setting inline parameters has already been demonstrated above in the Usage section above. When using the `site.yml` to set your parameters, however, these are added directly to the plugin definition as shown below.
+Setting inline parameters has already been demonstrated in the Usage section above. When using the `site.yml` to set your parameters, on the other hand, you add your parameters directly to the plugin definition as shown below.
                          
 ```yml
 plugins:
@@ -48,9 +47,9 @@ plugins:
 ```
 
 ### Using Parameter Classes
-In some cases, you might have different categories of images that may need responsive parameters. For instance, you could have thumbnails that are of a different width, along with banners that may be of other widths. Here, setting parameters directly on tags could be laborious and having defaults may be automatically applied to all other images. To fix this, and other issues, the responsive images plugin provides parameter classes.
+In some cases, you may have different categories of images that need responsive parameters. For instance, you could have thumbnails that are of a particular width, along with banners that may be of other widths. Here, setting parameters directly on individual tags could be laborious. Also, having defaults that are automatically applied to all images may not be helpful. To improve this situation, the responsive images plugin provides parameter classes that groups different parameters for selective use.
 
-Parameter classes are actually analogous to—and were inspired by—CSS classes. To use parameter classes, you define a class in your `site.yml` with a group of parameters, and apply the class to the in-content tags. For example, the following ...
+Parameter classes are actually analogous to—and were inspired by—CSS classes. To use parameter classes, you define a class in your `site.yml` with its own parameters, and then you apply this class to the in-content tags. For example, the following configuration ...
 
 ```yml
 plugins:
@@ -77,14 +76,14 @@ plugins:
 <img fn-responsive fn-responsive-class="preview" src="some_responsive_image.png" />
 ```
 
-Classes may also be useful when you want to change responsive images parameters in bulk.
+Classes may also be useful when you want to change the parameters of responsive images in bulk. Defining the class onces and adding the properties will alwasy be easier than editting a bunch of tags en masse.
 
 
 ## List of Parameters
 
  Parameter            | Default    | Description
 --------------------- |------------|-------------------------------
-`classes`             | None       | A list of classes and their associated parameters.
+`classes`             | None       | A list of classes and their associated parameters. See the example on parameter classes above for more details.
 `compression_quality` | `70`       | Specifies the compression quality of the intermediate images generated. This is specified as a value between `0` and `100`.
 `hidpi`               | `false`    | A boolean flag that determnies whether high DPI versions of the images are generated.
 `image-path`          |            | Specifies the location in which the rendered intermediary images will be shown.
