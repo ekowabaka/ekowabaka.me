@@ -13,14 +13,22 @@ Properly implementing image responsiveness requires having images of different r
 ## What does the plugin do
 This plugin takes an image and renders it at different resolutions using lightweight web formats, like webp and jpeg. To produce optimal results, however, you have to specify the maximum width an image is expected to have on final rendered pages. This width is most likely going to be determined by your site's theme, or simply the width you want your image to have on your site. For example, when considering foonoo's default ashes theme, images in the body of any article will never exceed 850 pixels. Additionally, you also have to ensure that your original source image has a width larger than your chosen maximum width, and even twice the maximum width if you intend to target screens with higher pixel densities. 
 
-## Usage
+## Installing
 To enable this plugin, add `foonoo/responsive_images` to the list of plugins in your `site.yml` file. 
-
 
 ```yml
 plugins:
     - foonoo/responsive_images
 ```
+
+Prior to adding the id to your `site.yml`, however, ensure that the right files are available in your plugins path. If your plugins are stored in `$PLUGINSPATH`, then the code should be stored at `$PLUGINSPATH/foonoo/responsive_images`. You can achieve this by cloning the plugins repository as as:
+
+```bash
+mkdir -p $PLUGINSPATH/foonoo
+git clone https://github.com/foonoo/plugin-responsive-images $PLUGINSPATH/foonoo/responsive-images
+```
+
+# Usage
 
 Once enabled, the plugin overrides foonoo's built in image tag to make any images added through those responsive. But to achieve the right responsiveness effect, you may have to provide the `max-width` parameter as shown below:
 

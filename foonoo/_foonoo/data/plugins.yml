@@ -17,15 +17,18 @@
   description: 
     Automatically generate RSS and Atom feeds for serial content.
   repo: https://github.com/foonoo/plugin-feeds
+  url: ./feeds_plugin.html
 
-- name: SEO
-  id: foonoo/seo
-  description:
-    Enforces a few rules to ensure proper SEO for content on the site.
-  repo: https://github.com/foonoo/plugin-seo
+# - name: SEO
+#   id: foonoo/seo
+#   description:
+#     Enforces a few rules to ensure proper SEO for content on the site.
+#   repo: https://github.com/foonoo/plugin-seo
+#   url: ./seo_plugin.html
 
-- name: CDN
-  id: foonoo/cdn
-  description:
-    Transparently replaces all images with URLs to their CDN versions.
-  repo: https://github.com/foonoo/plugin-cdn
+# - name: CDN
+#   id: foonoo/cdn
+#   description:
+#     Transparently replaces all images with URLs to their CDN versions.
+#   repo: https://github.com/foonoo/plugin-cdn
+#   url: ./cdn_plugin.html

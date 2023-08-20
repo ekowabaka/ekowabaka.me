@@ -6,15 +6,17 @@ title: Plugins
 
 <div id="plugins">
     {{#plugins}}<div class="plugin">
-    <span class="plugin-title"><a href="{{url}}">{{name}}</a></span>
-    <span class="plugin-id">{{id}}</span>
-
-    <ul class="plugin-actions">
-        <li><a href="{{repo}}">Code</a></li>
-        <li><a href="{{url}}">Docs</a></li>
-    </ul>
-
-    <div class="plugin-description">{{description}}</div>
+    <div class="plugin-header">
+        <span class="plugin-title"><a href="{{url}}">{{name}}</a></span>
+        <span class="plugin-id">{{id}}</span>
+    </div>
+    <div class="plugin-info">
+        <ul class="plugin-actions">
+            <li><a href="{{repo}}">Code</a></li>
+            <li><a href="{{url}}">Docs</a></li>
+        </ul>
+        <div class="plugin-description">{{description}}</div>
+    </div>
     </div>{{/plugins}}
 </div>
 
