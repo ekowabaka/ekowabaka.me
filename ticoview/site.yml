@@ -1,0 +1,11 @@
+title: "Foonoo"
+url: "http://ekowabaka.me/foonoo"
+description: "A PHP based static site generator"
+author: "Ekow Abaka Ainooson <jainooson@gmail.com>"
+type: default
+
+assets:
+  scss:
+    items:
+      - scss/homepage.scss:
+          priority: -1000

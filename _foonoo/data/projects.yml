@@ -24,7 +24,7 @@
 
 - name: tico-View
   description: >
-    One-way reactive data binding for 
+    A lightweight solution for view templating and one-way data-binding in JavaScript.
   image: ticoview.svg
   url: ./ticoview/
 
