@@ -1,16 +1,4 @@
 name: ticoV
-short_description: "Yet another static site generator!"
+short_description: "A lightweight solution for templating and one-way data-binding in JavaScript."
 
-menu:
-  - title: "Documentation"
-    url: "./docs"
-  - title: "Plugins"
-    url: "./plugins.html"
-  - title: Code
-    url: https://github.com/foonoo
-
-quick_links:
-  - title: "Get Started"
-    url: "./docs/1-Introduction.html#quickstart-tutorial-3"
-  - title: "User Guide"
-    url: "./docs/3-Writing-with-Foonoo.html"    
+  

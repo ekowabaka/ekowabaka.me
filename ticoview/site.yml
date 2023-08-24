@@ -1,4 +1,4 @@
-title: "Foonoo"
+title: "TiCo View"
 url: "http://ekowabaka.me/foonoo"
 description: "A PHP based static site generator"
 author: "Ekow Abaka Ainooson <jainooson@gmail.com>"
@@ -9,3 +9,9 @@ assets:
     items:
       - scss/homepage.scss:
           priority: -1000
+
+theme: 
+    name: site
+    primary-color: "#ffbfa2"
+    secondary-color: "#0053b2"
+
