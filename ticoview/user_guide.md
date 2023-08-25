@@ -1,19 +1,22 @@
-
-tiCo-v provides a lightweight solution for templating and one-way data-binding in JavaScript. Built on top of ES6 proxies, tiCo-v provides a very thin layer of code which relies on proxy traps to update DOM elements when bound objects are updated.
+---
+title: User Guide
+---
+# User Guide
+TiCo View (also referred to as TiCo-V) provides a lightweight solution for templating and one-way data-binding in JavaScript. Built on top of ES6 proxies, TiCo-v is really just a thin layer of code that relies on ES6 proxy traps to update DOM elements when bound objects are updated. This means TiCo-v will work only on modern web browsers that have support for proxies built in—a feature that's not easy to polyfill in its current implementation, but is supported in almost every modern browser.
 
 Installation
 ------------
-tiCo-v has no dependencies and is quite easy to install. Currently, the only supported package managers are `npm` and `composer`. If you do not use any of these, you can always download the current version of the script and use it directly as you desire.
+There are no dependencies required for Tico-V and the library itself is quite easy to install. Currently, the only supported package managers are `npm` and `composer`. If you do not use any of these, you can always download the current version of the script and use it directly as you desire.
 
-For `npm` ...
+Thus, for `npm` you can use ...
 
     npm install tico-v
 
-For `composer` ...
+.. and for `composer` you can use ...
     
     composer require ekowabaka/tico-v
 
-You might also consider direct inclusion as follows ...
+... or you might also consider direct inclusion as follows ...
 
 ````html
 <script src='assets/tico-v.min.js'></script>
@@ -21,7 +24,7 @@ You might also consider direct inclusion as follows ...
 
 
 ## Writing Templates
-Templates for tiCo-v are written directly into the HTML markup of the page you. Variables to be replaced by later bindings are written with the mustache/handlebars style variable placeholder (and that's where the similarity ends). In fact, the featureset of tiCo-v is so small it call be summarised with one example.
+Templates for tiCo-v are written directly into the HTML markup of the page you intend to make responsive. Variables to be replaced by later bindings are written with the mustache/handlebars style variable placeholder. (That, of course, is where all similarity to mustache and handlebars end.) In fact, the featureset of tiCo-v is so small it call be summarised with one example.
 
 ````html
 <div id="profile">
@@ -42,12 +45,12 @@ Templates for tiCo-v are written directly into the HTML markup of the page you. 
 ````
 
 ### Text Substitutions
-From the example, we should see that text substitutions are performed with variables specified in curly braces (e.g. ``{{variable}}``). Conditional substitution can be made with the "`?`" operator. So, ``{{variable1 ? variable2}}`` implies, the value of `variable1` will be displayed if it is truthy instead of the value of ``variable2`` which will displayed irrespective of its value. 
+From the example, we should see that text substitutions are performed with variables specified in curly braces (e.g. ``{{variable}}``). Conditional substitution can be made with the "`?`" operator. As such, ``{{variable1 ? variable2}}`` implies that the value of `variable1` will be displayed if it is truthy instead of the value of ``variable2``, which will displayed irrespective of its value. In this configuration the `?` can be considered as a coalescing operator.
 
-Conditional substitutions can also involve literal text such as ``{{truth ? "when true" : "when false"}}``. In this case, the text ``when true`` is substituted if the variable ``truth`` is truthy and ``when false`` is displayed when it's false. For literal substitutions, the second literal to be displayed on a false value can be omitted and it's automatically replaced with an empty string.
+Conditional substitutions can also involve literal text such as ``{{truth ? "when true" : "when false"}}``. In this case, the text ``when true`` is substituted if the variable ``truth`` is truthy and ``when false`` is displayed when it's false. For literal substitutions, the second literal to be displayed on a false value can be omitted and it's automatically replaced with an empty string. This is much akin to the ternary operator.
 
 ### Special tv attributes
-Prefixing any attribute with `tv-value-` causes that attribute to be later added with its value parsed for text substitutions. For example adding the attribute `tv-value-src='{{avater_img?"default-avatar.png"}}'` to an `img` tag will cause tiCo-v to add an `src` attribute whose value is based on the evaluation of the substitution `{{avater_img?"default-avatar.png"}}`.
+Prefixing any attribute with `tv-value-` makes the attribute's value available for parsing to extract text substitutions. For example adding the attribute `tv-value-src='{{avater_img?"default-avatar.png"}}'` to an `img` tag will cause tiCo-v to add an `src` attribute whose value is based on the evaluation of the substitution `{{avater_img?"default-avatar.png"}}`.
 
 You can hide and show DOM nodes using the `tv-true` and `tv-not-true` attributes. A DOM node with the `tv-true` attribute will be visible if the variable represented by the value of the attribute is truthy. Likewise, a DOM node with `tv-not-true` will be visible only when the value of the variable is false.
 

@@ -9,10 +9,9 @@ assets:
     items:
       - scss/homepage.scss:
           priority: -1000
+      - scss/ticoview.scss
 
 menu:
-  - title: Documentation
-    url: ./docs/
   - title: Code
     url: https://github.com/ekowabaka/tico-v
 
@@ -21,3 +20,6 @@ theme:
     primary-color: "#ff911c"
     secondary-color: "#0053b2"
 
+plugins:
+  - contrib/highlight:
+      style: foundation

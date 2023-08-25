@@ -1,0 +1,23 @@
+.code-section {
+    display: flex;
+    margin-top: 40px;
+    align-items: center;
+
+    .description {
+        box-sizing: border-box;
+        width: 35%;
+        font-size: x-large;
+        padding: 10px;
+    }
+
+    .code {
+        box-sizing: border-box;
+        width: 65%;
+        font-size: large;
+        padding: 10px;
+        
+        pre {
+            margin: 0px;
+        }
+    }
+}
