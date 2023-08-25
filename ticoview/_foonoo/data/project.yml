@@ -1,4 +1,13 @@
 name: ticoV
 short_description: "A lightweight solution for templating and one-way data-binding in JavaScript."
 
-  
+menu:
+  - title: Code
+    url: https://github.com/ekowabaka/tico-v
+
+
+quick_links:
+  - title: "User Guide"
+    url: "user_guide.html"
+
+

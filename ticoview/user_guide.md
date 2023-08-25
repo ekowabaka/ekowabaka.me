@@ -1,7 +1,3 @@
----
-title: Welcome
-layout: project_home
----
 
 tiCo-v provides a lightweight solution for templating and one-way data-binding in JavaScript. Built on top of ES6 proxies, tiCo-v provides a very thin layer of code which relies on proxy traps to update DOM elements when bound objects are updated.
 

@@ -1,0 +1,58 @@
+---
+title: Welcome
+layout: project_home
+---
+<h1>
+Here's how it works!
+</h1>
+
+<div class="code-section">
+    <div>
+        Start with a template ...
+    </div>
+    <div>
+        <pre>
+<code>&lt;div id="profile"&gt;
+    &lt;img tv-value-src='{{avater_img?"default-avatar.png"}}' /&gt;
+    &lt;span id='firstname'&gt;{{firstname}}&lt;/span&gt;
+    &lt;span id='lastname'&gt;{{lastname}}&lt;/span&gt;
+&lt;/div&gt;
+</code>
+        </pre>
+    </div>
+</div>
+
+<div class="code-section">
+    <div class="description">
+        ... write your binding script ...
+    </div>
+    <div class="code">
+        <pre><code>const view = tv.bind("#profile")</code></pre>
+    </div>
+</div>
+
+<div class="code-section">
+    <div class="description">
+        ... assign your data ...
+    </div>
+    <div class="code">
+        <pre><code>view.data = {
+    firstname: "Kofi",
+    lastname: "Manu",
+    avatar: "09348534ea87e.png"
+}</code></pre>
+    </div>
+</div>
+
+<div class="code-section">
+    <div class="description">
+        ... and there!
+    </div>
+    <div class="code">
+        <pre><code>view.data = {
+    firstname: "Kofi",
+    lastname: "Manu",
+    avatar: "09348534ea87e.png"
+}</code></pre>
+    </div>
+</div>
