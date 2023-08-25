@@ -33,8 +33,8 @@ Templates for tiCo-v are written directly into the HTML markup of the page you i
         <span id='lastname'>{{lastname}}</span>
     </div>
     <img tv-value-src='{{avater_img?"default-avatar.png"}}' />
-    <ul tv-true="updates">
-        <li tv-foreach="updates">
+    <ul tv-true="updates" tv-foreach="updates">
+        <li>
             <span>{{time}}</span>
             <span>{{update}}</span>
             <span>This update is {{verified?"":"not"}} verified<span>
@@ -50,17 +50,17 @@ From the example, we should see that text substitutions are performed with varia
 Conditional substitutions can also involve literal text such as ``{{truth ? "when true" : "when false"}}``. In this case, the text ``when true`` is substituted if the variable ``truth`` is truthy and ``when false`` is displayed when it's false. For literal substitutions, the second literal to be displayed on a false value can be omitted and it's automatically replaced with an empty string. This is much akin to the ternary operator.
 
 ### Special tv attributes
-Prefixing any attribute with `tv-value-` makes the attribute's value available for parsing to extract text substitutions. For example adding the attribute `tv-value-src='{{avater_img?"default-avatar.png"}}'` to an `img` tag will cause tiCo-v to add an `src` attribute whose value is based on the evaluation of the substitution `{{avater_img?"default-avatar.png"}}`.
+Prefixing any attribute with `tv-value-` makes the attribute's value available for parsing and text substitution. Additionally the attribute can be added back to the node with the `tv-value-` prefix removed. For example, adding the attribute `tv-value-src='{{avater_img?"default-avatar.png"}}'` to an `img` tag will cause TiCo-v to add an `src` attribute, whose value is based on the evaluation of the substitution `{{avater_img?"default-avatar.png"}}`, to the `img` tag.
 
 You can hide and show DOM nodes using the `tv-true` and `tv-not-true` attributes. A DOM node with the `tv-true` attribute will be visible if the variable represented by the value of the attribute is truthy. Likewise, a DOM node with `tv-not-true` will be visible only when the value of the variable is false.
 
-The `tv-foreach` attribute helps with repeating nodes.
+The `tv-foreach` attribute points to an array, and it's perhaps the most interesting of all TiCo-V's special attributes. Its job is to help with the rendering of repeated nodes when displaying data from arrays. This makes it useful for displaying items in tables and lists. Any element to which a `tv-foreach` attribute is attached becomes a wrapper, and its internal nodes become a template to be reapeated for items in the array.
 
 ## Binding Variables
-To bind an object to a template such as the one above, you can use:
+To bind an object to a template such as the one in our example above, you can use:
 
 ````js
-let view = tv.bind("#profile");
+let view = tv.bind("#profile"); // Create the binding view.
 view.data = {
     firstname: "Kofi",
     lastname: "Manu",
@@ -69,7 +69,11 @@ view.data = {
         {time: "2018-05-06 02:00:00 +005", update: "Something to talk about"},
         {time: "2018-05-06 02:10:00 +005", update: "Another thing to make noise about"},
     ]
-}
+}                             // Assign data to the binding view.
 ````
 
-And that's it!
+Here we see that the `firstname`, `lastname`, and `avatar` values are displayed in `span` and `img` elements respectively. Additionally, the `updates` value is displayed in a `ul` element, whose `li` items are repeated for each value in the `updates` element.
+
+## Event Handling
+TiCo-v modifies the DOM in place. As such, any events assigned to DOM nodes through traditional means, such as a call to `addEventListener` or even through attributes (like `onclick`,) will work. An exception, however, exists for nodes that are repeated through `tv-foreach` nodes. Because these nodes are created on the fly as data is bound, only events speci
+
