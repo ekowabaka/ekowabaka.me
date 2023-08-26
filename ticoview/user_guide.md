@@ -18,13 +18,13 @@ Thus, for `npm` you can use ...
 
 ... or you might also consider direct inclusion as follows ...
 
-````html
-<script src='assets/tico-v.min.js'></script>
+````js
+import {tv} from "./ticoview.js"
 ````
 
 
 ## Writing Templates
-Templates for tiCo-v are written directly into the HTML markup of the page you intend to make responsive. Variables to be replaced by later bindings are written with the mustache/handlebars style variable placeholder. (That, of course, is where all similarity to mustache and handlebars end.) In fact, the featureset of tiCo-v is so small it call be summarised with one example.
+Templates for tiCo-v are written directly into the HTML markup of the page you intend to make responsive. Variables to be replaced by later bindings are written with the mustache/handlebars style variable placeholder. (That, of course, is where all similarity to mustache and handlebars end.) In fact, the feature-set of tiCo-v is so small it call be summarized with one example.
 
 ````html
 <div id="profile">
@@ -33,7 +33,7 @@ Templates for tiCo-v are written directly into the HTML markup of the page you i
         <span id='lastname'>{{lastname}}</span>
     </div>
     <img tv-value-src='{{avater_img?"default-avatar.png"}}' />
-    <ul tv-true="updates" tv-foreach="updates">
+    <ul id="logs" tv-true="logs" tv-foreach="logs">
         <li>
             <span>{{time}}</span>
             <span>{{update}}</span>
@@ -60,20 +60,39 @@ The `tv-foreach` attribute points to an array, and it's perhaps the most interes
 To bind an object to a template such as the one in our example above, you can use:
 
 ````js
-let view = tv.bind("#profile"); // Create the binding view.
+import {tv} from "./ticoview.js"
+
+const view = tv("#profile"); // Create the binding view.
 view.data = {
     firstname: "Kofi",
     lastname: "Manu",
     avatar: "09348534ea87e.png",
-    updates: [
-        {time: "2018-05-06 02:00:00 +005", update: "Something to talk about"},
-        {time: "2018-05-06 02:10:00 +005", update: "Another thing to make noise about"},
+    logs: [
+        {time: "2018-05-06 02:00:00 +005", log: "Something to talk about"},
+        {time: "2018-05-06 02:10:00 +005", log: "Another thing to make noise about"},
     ]
 }                             // Assign data to the binding view.
 ````
 
-Here we see that the `firstname`, `lastname`, and `avatar` values are displayed in `span` and `img` elements respectively. Additionally, the `updates` value is displayed in a `ul` element, whose `li` items are repeated for each value in the `updates` element.
+Here we see that the `firstname`, `lastname`, and `avatar` values are displayed in `span` and `img` elements respectively. Additionally, the `logs` value is displayed in a `ul` element, whose `li` items are repeated for each value in the `logs` element.
 
-## Event Handling
-TiCo-v modifies the DOM in place. As such, any events assigned to DOM nodes through traditional means, such as a call to `addEventListener` or even through attributes (like `onclick`,) will work. An exception, however, exists for nodes that are repeated through `tv-foreach` nodes. Because these nodes are created on the fly as data is bound, only events speci
+The `tv` function that binds dom nodes to views can take both CSS paths and dom nodes as arguments. This means the view creation can be substituted with the following without any issue.
+
+```js
+const view = tv(document.getElementById("profile"))
+```
+
+## Event handling and access to dynamic DOM nodes
+Because TiCo-v modifies the DOM in place any events assigned to DOM nodes through traditional means, such as a call to `addEventListener` or even through attributes (like `onclick`,) still work. An exception, however, exists for nodes that are repeated through `tv-foreach` nodes. Because these nodes are created on the fly (as data is bound) only the events specified through attributes become active. If you intend to dynamically attach events through `addEventListener`, or if you need access to those DOM nodes for any other purpose, you need to sniff out the dom nodes as they are created and attached. You can do this by attaching an event listener to the DOM node with the `tv-foreach` attribute.
+
+For example, considering the template from the example above, if we wanted to attach click events to the `li` items under the `logs` list, we could add an event listener as follows:
+
+```js
+document.getElementById("logs").addEventListener(
+    "tv-update", 
+    e => e.detail.nodes[0].addEventListener("click", clickEvent)
+)
+```
+
+Notice that we first attached a `tv-update` event to the `logs` ul element. This event fires whenever items in the logs list are updated. The event object sent along has a `detail` property that stores the nodes that were in the template. In the case of our example, this will be a single `li` element. To this element you can then attach your click event or use the node object however possible.
 
