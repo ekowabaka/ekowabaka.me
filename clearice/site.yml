@@ -8,7 +8,7 @@ type: default
 
 menu:
   - title: Documentation
-    url: ./docs/
+    url: docs/
   - title: Code
     url: https://github.com/ekowabaka/clearice
 

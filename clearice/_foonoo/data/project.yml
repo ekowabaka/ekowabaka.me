@@ -3,6 +3,6 @@ short_description: "Easy command line parsing and I/O for PHP!"
 
 menu:
   - title: "Documentation"
-    url: "./docs"
+    url: "docs/"
   - title: "Code"
     url: "https://github.com/ekowabaka/clearice"

@@ -6,14 +6,6 @@ description: "A PHP based static site generator"
 author: "Ekow Abaka Ainooson <jainooson@gmail.com>"
 type: default
 
-menu:
-  - title: Documentation
-    url: ./docs/
-  - title: "Plugins"
-    url: "./plugins.html"    
-  - title: Code
-    url: https://github.com/foonoo
-
 theme: 
     name: site
     primary-color: "#4129b3"

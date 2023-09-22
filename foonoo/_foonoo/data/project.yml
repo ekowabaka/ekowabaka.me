@@ -3,9 +3,9 @@ short_description: "Yet another static site generator!"
 
 menu:
   - title: "Documentation"
-    url: "./docs"
+    url: "docs/"
   - title: "Plugins"
-    url: "./plugins.html"
+    url: "plugins.html"
   - title: Code
     url: https://github.com/foonoo
 
