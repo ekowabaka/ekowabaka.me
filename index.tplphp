@@ -3,7 +3,7 @@ title: Akwaaba!
 ---
 <div id="about">
     <div>
-        <img fn-responsive fn-responsive-hidpi fn-responsive-max-width="200" src="images/avatar.png" alt="Fresh Boy Chuppa-Chops" />
+        <img fn-responsive fn-responsive-hidpi fn-responsive-max-width="200" src="images/avatar.png" alt="Okay!" />
     </div><div>
         <p>Hello,</p>
         <p>
@@ -13,3 +13,4 @@ title: Akwaaba!
         <p>Regards,<br/>James</p>
     </div>
 </div>
+<?= $this->partial("footer") ?>
