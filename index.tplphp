@@ -2,9 +2,10 @@
 title: Akwaaba!
 ---
 <div id="about">
-    <div>
+    <div id="avatar">
         <img fn-responsive fn-responsive-hidpi fn-responsive-max-width="200" src="images/avatar.png" alt="Okay!" />
-    </div><div>
+    </div>
+    <div id="messages">
         <p>Hello,</p>
         <p>
             I'm James! Welcome to a little space on the Internet where I share my ideas, write about my projects, and 
@@ -13,4 +14,3 @@ title: Akwaaba!
         <p>Regards,<br/>James</p>
     </div>
 </div>
-<?= $this->partial("footer") ?>

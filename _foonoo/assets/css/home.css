@@ -2,9 +2,6 @@ body{
     font-family: "Open Sans", Arial, Helvetica, sans-serif;
     color: #404040;
     margin: 0px;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1000px;
     line-height: 1.4;
 }
 
@@ -17,6 +14,10 @@ a:hover{
     color: #749fdf;
 } 
 
+input[type=checkbox] {
+    display: none;
+}
+
 /* Site header */
 
 header{
@@ -26,17 +27,35 @@ header{
     padding: 10px;
     color: #101010;
     display: flex;
-    border-bottom: 1px #f0f0f0 solid;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 header > span {
     display: inline-block;
     padding: 10px;
-    color: #003799
+    color: #003799;
+    flex-grow: 1;
+}
+
+#menu-button {
+    width: 50px;
+    display: none;
+}
+
+#menu-button > span {
+    display: block;
+    width: 35px;
+    height: 3px;
+    background-color: #3a72c7;
+    margin:8px;
+    border-radius: 3px;
 }
 
 nav {
-    flex-grow: 1;
+    display: block;
+    transition: left 0.3s;
 }
 
 nav ul{
@@ -76,10 +95,11 @@ h1, h2{
     font-size: 24px;
     padding: 20px;
     max-width: 785px;
+    display: flex;
 }
 
 #about > div{
-    display: inline-block;
+    /* display: inline-block; */
     max-width: 500px;
     vertical-align: middle;
     margin-left: 20px;
@@ -100,6 +120,11 @@ h1, h2{
 
 #publications-list > ul > li{
     margin-bottom: 20px;
+}
+
+#footer {
+    background-color: #fff;
+    a { color: #808080; }
 }
 
 .project {
@@ -124,6 +149,59 @@ h1, h2{
     font-size: 1.1em;
     font-weight: bold;
     font-family: Montserrat, Arial, Helvetica, sans-serif;
+}
+
+@media only screen and (max-width: 850px) {
+    #about {
+        margin-top: 20px;
+        text-align: center;
+        display: block
+    }
+
+    #about > div {
+        display: inline-block
+    }
+
+    #avatar {
+        height: 150px;
+        width: 200px;
+        overflow: hidden;
+        border-radius: 50%;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    nav {
+        /* display: none; */
+        position: absolute;
+        left: 100%;
+        top: 50px;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    #menu-button-check + nav {
+        /* display: none; */
+        left: 100%;
+    }
+
+    #menu-button-check:checked + nav {
+        /* display: block; */
+        left: 0px;
+    }
+
+    #menu-button {
+        display: block;
+    }
+
+    nav ul {
+        padding: 10px
+    }
+
+    nav ul > li {
+        display: block;
+        padding: 0px;
+    }
 }
 
 @media only screen and (max-width:600px) {
