@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>James Ainooson | <?= $content_title ?></title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&display=swap" rel="stylesheet">        
+        <link rel='stylesheet' type='text/css' href='<?= $site_path ?>assets/css/bundle-default.css' />
+    </head>
+    <body>
+        <header> 
+            <span><a href="<?= $home_path ?>">james ainooson</a></span> 
+            <label for="menu-button-check" id="menu-button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <input type="checkbox" name="menu-button-check" id="menu-button-check">
+            <nav>
+                <ul>
+                    <li><a href="<?= $home_path ?>projects.html">projects</a></li>
+                    <li><a href="<?= $home_path ?>blog/index.html">blog</a></li>
+                    <li><a href="<?= $home_path ?>publications.html">publications</a></li>
+                    <li><a href="https://github.com/ekowabaka">github</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <?= $body->u() ?>
+        <div id="footer">
+            <img src="assets/images/foonoo-footer-dark.svg" id="footer-logo"> <a href="https://ainooson.me/foonoo">Baked in a foonoo</a>.
+        </div>
+    </body>
+</html>
