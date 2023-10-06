@@ -1,9 +1,11 @@
 ---
 title: Publications
 ---
+<div id="body-content">
 <h1>Publications</h1>
 <section id="publications-list">
     <ul><?php foreach($publications as $publication): ?>
         <li><?= str_replace("Ainooson, J.", "<b style='color:black'>Ainooson, J.</b>", $publication) ?></li>
     <?php endforeach ?></ul>
 </section>
+</div>

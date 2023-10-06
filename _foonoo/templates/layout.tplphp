@@ -27,7 +27,6 @@
                 </ul>
             </nav>
         </header>
-
         <?= $body->u() ?>
         <div id="footer">
             <img src="assets/images/foonoo-footer-dark.svg" id="footer-logo"> <a href="https://ainooson.me/foonoo">Baked in a foonoo</a>.

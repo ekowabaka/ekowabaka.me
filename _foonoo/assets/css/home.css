@@ -84,9 +84,12 @@ nav ul > li > a {
 h1, h2{
     font-family: Montserrat, Arial, Helvetica, sans-serif;
     color: #161616;
-    margin-left: 20px;
-    margin-right: 20px;
     color: #3a72c7;
+}
+
+.home-header {
+    text-align: center;
+    margin-top: 60px
 }
 
 
@@ -112,12 +115,18 @@ h1, h2{
     width: 200px;
 }
 
+#body-content {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 #projects-list{
     display: flex;
     flex-wrap: wrap;
-    padding-left: 10px;
-    padding-right: 10px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #publications-list > ul > li{
@@ -130,7 +139,7 @@ h1, h2{
 }
 
 .project {
-    width: 50%;
+    width: 33%;
     padding: 10px;
     box-sizing: border-box;
     margin-bottom: 20px;
