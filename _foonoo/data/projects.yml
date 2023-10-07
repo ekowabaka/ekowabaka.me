@@ -1,14 +1,14 @@
+- name: Ei! Platformer.
+  description: >
+    An experiment in procedural level generation.
+  image: ei.png
+  url: ./ei/
+
 - name: hoto Cameras
   description: >
     A little blog where I write about my experiences with cheap cameras. I also share lots of the snapshots I take.
   image: hoto.png
   url: https://hotocameras.com
-
-- name: Ntetnan PHP Tools
-  description: >
-    An attempt to bring some sanity to my collection of poorly documented PHP tools. You never know, maybe someone will find these useful someday.
-  image: ntentan.svg
-  url: https://github.com/ntentan
 
 - name: CLearIce PHP
   description: >
@@ -28,8 +28,8 @@
   image: ticoview.svg
   url: ./ticoview/
 
-- name: GumBox
+- name: Ntetnan PHP Tools
   description: >
-    A 3D printable enclosure for the Raspberry Pi Pico. This enclosure is most useful if you're using the Pico as a debugging device.
-  image: gumbox.png
-  url: https://github.com/gumbox
+    An attempt to bring some sanity to my collection of poorly documented PHP tools. You never know, maybe someone will find these useful someday.
+  image: ntentan.svg
+  url: https://github.com/ntentan

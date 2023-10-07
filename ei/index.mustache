@@ -1,0 +1,40 @@
+---
+layout: ei_layout
+---
+<div id="wrapper">
+    <div id="header-section">
+        <h1>ei! a procedural level generation experiment</h1>
+    </div>
+    <img src="images/screenshot.png" alt="a screenshot from ei" fn-responsive />
+
+    <p id="blurb">
+        EI! Is a funky little character who lives in a procedurally generated world. Have fun exploring these worlds and even generating your own.
+    </p>
+
+    <div id="menu">
+        <div id="play">
+            <span class="title">Play</span>
+            <p>Play one of the randomly generated levels</p>
+        </div>
+        <div id="create">
+            <span class="title">Create</span>
+            <p>Generate, edit, play your own levels</p>
+        </div>
+        <div id="learn">
+            <a href="ei.html">
+                <span class="title">Learn</span>
+                <p>Read more about how this level generator works</p>
+            </a>
+        </div>
+    </div>
+</div>
+<script type="application/javascript">
+    document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('play').addEventListener('click', () => {
+            const index = Math.round(Math.random() * 5)
+            document.location = `https://ei.ekowabaka.me/play.html?l=${index}`
+        });
+        document.getElementById('create').addEventListener('click', () => document.location = "https://ei.ekowabaka.me/editor.html")
+        
+    });
+</script>

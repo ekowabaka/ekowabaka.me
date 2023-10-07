@@ -12,18 +12,17 @@ type: default
 #   - title: Code
 #     url: https://github.com/ekowabaka/clearice
 
-# theme: 
-#     name: site
-#     primary-color: "#1E212B"
-#     secondary-color: "#4D8B31"
+theme: 
+    name: site
+    primary-color: "#1a1a1a"
+    secondary-color: "#ef870b"
 
-# plugins:
-#   - contrib/highlight:
-#       style: rainbow
+plugins:
+  - contrib/responsive_images
 
-# assets:
-#   scss:
-#     items:
-#       - scss/homepage.scss:
-#           priority: -1000
+assets:
+  scss:
+    items:
+      - scss/ei.scss:
+          bundles: [home]
 
