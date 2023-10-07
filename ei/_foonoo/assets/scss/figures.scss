@@ -1,0 +1,14 @@
+.doc-figure {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+
+    img {
+        display: inline-block;
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 45%;
+        padding: 0.5%;
+        height: auto;
+    }
+}

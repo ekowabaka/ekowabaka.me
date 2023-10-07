@@ -1,3 +1,6 @@
+---
+title: "Ei: A Platformer with a Procedural Level Generator"
+---
 <header id="title-block-header">
 <div class="abstract">
 <h1 class="abstract-title">Abstract</h1>
@@ -73,7 +76,7 @@ enemies. Visually Ei features silhouette style graphics where the
 characters and other game objects are completely dark and are presented
 over a brightly coloured background.</p>
 <figure>
-<img src="images/images/ei.png" />
+<img src="images/ei.png" />
 <figcaption>A screenshot from Ei</figcaption>
 </figure>
 <p>A level editor is incorporated into the game to make it possible for
@@ -120,14 +123,12 @@ velocity, Ei can jump forward over 5.2 tiles when the jump button is
 pressed for a long time. Placement of enemies and collectibles are
 inherently determined during the generation of individual sections.
 Following are brief descriptions of each of the sections.</p>
-<div class="figure*">
-<p>
+<div class="doc-figure">
   <img src="images/flat.png" alt="image" />
   <img src="images/elevated.png" alt="image" />
   <img src="images/gap.png" alt="image" />
   <img src="images/spikes.png" alt="image" />
   <img src="images/spring.png" alt="image" />
-</p>
 </div>
 <h2 class="unnumbered" id="flat-ground">Flat Ground</h2>
 <p>Flat grounds extend from the base of the level to a given platform
@@ -224,11 +225,9 @@ normalized sum of absolute displacements of the centre points from the
 best fit line is then computed and divided by the total number of center
 points to get the value of the linearity. Lower values of linearity
 indicate levels of a more linear “profile".</p>
-<div class="figure*">
-<div class="center">
-<p><img src="images/level.png" alt="image" /> (a) <img src="images/level_low.png"
-alt="image" /> (b) <span id="fig:level" label="fig:level"></span></p>
-</div>
+<div class="figure">
+<img src="images/level.png" alt="image" />
+<img src="images/level_low.png" alt="image" />
 </div>
 <p>Leniency is computed by taking into account parts of the layout of a
 level that require the user to perform some kind of action (e.g. jump
@@ -237,15 +236,14 @@ given action would be are assigned to each action. For the purposes of
 this report, the following scores were assigned to actions Ei could
 perform:</p>
 <ul>
-<li><p>1 for jumps which are not over gaps</p></li>
-<li><p>0.5 for spring jumps</p></li>
-<li><p>-0.5 for retractable spikes</p></li>
-<li><p>-1 for jumps over gaps</p></li>
+<li>1 for jumps which are not over gaps.</li>
+<li>0.5 for spring jumps.</li>
+<li>-0.5 for retractable spikes.</li>
+<li>-1 for jumps over gaps.</li>
 </ul>
 <p>The normalized sum of these scores was divided by the total number of
 scores to get the leniency of a given level. Higher values indicate
-levels which are more lenient. See Figure <a href="#fig:level"
-data-reference-type="ref" data-reference="fig:level">[fig:level]</a> for
+levels which are more lenient. See Figure <a href="#fig:level" data-reference-type="ref" data-reference="fig:level">[fig:level]</a> for
 sample levels with different linearity and leniency values.</p>
 <p>For the evaluation of the Random Level generator, a sample space with
 a total of 20,000 levels were generated for each value of difficulty.
@@ -255,15 +253,12 @@ as suggested by Smith and Gillian was plotted for the two selected
 metrics. See Figure <a href="#fig:heatmaps" data-reference-type="ref"
 data-reference="fig:heatmaps">[fig:heatmaps]</a> for the histograms
 generated for difficulty values of 1, 5 and 10.</p>
-<div class="figure*">
-<div class="tabular">
-<p><span>P<span>5.3cm</span>P<span>5.3cm</span>P<span>5.3cm</span></span>
-<img src="images/graph1.png" alt="image" /> &amp; <img src="images/graph5.png"
-alt="image" /> &amp; <img src="images/graph10.png" alt="image" /><br />
-(a)&amp;(b)&amp;(c)<br />
-</p>
+<div class="doc-figure">
+<img src="images/graph1.png" alt="image" />
+<img src="images/graph5.png" alt="image" />
+<img src="images/graph10.png" alt="image" />
 </div>
-</div>
+
 <p>Looking at the generated graphs it is clear how the difficulty
 parameter significantly affects the value of leniency. Levels tend to
 have less leniency with higher values of the difficulty parameter.
@@ -288,78 +283,78 @@ adapt to the individual playing styles of players.</p>
 
 <h1>References</h1>
 <ul>
-<li id="ref-alessandro" class="csl-entry" role="listitem">
+<li id="ref-alessandro" class="csl-entry" role="listitem"><p>
 Canossa, Alessandro, and Gillian Smith. 2015. <span>“Towards a
 Procedural Evaluation Technique: Metrics for Level Design.”</span> In.
-</li>
-<li id="ref-comptonma" class="csl-entry" role="listitem">
+</p></li>
+<li id="ref-comptonma" class="csl-entry" role="listitem"><p>
 Compton, Kate, and Michael Mateas. 2006. <span>“Procedural Level Design
 for Platform Games.”</span> In <em>AIIDE</em>, edited by John E. Laird
 and Jonathan Schaeffer, 109–11. The AAAI Press.
-</li>
-<li id="ref-raey" class="csl-entry" role="listitem">
+</p></li>
+<li id="ref-raey" class="csl-entry" role="listitem"><p>
 Dahlskog, Steve, and Julian Togelius. 2014. <span>“Procedural Content
 Generation Using Patterns as Objectives.”</span> In <em>Applications of
 Evolutionary Computation</em>, edited by Anna I. Esparcia-Alcázar and
 Antonio M. Mora, 8602:325–36. Lecture Notes in Computer Science.
 Springer Berlin Heidelberg.
-</li>
-<li id="ref-cityengine" class="csl-entry" role="listitem">
+</p></li>
+<li id="ref-cityengine" class="csl-entry" role="listitem"><p>
 Esri. 2014. <span>“<span>CityEngine</span>.”</span> <a
 href="http://www.esri.com/software/cityengine">http://www.esri.com/software/cityengine</a>.
-</li>
-<li id="ref-hoeft" class="csl-entry" role="listitem">
+</p></li>
+<li id="ref-hoeft" class="csl-entry" role="listitem"><p>
 Hoeft, Robert, and Agnieszka Nieznańska. 2014. <span>“Empirical
 Evaluation of Procedural Level Generators for 2D Platform Games.”</span>
 Master’s thesis, SE-371 79 Karlskrona Sweden: Blekinge Institute of
 Technology.
-</li>
-<li id="ref-comparative" class="csl-entry" role="listitem">
+</p></li>
+<li id="ref-comparative" class="csl-entry" role="listitem"><p>
 Horn, Britton, Steve Dahlskog, Noor Shaker, Gillian Smith, and Julian
 Togelius. 2014. <span>“A Comparative Evaluation of Procedural Level
 Generators in the Mario AI Framework.”</span>
-</li>
-<li id="ref-speedtree" class="csl-entry" role="listitem">
+</p></li>
+<li id="ref-speedtree" class="csl-entry" role="listitem"><p>
 Interactive Data Visualization, Inc. 2012.
 <span>“<span>SpeedTree</span>.”</span> <a
 href="http://www.speedtree.com">http://www.speedtree.com</a>.
-</li>
-<li id="ref-pierce" class="csl-entry" role="listitem">
+</p></li>
+<li id="ref-pierce" class="csl-entry" role="listitem"><p>
 Pierce, Shay. 2010. <span>“<span>Story-Generating Games</span>.”</span>
 2010.
-</li>
-<li id="ref-evaluation" class="csl-entry" role="listitem">
+</p></li>
+<li id="ref-evaluation" class="csl-entry" role="listitem"><p>
 Shaker, Noor, Gillian Smith, and Georgios N. Yannakakis. 2015.
 <span>“Evaluating Content Generators.”</span> In <em>Procedural Content
 Generation in Games: A Textbook and an Overview of Current
 Research</em>, edited by Noor Shaker, Julian Togelius, and Mark J.
 Nelson. Springer.
-</li>
-<li id="ref-marioai" class="csl-entry" role="listitem">
+</p></li>
+<li id="ref-marioai" class="csl-entry" role="listitem"><p>
 Shaker, N., J. Togelius, G. N. Yannakakis, B. Weber, T. Shimizu, T.
 Hashiyama, N. Sorenson, et al. 2011. <span>“The 2010 Mario AI
 Championship: Level Generation Track.”</span> <em>Computational
 Intelligence and AI in Games, IEEE Transactions on</em> 3 (4): 332–47.
-</li>
-<li id="ref-smithandwhitehead" class="csl-entry" role="listitem">
+</p></li>
+<li id="ref-smithandwhitehead" class="csl-entry" role="listitem"><p>
 Smith, Gillian, and Jim Whitehead. 2010. <span>“Analyzing the Expressive
 Range of a Level Generator.”</span> In <em>Proceedings of the 2010
 Workshop on Procedural Content Generation in Games</em>, 4:1–7. PCGames
 ’10. New York, NY, USA: ACM.
-</li>
-<li id="ref-smithetal" class="csl-entry" role="listitem">
+</p></li>
+<li id="ref-smithetal" class="csl-entry" role="listitem"><p>
 Smith, G., J. Whitehead, M. Mateas, M. Treanor, J. March, and Mee Cha.
 2011. <span>“Launchpad: A Rhythm-Based Level Generator for 2-d
 Platformers.”</span> <em>Computational Intelligence and AI in Games,
 IEEE Transactions on</em> 3 (1): 1–16.
-</li>
-<li id="ref-textmaker" class="csl-entry" role="listitem">
+</p></li>
+<li id="ref-textmaker" class="csl-entry" role="listitem"><p>
 Spiral Graphics Inc. 2012. <span>“<span>Genetica</span>.”</span> <a
 href="http://www.spiralgraphics.biz/genetica.htm">http://www.spiralgraphics.biz/genetica.htm</a>.
-</li>
-<li id="ref-wichman" class="csl-entry" role="listitem">
+</p></li>
+<li id="ref-wichman" class="csl-entry" role="listitem"><p>
 Wichman, Glenn R. 1997. <span>“<span class="nocase">A Brief History of
 “Rogue"</span>.”</span> 1997. <a
 href="http://www.wichman.org/roguehistory.html">http://www.wichman.org/roguehistory.html</a>.
-</li>
+</p></li>
 </ul>

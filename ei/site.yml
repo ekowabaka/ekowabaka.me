@@ -1,16 +1,16 @@
 # Site URL
 
-title: "Ei!"
+title: "Ei: Level Generator Experiments"
 url: "http://ekowabaka.me/ei"
 description: "Ei!"
 author: "Ekow Abaka Ainooson <jainooson@gmail.com>"
 type: default
 
-# menu:
-#   - title: Documentation
-#     url: docs/
-#   - title: Code
-#     url: https://github.com/ekowabaka/clearice
+menu:
+  - title: Play
+    url: https://ei.ekowabaka.me/play.html?l=3
+  - title: Create
+    url: https://ei.ekowabaka.me/editor.html
 
 theme: 
     name: site
@@ -25,4 +25,5 @@ assets:
     items:
       - scss/ei.scss:
           bundles: [home]
+      - scss/figures.scss
 
