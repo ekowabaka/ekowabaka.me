@@ -4,11 +4,17 @@
   image: ei.png
   url: ./ei/
 
-- name: hoto Cameras
+- name: OwareGame
   description: >
-    A little blog where I write about my experiences with cheap cameras. I also share lots of the snapshots I take.
-  image: hoto.png
-  url: https://hotocameras.com
+    An experiment in artificial intelligence and oware.
+  image: oware.png
+  url: ./oware/
+
+# - name: hoto Cameras
+#   description: >
+#     A little blog where I write about my experiences with cheap cameras. I also share lots of the snapshots I take.
+#   image: hoto.png
+#   url: https://hotocameras.com
 
 - name: CLearIce PHP
   description: >
