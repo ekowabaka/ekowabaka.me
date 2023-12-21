@@ -46,11 +46,11 @@ const view = tv("#profile")</code></pre>
 
 <div class="code-section">
     <div class="code">
-        <pre><code>view.data = {
-    firstname: "Kofi",
-    lastname: "Manu",
-    avatar: "09348534ea87e.png"
-}</code></pre>
+        <pre><code>&lt;div id="profile"&gt;
+    &lt;img tv-value-src='09348534ea87e.png'/&gt;
+    &lt;span id='firstname'&gt;Kofi&lt;/span&gt;
+    &lt;span id='lastname'&gt;Manu&lt;/span&gt;
+&lt;/div&gt;</code></pre>
     </div>
     <div class="description">
         ... and there! Isn't that beautiful?
