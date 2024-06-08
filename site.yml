@@ -12,5 +12,5 @@ assets:
       - css/home.css
 
 plugins:
-  - contrib/responsive_images
+  - foonoo/responsive_images
 
