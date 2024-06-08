@@ -15,7 +15,7 @@ Quite recently I had to implement an image classifier in one of my projects. Thi
 <!-- more -->
 
 ## Meet Scikit Learn
-For the uninitiated, Scikit Learn happens to be the favourite machine learning tool of most data scientists. Although I do not have any solid evidence for such a claim, anecdotes from data scientists I've spoken with over the years, and my own personal experiences make me feel this is the case.
+For the uninitiated, Scikit Learn happens to be the favourite machine learning tool of most data scientists. Although I do not have any evidence to back this claim, anecdotes from several data scientists I've spoken with, and my own personal experiences make me feel this is the case.
 
 Scikit Learn uses a simple, consistent API, and its ships with a vast collection of algorithms (that cover almost the entire gamut of machine learning techniques) already built in. Its batteries included nature, which fosters simplicity, makes it my initial go-to whenever I have to evaluate a learning task or analyze data. Another impressive feature of Scikit learn is its speed and ease of use&mdash;you do not need a ton of boiler plate code, and you can easily interchange learning algorithms.
 
@@ -25,7 +25,20 @@ So, back to my problem. With my classification task solved in Scikit, I needed a
 Stuck with few options, and looking for an elegant way out, it dawned on me: Maybe I could train the network in Scikit, export the weights and write a small inference engine to use in my Java project. And that's exactly what I did! In this post I'll be describing the entire process. We'll use the MNIST dataset, which is incredible close to what I was working with, and we will write an inference engine in Java using OpenCV.
 
 ## Some Background
-I have alre
+The feed-forward neural network model used in Scikit's MLP classifier has an input layer of nodes, an output layer, and a series of inner, hidden layers. Nodes on each layer are fully connected to those on the previous layer, and each node computes a weighted sum of each of its inputs which is passed through an activation function. This is, of-course, the standard definition of a feed-forward neural network. 
+
+Mathematically, the computation at each node can be represented as:
+
+$y_o^l = f_a(w_1^l x_1^l + w_2^lx_2^l + ... + w_n^lx_n^l + b^l)$
+
+Where $y_o^l$ represents the output of the node, x_1 througn x_n represents the inputs, w_1 through w_n represent the weights for each input, and b represents a bias (or an intercept) of the node. f_a is a special function, known as the activation function, which determines the final output of the node. In all these, l, represents the layer on which the nodes exist. You can visualize these in the following network.
+
+One interesting advantage of representing the network this way is that you can perform all the computations of any layer as a single matrix multiplication. Thus, if you consider all the weights as a matrix W, and all the inputs as a matrix x, you can compute all the activations for a layer as $y = f_a(W.x + b)$. Now, if there's anything modern computers are good at, it's computing a matrix multiplications. So, during inference, what we mainly will be doing will be to compute these matrices on inputs $x$, along with weights and biases $W$ and $b$ from Scikit, to produce our predictions $y$.
+
+
+
+
+
 ## Inferring on the Weights in Java with OpenCV
 
 ## What about with Apache Commons Math
