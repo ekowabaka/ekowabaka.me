@@ -35,8 +35,7 @@ Where $y_o^l$ represents the output of the node, x_1 througn x_n represents the 
 
 One interesting advantage of representing the network this way is that you can perform all the computations of any layer as a single matrix multiplication. Thus, if you consider all the weights as a matrix W, and all the inputs as a matrix x, you can compute all the activations for a layer as $y = f_a(W.x + b)$. Now, if there's anything modern computers are good at, it's computing a matrix multiplications. So, during inference, what we mainly will be doing will be to compute these matrices on inputs $x$, along with weights and biases $W$ and $b$ from Scikit, to produce our predictions $y$.
 
-
-
+## Obtaining the Weights: Training in Scikit
 
 
 ## Inferring on the Weights in Java with OpenCV
