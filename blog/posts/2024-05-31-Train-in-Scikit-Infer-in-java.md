@@ -10,7 +10,7 @@ tags:
 ---
 
 
-Quite recently I had to implement an image classifier in one of my projects. The requirement was for the system to filter out a particular class of undesired images from a high speed stream of images. Luckily, the images for the task were simple 16x16 grayscale images, which I figured could be easily processed by a traditional feed forward network. In fact, I was able to verify this in a few hours of tinkering with Scikit Learn and it appeared my problem was actually solved. But there was a problem: the code for my project was in Java, and Scikit Learn is in Python.
+Quite recently I needed to implement an image classifier in one of my projects. The requirement was for the system to filter out a particular class of undesired images from a high speed stream of images. Luckily, the images for the task were simple 16x16 grayscale images, which I figured could be easily processed by a traditional feed forward network. In fact, I was able to verify this in a few hours of tinkering with Scikit Learn and it appeared my problem was actually solved. But there was a problem: the code for my project was in Java, and Scikit Learn is in Python.
 
 <!-- more -->
 
@@ -37,7 +37,7 @@ Where $y_i$ represents the output of the node, $x_1$ through $x_n$ represent the
 
 One interesting advantage of representing the network this way is that you can perform all the computations of any layer as a single matrix multiplication. As such, if you consider all the weights as a matrix $W$, and all the inputs as a vector $x$, you can compute all the activations for a layer as $y = f_a(W.x + b)$. Assuming our input vector, $x$, is of size $m$ and the layer for which we are computing has $n$ nodes, then our weights matrix $W$ will have $m$ rows and $n$ columns, and our bias and output vectors will also be of length $n$. 
 
-Having the ability to make the computations this way is really cool, because if there's anything modern computers are good at, it's computing matrix multiplications. This also simplifies our inference work and allows us to take advantage of some of these computation super powers. When writing our inference code, we will only need compute the matrix multiplication between our input, $x$, and the weights, $W$, from Scikit Learn, and when we add the biases, $b$, and pass the output through the activation function, $f_a(x)$, we'll obtain our prediction $y$.
+Having the ability to make the computations this way is really cool because if there's anything modern computers are good at, it's multiplying matrices. This matrix approach also simplifies our inference work (we have to write less code) while allowing us to take advantage of some of these modern computation capabilities. When writing our inference code, we will only need compute the matrix multiplication between our input, $x$, and the weights, $W$, from Scikit Learn, and when we add the biases, $b$, and pass the output through the activation function, $f_a(x)$, we'll obtain our prediction $y$.
 
 One final piece we need to cover before implementing our inference function will be the choice of activation functions. In Scikit Learn, the activation function depends on the particular layer of the neural network. By default the input and hidden layers have the Rectified Linear Unit, which is computed as $f(x)=max(x, 0)$. It's essentially a ramp function that cuts out all negative values and preserves positive ones. The output layer, on the other hand has a the Sigmoid function, $f(x)=1/(1 + e^{-x})$, which has the property of significantly suppressing potential errors and significantly boosting predictions. These activation functions are the defaults configured in Scikit Learn, and you can change them if you wish. Just remember that if you should use any other configuration, you need to implement the same functions in your Java inference code.
 
@@ -98,9 +98,178 @@ with open(f"biases.json", "w") as weights_file:
 And with that we have all we need from Scikit. Next, we'll look at inference in Java.
 
 ## Inferring from the Weights in Java with OpenCV
-Our first step in inference will be to load the weights from Scikit into Java. Because we saved our weights to JSON files, we can rely on Google's Gson library (or whatever your favourite JSON library is). 
+Our first step in inference will be to load the weights from Scikit into Java as OpenCV Matrix objects. Because we saved our weights to JSON files, we can rely on Google's Gson library (or whatever your favourite JSON library is) to read in these values. As already discussed, each layer has a weights matrix, and a bias matrix. We do not explicitly need to know the number of nodes each layer has, because its inherently represented in the size of the matrix. Also we must remember that while the weights are two-dimensional, the biases are stored in a single dimension.
 
-The biases are saved as a two dimensional array of 
+### Loading the Weights and Biases
+We can first load the biases as follows:
 
+````java
+Gson gson = new Gson();
+List<Mat> biases = new ArrayList<Mat>();
 
-## What about with Apache Commons Math
+try (FileReader reader = new FileReader("biases.json")) {
+    for(double[] bias: gson.fromJson(reader, double[][].class)) {
+        Mat mat = new Mat(bias.length, 1, CvType.CV_64F);
+        mat.put(0, 0, bias);
+        biases.add(mat);
+    }
+}
+````
+Here the biases are read into a list of 64 bit floating point OpenCV Mat objects. We can similarly load the weights as follows:
+
+````java
+Gson gson = new Gson();
+List<Mat> weights = new ArrayList<Mat>();
+
+try (FileReader reader = new FileReader("weights.json")) {
+    for(double[][] weights: gson.fromJson(reader, double[][][].class)) {
+        Mat mat = new Mat(weight.length, weight[0].length, CvType.CV_64F);
+        double[] flatWeight = Arrays.stream(weight).flatMapToDouble(Arrays::stream).toArray();
+        mat.put(0, 0, bias);
+        weights.add(mat.t());
+    }
+}
+````
+The difference between the two loaders comes in the dimensions. With biases being single dimensioned, they are relatively easy to read into mats without much modification. Weights, however, have to be mapped out into a flat array before being loaded into the Mat object, and this result must also be transposed to get the orientation right for matrix multplication.
+
+### Making Predictions
+Now that the model is loaded, we can make predictions by iterating through the loaded weights. At each stage of this iteration, we compute the multiplacation between the input and the weights with the `Core.gemm` function. `Core.gemm` performs matrix multipications between arrays through the OpenCV library. After a relu activation is applied to any of the inner layers, the output becomes the input for the next layer. The final output is passed through the sigmoid function and the prediction comes in the form of a one-hot vector.
+
+```java
+public Mat predict(Mat x) {
+    int i = 0;
+    Mat activations = new Mat();
+    for (i = 0; i < numberOfLayers; i++) {
+        Core.gemm(weights.get(i), x, 1, biases.get(i), 1, x);
+        // Compute relu activation for hidden layers only.
+        if (i < numberOfHiddenLayers) {
+            Core.max(x, Scalar.all(0), x);
+        }
+    }
+
+    // Sigmoid activation
+    Mat output = new Mat();
+    Core.exp(x, x);
+    Core.reduce(x, output, 0, Core.REDUCE_SUM);
+    Core.divide(x, Scalar.all(output.get(0, 0)[0]), output);
+
+    return output;
+}
+```
+
+When evaluated, the inference performs at the same rate as the original implementation in python. It's really simple, but whenever you find yourself in a bind, you can always use this approach.
+
+## Putting it all together
+
+The full python and Java scripts are below. Remember the python script requires the scikit learn dependency, while the Java code requires Gson and OpenCV as dependencies. Happy coding, and find the full listings below.
+
+### Training: `train.py`
+
+```python
+
+```
+
+### Inference: `ScikitOCVInference.java`
+
+```java
+package me.ekowabaka.javainfer;
+
+import com.google.gson.Gson;
+import nu.pattern.OpenCV;
+import org.opencv.core.Core;
+import org.opencv.core.CvType;
+import org.opencv.core.Mat;
+import org.opencv.core.Scalar;
+
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class ScikitOCVInference {
+
+    private List<Mat> weights = new ArrayList<>();
+    private List<Mat> biases = new ArrayList<>();
+    private int numberOfLayers = 0;
+    private int numberOfHiddenLayers = 0;
+
+    public ScikitOCVInference(String weightsPath, String biasesPath) throws IOException {
+        OpenCV.loadLocally();
+
+        // Load weights
+        Gson gson = new Gson();
+        double[][] biases = null;
+        double[][][] weights = null;
+
+        try (FileReader reader = new FileReader(biasesPath)) {
+
+            biases = gson.fromJson(reader, double[][].class);
+
+            for(double[] bias: biases) {
+                Mat mat = new Mat(bias.length, 1, CvType.CV_64F);
+                mat.put(0, 0, bias);
+                this.biases.add(mat);
+            }
+        }
+
+        try (FileReader reader = new FileReader(weightsPath)) {
+
+            weights = gson.fromJson(reader, double[][][].class);
+
+            for(double[][] weight: weights) {
+                Mat mat = new Mat(weight.length, weight[0].length, CvType.CV_64F);
+                double[] flatWeight = Arrays.stream(weight).flatMapToDouble(Arrays::stream).toArray();
+                mat.put(0, 0, flatWeight);
+                this.weights.add(mat.t());
+            }
+        }
+
+        numberOfLayers = weights.length;
+        numberOfHiddenLayers = numberOfLayers - 1;
+    }
+
+    public Mat predict(Mat x) {
+        int i = 0;
+        Mat activations = new Mat();
+        for (i = 0; i < numberOfLayers; i++) {
+            Core.gemm(weights.get(i), x, 1, biases.get(i), 1, x);
+            // Compute relu activation for hidden layers only.
+            if (i < numberOfHiddenLayers) {
+                Core.max(x, Scalar.all(0), x);
+            }
+        }
+
+        // Sigmoid activation
+        Mat output = new Mat();
+        Core.exp(x, x);
+        Core.reduce(x, output, 0, Core.REDUCE_SUM);
+        Core.divide(x, Scalar.all(output.get(0, 0)[0]), output);
+
+        return output;
+    }
+
+    public double evaluate(String path) throws IOException {
+        List<String> rows = Files.readAllLines(Paths.get(path));
+        double score = 0;
+        for(int i = 1; i < rows.size(); i++) {
+            String rowString = rows.get(i);
+            int value = Integer.parseInt(rowString.substring(0, 1));
+            double[] numbers = Arrays.stream(rowString.substring(2).split(",")).mapToDouble(Double::parseDouble).toArray();
+            Mat row = new Mat(numbers.length, 1, CvType.CV_64F);
+            row.put(0, 0, numbers);
+            Core.divide(row, Scalar.all(255.0), row);
+
+            System.out.println(predict(row).dump());
+        }
+        return score;
+    }
+
+    public static void main(String[] args) throws IOException {
+        ScikitOCVInference scikitOpenCV = new ScikitOCVInference("weights.json", "biases.json");
+        scikitOpenCV.evaluate("mnist_train.csv");
+    }
+}
+```
