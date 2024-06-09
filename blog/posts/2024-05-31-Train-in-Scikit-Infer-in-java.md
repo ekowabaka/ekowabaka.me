@@ -43,13 +43,16 @@ The choice of activation function depends on the layer of the neural network. On
 
 
 ## Obtaining the Weights: Training in Scikit
-Training a classifier in Scikit is extremely simple. First you get the data, second you call the `fit(x, y)` method of your desired classifier, and tune and iterate. For this demonstration, I'll be using a copy of the MNIST dataset packaged in CSV form. This form of the MNIST has each pixels value as a column in a wide spreadsheet. You can find a copy here:  
+Training a classifier in Scikit is extremely simple. First you get the data, second you call the `fit(x, y)` method of your desired classifier, and finally you tune and iterate. For this demonstration, I'll be using a copy of the MNIST dataset packaged in CSV form. This form of the MNIST has each pixels value as a column in a wide spreadsheet. You can find a copy here:  
 
-We now need to write code for reading the data into Numpy arrays. For the inputs we just read the values from the spreadsheet and divide it by 255. For the outputs, on the other hand, because the spreasheet provides a single number, we use a one_hot_encoder to convert the number output into a one-hot encoded vector.
+We now need to write code for reading the data into Numpy arrays. For the inputs ($x$) we read the values from the spreadsheet and divide it by 255 to normalize it. For the outputs ($y$) on the other hand, because the spreadsheet provides a single number, we need to encode the output as a one-hot vector covering the 10 possible outputs. Luckily, scikit ships with a one hot encoder we can use for this. 
+
+Below is a a simple implementation of a python function to read this data.
 
 ````python
 import csv
 import numpy as np
+import sklearn.preprocessing import OneHotEncoder
 
 def read_data(path:str) -> tuple:
     x = []
@@ -65,7 +68,36 @@ def read_data(path:str) -> tuple:
     return np.array(x, dtype=np.float64), one_hot_encoder.fit(y).transform(y)
 ````
 
-With the function in place, we can now read ou
+With the function in place, we can now import our MNIST data as follows.
+
+````python
+train_x, train_y = read_data("mnist_train.csv")
+test_x, test_y = read_data("mnist_test.csv")
+````
+
+Then, we can tap into the simplicity of scikit learn to train our neural network classifier. Since we are using MNIST, which is made up of 28x28 images, our input layer has 784 nodes, and we can choose to have two hidden layers of size 512 and 128, with a final set of 10 nodes for the output layer. We can set this up by instantiating a scikit learn MLP classifier as follows:
+
+````python
+clf = MLPClassifier(hidden_layer_sizes=(512, 128))
+````
+
+... and we can train the classifier as follows ...
+
+````python
+clf.fit(train_x, train_y)
+````
+
+Now that the classifier is trained, we can save the weights and biases into JSON files. We can do this by dumping the coefficients of the classifier for the weights and the intercepts of the classifier for the biases.
+
+````python
+with open(f"weights.json", "w") as weights_file:
+        json.dump([x.tolist() for x in clf.coefs_], weights_file)
+with open(f"biases.json", "w") as weights_file:
+        json.dump([x.tolist() for x in clf.intercepts_], weights_file)
+````
+
+And with that we have all we need from Scikit. Next, we'll look at inference in Java.
+
 ## Inferring on the Weights in Java with OpenCV
 
 ## What about with Apache Commons Math
