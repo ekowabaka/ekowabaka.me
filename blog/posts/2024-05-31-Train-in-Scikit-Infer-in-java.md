@@ -27,23 +27,22 @@ Stuck with few options, and looking for an elegant way out, it dawned on me: May
 For our examples, we'll use the MNIST dataset, which is incredible close to what I was working with, and we will write an inference engine in Java using OpenCV as a numeric library. Maybe, someday, I'll make an update with a port having Apache Commons Math as the numerical library.
 
 ## Some Background
-Before we get coding, however, let's cover some of the background material for thus work. The feed-forward neural network model used in Scikit's MLP classifier has an input layer of nodes, an output layer, and a series of inner, hidden layers. Nodes on each layer are fully connected to those on the previous layer, and each node computes a weighted sum of each of its inputs which is passed through an activation function. This is, of-course, the standard definition of a feed-forward neural network. 
+Before we get coding, let's cover some of the background material for this work. The feed-forward neural network model used in Scikit Learn's MLP classifier has an input layer of nodes, an output layer, and a series of inner, hidden layers. Nodes on each layer are fully connected to those on the previous layer, and each node computes a weighted sum of each of its inputs which is passed through an activation function. This is, of-course, the standard definition of a feed-forward neural network. 
 
 Mathematically, the computation at each node can be represented as:
 
-$y_o^l = f_a(w_1^l x_1^l + w_2^lx_2^l + ... + w_n^lx_n^l + b^l)$
+$y_i = f_a(w_1 x_1 + w_2x_2 + ... + w_nx_n + b^i)$
 
-Where $y_o^l$ represents the output of the node, x_1 througn x_n represents the inputs, w_1 through w_n represent the weights for each input, and b represents a bias (or an intercept) of the node. f_a is a special function, known as the activation function, which determines the final output of the node. In all these, l, represents the layer on which the nodes exist. You can visualize these in the following network.
+Where $y_i$ represents the output of the node, $x_1$ through $x_n$ represent the inputs to the layer, $w_1$ through $w_n$ represent the weights for each input, and $b$ represents a bias (or an intercept) of the node. $f_a()$ is a special function, known as the activation function, which determines the final output of the node. You can visualize these in the following network.
 
-One interesting advantage of representing the network this way is that you can perform all the computations of any layer as a single matrix multiplication. Thus, if you consider all the weights as a matrix W, and all the inputs as a matrix x, you can compute all the activations for a layer as $y = f_a(W.x + b)$. 
+One interesting advantage of representing the network this way is that you can perform all the computations of any layer as a single matrix multiplication. As such, if you consider all the weights as a matrix $W$, and all the inputs as a vector $x$, you can compute all the activations for a layer as $y = f_a(W.x + b)$. Assuming our input vector, $x$, is of size $m$ and the layer for which we are computing has $n$ nodes, then our weights matrix $W$ will have $m$ rows and $n$ columns, and our bias and output vectors will also be of length $n$. 
 
-This is really good, because if there's anything modern computers are good at, it's computing a matrix multiplications. During inference we will compute the matrix multiplication of our input $x$ and the weights $W$ from Scikit, we'll then add the biases $b$, and pass the output through the activation function to produce our predictions $y$.
+Having the ability to make the computations this way is really cool, because if there's anything modern computers are good at, it's computing matrix multiplications. This also simplifies our inference work and allows us to take advantage of some of these computation super powers. When writing our inference code, we will only need compute the matrix multiplication between our input, $x$, and the weights, $W$, from Scikit Learn, and when we add the biases, $b$, and pass the output through the activation function, $f_a(x)$, we'll obtain our prediction $y$.
 
-The choice of activation function depends on the layer of the neural network. On the input layer, the activation is a linear function that simply returns its input&mdash;essentially no activation $f(x)=x$. On the hidden layers, the activation function is the Rectified Linear Unit, which is computed as $f(x)=max(x, 0)$. On the output layer, the activation is the Sigmoid function: $f(x)=1/(1 + e^{-x})$. The choices of these activation functions are primarily because they are what Scikit Uses by default, and it uses them because they are probably the most reasonable you can make if your intend to solve a wide variety of problems.
-
+One final piece we need to cover before implementing our inference function will be the choice of activation functions. In Scikit Learn, the activation function depends on the particular layer of the neural network. By default the input and hidden layers have the Rectified Linear Unit, which is computed as $f(x)=max(x, 0)$. It's essentially a ramp function that cuts out all negative values and preserves positive ones. The output layer, on the other hand has a the Sigmoid function, $f(x)=1/(1 + e^{-x})$, which has the property of significantly suppressing potential errors and significantly boosting predictions. These activation functions are the defaults configured in Scikit Learn, and you can change them if you wish. Just remember that if you should use any other configuration, you need to implement the same functions in your Java inference code.
 
 ## Obtaining the Weights: Training in Scikit
-Training a classifier in Scikit is extremely simple. First you get the data, second you call the `fit(x, y)` method of your desired classifier, and finally you tune and iterate. For this demonstration, I'll be using a copy of the MNIST dataset packaged in CSV form. This form of the MNIST has each pixels value as a column in a wide spreadsheet. You can find a copy here:  
+Training a classifier in Scikit is extremely simple. First, you get the data, second you call the `fit(x, y)` method of your desired classifier, and finally you tune and iterate. For this demonstration, I'll be using a copy of the MNIST dataset packaged in CSV form. This form of the MNIST has each pixels value as a column in a wide spreadsheet. You can find a copy here:  
 
 We now need to write code for reading the data into Numpy arrays. For the inputs ($x$) we read the values from the spreadsheet and divide it by 255 to normalize it. For the outputs ($y$) on the other hand, because the spreadsheet provides a single number, we need to encode the output as a one-hot vector covering the 10 possible outputs. Luckily, scikit ships with a one hot encoder we can use for this. 
 
@@ -75,19 +74,19 @@ train_x, train_y = read_data("mnist_train.csv")
 test_x, test_y = read_data("mnist_test.csv")
 ````
 
-Then, we can tap into the simplicity of scikit learn to train our neural network classifier. Since we are using MNIST, which is made up of 28x28 images, our input layer has 784 nodes, and we can choose to have two hidden layers of size 512 and 128, with a final set of 10 nodes for the output layer. We can set this up by instantiating a scikit learn MLP classifier as follows:
+Then, we can tap into the simplicity of scikit learn to train our neural network classifier. Since we are using MNIST, which is made up of 28x28 images, our input layer already has 784 nodes. We can choose to have two hidden layers of sizes 512 and 128, and we can cap off the network with a final set of 10 nodes for the output layer. This architecture can be configured simply in Scikit learn as shown below:
 
 ````python
 clf = MLPClassifier(hidden_layer_sizes=(512, 128))
 ````
 
-... and we can train the classifier as follows ...
+Note that we do not specify the sizes of the inputs and outputs, because those will be inferred by Scikit Learn from the dataset. The classifier we set up can be trained simply by executing the line:
 
 ````python
 clf.fit(train_x, train_y)
 ````
 
-Now that the classifier is trained, we can save the weights and biases into JSON files. We can do this by dumping the coefficients of the classifier for the weights and the intercepts of the classifier for the biases.
+We can now save the weights and biases into JSON that can be moved into Java for inference. The `clf` object holds the weights and biases in its `clf.coefs_` and `clf.intercepts_` properties respectively. The weights in 
 
 ````python
 with open(f"weights.json", "w") as weights_file:
@@ -98,6 +97,10 @@ with open(f"biases.json", "w") as weights_file:
 
 And with that we have all we need from Scikit. Next, we'll look at inference in Java.
 
-## Inferring on the Weights in Java with OpenCV
+## Inferring from the Weights in Java with OpenCV
+Our first step in inference will be to load the weights from Scikit into Java. Because we saved our weights to JSON files, we can rely on Google's Gson library (or whatever your favourite JSON library is). 
+
+The biases are saved as a two dimensional array of 
+
 
 ## What about with Apache Commons Math
