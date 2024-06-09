@@ -18,7 +18,7 @@ theme:
     secondary-color: "#4D8B31"
 
 plugins:
-  - contrib/highlight:
+  - foonoo/highlight:
       style: rainbow
 
 assets:

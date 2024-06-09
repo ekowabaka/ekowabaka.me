@@ -18,7 +18,7 @@ theme:
     secondary-color: "#ef870b"
 
 plugins:
-  - contrib/responsive_images
+  - foonoo/responsive_images
 
 assets:
   scss:

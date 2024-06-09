@@ -12,7 +12,7 @@ theme:
     secondary-color: "#ff4b4b"
 
 plugins:
-  - contrib/highlight:
+  - foonoo/highlight:
       style: nord
 
 assets:
