@@ -166,7 +166,48 @@ The full python and Java scripts are below. Remember the python script requires 
 ### Training: `train.py`
 
 ```python
+import csv
+import numpy as np
+import json
+from sklearn.neural_network import MLPClassifier
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.metrics import accuracy_score
 
+
+
+def read_data(path:str) -> tuple:
+    x = []
+    y = []
+
+    with open(path, "r") as f:
+        reader = csv.reader(f)
+        next(reader)
+        for row in reader:
+            y.append([row[0]])
+            x.append(np.array(row[1:], dtype=np.float64) / 255)
+
+    return np.array(x, dtype=np.float64), OneHotEncoder().fit(y).transform(y)
+
+
+train_x, train_y = read_data("mnist_train.csv")
+test_x, test_y = read_data("mnist_test.csv")
+
+
+clf = MLPClassifier(hidden_layer_sizes=(512, 128), verbose=True)
+clf.fit(train_x, train_y)
+
+# Dump training weights
+with open(f"weights.json", "w") as weights_file:
+    json.dump([x.tolist() for x in clf.coefs_], weights_file)
+
+with open(f"biases.json", "w") as weights_file:
+    json.dump([x.tolist() for x in clf.intercepts_], weights_file)
+
+prediction = clf.predict([train_x[0]])
+print(prediction)
+
+print(f"Train Accuracy: {accuracy_score(train_y, clf.predict(train_x))}")
+print(f"Test Accuracy: {accuracy_score(test_y, clf.predict(test_x))}")
 ```
 
 ### Inference: `ScikitOCVInference.java`
