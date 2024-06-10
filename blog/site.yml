@@ -18,7 +18,8 @@ theme:
   # primary-color: "#00a9fb"
   # secondary-color: "#a0a0a0"
 plugins:
-  - foonoo/highlight
+  - foonoo/highlight:
+      style: a11y-light
   - foonoo/responsive_images:
       hidpi: true
       max-width: 996
