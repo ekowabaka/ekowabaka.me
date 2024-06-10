@@ -31,15 +31,25 @@ Before we get coding, let's cover some of the background material for this work.
 
 Mathematically, the computation at each node can be represented as:
 
-$y_i = f_a(w_1 x_1 + w_2x_2 + ... + w_nx_n + b^i)$
+$$y_i = f_a(w_1 x_1 + w_2x_2 + ... + w_nx_n + b^i)$$
 
 Where $y_i$ represents the output of the node, $x_1$ through $x_n$ represent the inputs to the layer, $w_1$ through $w_n$ represent the weights for each input, and $b$ represents a bias (or an intercept) of the node. $f_a()$ is a special function, known as the activation function, which determines the final output of the node. You can visualize these in the following network.
 
-One interesting advantage of representing the network this way is that you can perform all the computations of any layer as a single matrix multiplication. As such, if you consider all the weights as a matrix $W$, and all the inputs as a vector $x$, you can compute all the activations for a layer as $y = f_a(W.x + b)$. Assuming our input vector, $x$, is of size $m$ and the layer for which we are computing has $n$ nodes, then our weights matrix $W$ will have $m$ rows and $n$ columns, and our bias and output vectors will also be of length $n$. 
+One interesting advantage of representing the network this way is that you can perform all the computations of any layer as a single matrix multiplication. As such, if you consider all the weights of a given layer as a matrix $W$, and all the inputs as a vector $X$, you can compute all the activations for a layer as: $$Y = f_a(W \cdot X + B)$$
+
+Assuming our input vector, $X$, is of size $m$ and the layer for which we are computing has $n$ nodes, then our weights matrix $W$ will have $m$ rows and $n$ columns, and our bias and output vectors will also be of length $n$. 
 
 Having the ability to make the computations this way is really cool because if there's anything modern computers are good at, it's multiplying matrices. This matrix approach also simplifies our inference work (we have to write less code) while allowing us to take advantage of some of these modern computation capabilities. When writing our inference code, we will only need compute the matrix multiplication between our input, $x$, and the weights, $W$, from Scikit Learn, and when we add the biases, $b$, and pass the output through the activation function, $f_a(x)$, we'll obtain our prediction $y$.
 
-One final piece we need to cover before implementing our inference function will be the choice of activation functions. In Scikit Learn, the activation function depends on the particular layer of the neural network. By default the input and hidden layers have the Rectified Linear Unit, which is computed as $f(x)=max(x, 0)$. It's essentially a ramp function that cuts out all negative values and preserves positive ones. The output layer, on the other hand has a the Sigmoid function, $f(x)=1/(1 + e^{-x})$, which has the property of significantly suppressing potential errors and significantly boosting predictions. These activation functions are the defaults configured in Scikit Learn, and you can change them if you wish. Just remember that if you should use any other configuration, you need to implement the same functions in your Java inference code.
+One final piece we need to cover before implementing our inference function will be the choice of activation functions. In Scikit Learn, the activation function depends on the particular layer of the neural network. By default the input and hidden layers have the Rectified Linear Unit, which is computed as: 
+
+$$f(x)=max(x, 0)$$
+
+It's essentially a ramp function that cuts out all negative values and preserves positive ones. The output layer, on the other hand has a the Sigmoid function:
+
+$$f(x)=1/(1 + e^{-x})$$
+
+This function has a special statistical property that significantly suppresses potential errors while significantly boosting predictions. These activation functions are the defaults configured in Scikit Learn, and you can change them if you wish. Just remember that if you should use any other configuration, you need to implement the same functions in your Java inference code.
 
 ## Obtaining the Weights: Training in Scikit
 Training a classifier in Scikit is extremely simple. First, you get the data, second you call the `fit(x, y)` method of your desired classifier, and finally you tune and iterate. For this demonstration, I'll be using a copy of the MNIST dataset packaged in CSV form. This form of the MNIST has each pixels value as a column in a wide spreadsheet. You can find a copy here:  
