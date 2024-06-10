@@ -47,7 +47,7 @@ $$f(x)=max(x, 0)$$
 
 It's essentially a ramp function that cuts out all negative values and preserves positive ones. The output layer, on the other hand has a the Sigmoid function:
 
-$$f(x)=1/(1 + e^{-x})$$
+$$f(x)=\frac{1}{(1 + e^{-x})}$$
 
 This function has a special statistical property that significantly suppresses potential errors while significantly boosting predictions. These activation functions are the defaults configured in Scikit Learn, and you can change them if you wish. Just remember that if you should use any other configuration, you need to implement the same functions in your Java inference code.
 
