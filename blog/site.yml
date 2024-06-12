@@ -24,6 +24,7 @@ plugins:
       hidpi: true
       max-width: 996
       frame: figure
+  - foonoo/katex
 assets:
   css:
     items:
