@@ -29,6 +29,8 @@ For the examples in this post, we'll use the MNIST dataset (a simple dataset tha
 ## Some Background
 Before we get coding, let's cover some of the background material for this work. The feed-forward neural network model used in Scikit Learn's MLP classifier is your standard off the conveyor belt feed-forward neural network. It has an input layer of nodes, an output layer, and a series of inner, hidden layers. Nodes on each layer are fully connected to those on the previous layer, and each node computes a weighted sum of each of its inputs which is passed through an activation function.
 
+[[neural_network.png]]
+
 Mathematically, the computation at each node can be represented as:
 
 $$y_i = f_a(w_1 x_1 + w_2x_2 + ... + w_nx_n + b^i)$$
