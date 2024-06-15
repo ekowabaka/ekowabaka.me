@@ -1,5 +1,5 @@
 ---
-title: "Train in Scikit infer in Java"
+title: "How to train MLPs in Scikit Learn and infer in Java"
 category: Machine Learning
 tags:
    - artificial intelligence
