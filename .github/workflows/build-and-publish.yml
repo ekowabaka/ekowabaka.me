@@ -2,7 +2,7 @@ name: build-and-publish
 on:
     push:
         branches:
-            - master
+            - main
 jobs:
     build-and-publish:
         runs-on: ubuntu-latest
@@ -26,7 +26,7 @@ jobs:
               run: git clone https://github.com/foonoo/plugin-responsive-images /tmp/foonoo-plugins/foonoo/responsive_images
             - name: Clone KaTex repository
               run: git clone https://github.com/foonoo/plugin-katex /tmp/foonoo-plugins/foonoo/katex
-              
+
             - name: Update documentation content
               run: /bin/bash update-docs.sh
             - name: Generate the site
