@@ -12,5 +12,6 @@ assets:
       - css/home.css
 
 plugins:
-  - foonoo/responsive_images
+  - foonoo/responsive_images:
+      hidpi: true
 

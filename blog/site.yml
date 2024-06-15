@@ -24,6 +24,12 @@ plugins:
       hidpi: true
       max-width: 996
       frame: figure
+      presets:
+        full:
+            max-width: 996
+        half:
+            max-width: 470
+        default: full
   - foonoo/katex
 assets:
   css:
