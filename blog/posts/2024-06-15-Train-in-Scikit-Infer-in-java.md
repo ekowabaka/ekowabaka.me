@@ -12,24 +12,24 @@ tags:
 ---
 
 
-Quite recently,I needed an image classifier for one of my projects. The requirement was for the classification system to filter out a particular class of undesired images from a high speed stream of images. Luckily, the images for the task were simple 16x16 grayscale images, which I figured could be easily processed by a traditional feed forward network. In fact, I was able to verify this in a few hours of tinkering with Scikit Learn and it appeared my task was actually solved. But there was a problem: the source code for my project was in Java, and my Scikit Learn solution was in Python.
+Quite recently, I needed an image classifier for one of my projects. The requirement was for the classification system to filter out a particular class of undesired images from a high speed stream of images. Luckily, the images for the task were simple 16x16 grayscale images, which I figured could be easily processed by a traditional feed forward network. In fact, I was able to verify this in a few hours of tinkering with Scikit Learn, and it appeared my task was actually solved. But there was a problem: the source code for my project was in Java, and my Scikit Learn solution was in Python.
 
 <!-- more -->
 
 ## Meet Scikit Learn
 I strongly believe Scikit Learn is most data scientists' favourite machine learning toolkit. Although I do not have any evidence to back this claim, anecdotes from several data scientists, and my own personal experiences inform it. And I don't think I'm wrong on this one.
 
-Scikit Learn emphasizes simplicity through a consistent API, and it ships with a vast collection of algorithms that cover almost the entire gamut of machine learning techniques. This batteries included nature makes Scikit Learn my initial go-to whenever I have to evaluate a learning task or analyze data. When using Scikit Learn, you do not need a ton of boiler plate code, you can easily interchange learning algorithms, and its so fast that you can quickly iterate through your ideas when working with it.
+Scikit Learn emphasizes simplicity through a consistent API, and it ships with a vast collection of algorithms that cover almost the entire gamut of machine learning techniques. This batteries included nature makes Scikit Learn my initial go-to whenever I have to evaluate a learning task or analyze data. When using Scikit Learn, you do not need a ton of boiler-plate code, you can easily interchange learning algorithms, and it's so fast that you can quickly iterate through your ideas when working with it.
 
 ## A Conundrum: How to Scikit in Java
 So, back to my problem. With my classification task solved in Scikit Learn, I needed a way to run the Python based solution in my Java code, and I needed to do it without disrupting much. My first thought was to run Scikit through Jython, which is a python runtime for Java. This had been my original plan all along, but it was painfully proven impossible because of Scikit Learn's dependency on Numpy (a powerful numeric library for python) which is written in C and cannot be executed in the JVM. Another option was to port the entire project to Python. This was a big no no, given the maturity of the project and the small (but important) role the classifier was meant to play.  I also thought of using other Java ML libraries like Weka, but I was so spoiled by the simplicity of Scikit Learn, I wasn't willing to put in the extra effort to redo something that had already been done. Heck, I even considered Tensorflow for Java, but that's an entirely different story. 
 
-Stuck with very few options, and looking for an elegant way out, it dawned on me: Maybe I could train the network in Scikit Learn, export the weights and write a small inference engine in Java to use in my project. Although this sounds complicated, it's actually quite simple, and so its exactly what I did! In this post I'll be describing the entire process.
+Stuck with very few options, and looking for an elegant way out, it dawned on me: Maybe I could train the network in Scikit Learn, export the weights and write a small inference engine in Java to use in my project. Although this sounds complicated, it's actually quite simple, and so it's exactly what I did! In this post I'll be describing the entire process.
 
 For the examples in this post, we'll use the MNIST dataset (a simple dataset that's incredibly close to what I was working with) and we will write an inference engine in Java using OpenCV as a numeric library. Maybe, someday, I'll make an updated post that uses Apache Commons Math as the numerical library.
 
 ## Some Background
-Before we get coding, let's cover some of the background material for this work. The neural network model used in Scikit Learn's MLP classifier is your standard off the conveyor belt feed-forward neural network. It has an input layer of nodes, an output layer, and a series of inner, hidden layers. Nodes on each layer are fully connected to those on the previous layer, and each node computes a weighted sum of each of its inputs, which is offset by a bias value before it's passed through an activation function.
+Before we get coding, let's cover some background material for this work. The neural network model used in Scikit Learn's MLP classifier is your standard off the conveyor belt feed-forward neural network. It has an input layer of nodes, an output layer, and a series of inner, hidden layers. Nodes on each layer are fully connected to those on the previous layer, and each node computes a weighted sum of each of its inputs, which is offset by a bias value before it's passed through an activation function.
 
 [[The neural network model|neural_network.png|preset="half" class="half"]]
 
