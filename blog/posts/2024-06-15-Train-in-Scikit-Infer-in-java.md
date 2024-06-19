@@ -9,6 +9,8 @@ tags:
    - software engineering
    - neural networks
    - opencv
+image: neural_network.png
+description: Quite recently, I needed an image classifier for one of my projects. In this post, I describe how I built a Java inference engine to work with neural network models that were trained in Scikit Learn.
 ---
 
 
