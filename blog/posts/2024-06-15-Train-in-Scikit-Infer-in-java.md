@@ -9,7 +9,7 @@ tags:
    - software engineering
    - neural networks
    - opencv
-image: neural_network.png
+image: java_scikit_python.png
 description: Quite recently, I needed an image classifier for one of my projects. In this post, I describe how I built a Java inference engine to work with neural network models that were trained in Scikit Learn.
 ---
 
@@ -17,6 +17,7 @@ description: Quite recently, I needed an image classifier for one of my projects
 Quite recently, I needed an image classifier for one of my projects. The requirement was for the classification system to filter out a particular class of undesired images from a high speed stream of images. Luckily, the images for the task were simple 16x16 grayscale images, which I figured could be easily processed by a traditional feed forward network. In fact, I was able to verify this in a few hours of tinkering with Scikit Learn, and it appeared my task was actually solved. But there was a problem: the source code for my project was in Java, and my Scikit Learn solution was in Python.
 
 <!-- more -->
+[[Our lovely trio of wonderful tools|java_scikit_python.png]]
 
 ## Meet Scikit Learn
 I strongly believe Scikit Learn is most data scientists' favourite machine learning toolkit. Although I do not have any evidence to back this claim, anecdotes from several data scientists, and my own personal experiences inform it. And I don't think I'm wrong on this one.
