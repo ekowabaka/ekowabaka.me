@@ -30,7 +30,7 @@ plugins:
         half:
             max-width: 470
         default: full
-  - foonoo/katex
+  - foonoo/katex      
   - foonoo/seo
 assets:
   css:
