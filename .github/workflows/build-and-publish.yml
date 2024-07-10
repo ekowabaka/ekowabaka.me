@@ -26,8 +26,10 @@ jobs:
               run: git clone https://github.com/foonoo/plugin-responsive-images /tmp/foonoo-plugins/foonoo/responsive_images
             - name: Clone KaTex repository
               run: git clone https://github.com/foonoo/plugin-katex /tmp/foonoo-plugins/foonoo/katex
-            - name: Clone KaTex repository
+            - name: Clone SEO repository
               run: git clone https://github.com/foonoo/plugin-seo /tmp/foonoo-plugins/foonoo/seo
+            - name: Clone Matomo repository
+              run: git clone https://github.com/foonoo/plugin-matomo /tmp/foonoo-plugins/foonoo/matomo
 
             - name: Update documentation content
               run: /bin/bash update-docs.sh
